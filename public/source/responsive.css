@@ -1,0 +1,273 @@
+/* Set responsive for screen 1920px) */
+
+@media (max-width:1920px) {}
+
+
+/* Set responsive for screen 1440px) */
+
+@media (max-width:1440px) {}
+
+
+/* Set responsive for screen 1280px) */
+
+@media (max-width:1280px) {
+    .search-bar {
+        width: 35%;
+    }
+    .cart {
+        width: 35%;
+    }
+}
+
+
+/* Set responsive for screen 1024px) */
+
+@media (max-width:1024px) {
+    .login {
+        width: 25%;
+    }
+    .favorite-cart {
+        width: 55%;
+    }
+    .product-cart {
+        width: 35%;
+    }
+    /* Responsive for Detail page */
+    .old-price-detail {
+        width: 25%;
+    }
+    .new-price-detail {
+        width: 30%;
+    }
+}
+
+
+/* Set responsive for screen 1024px and 960px) */
+
+@media (max-width:960px) {
+    .header-contact-email {
+        width: 38%;
+    }
+    .login {
+        width: 25%;
+    }
+    .search-bar {
+        width: 30%;
+    }
+    .favorite-cart {
+        width: 58%;
+    }
+    .product-cart {
+        width: 36%;
+    }
+    .nav-content {
+        padding-left: 15%;
+    }
+    /* Responsive for detail page */
+    .discount {
+        width: 23%;
+    }
+    .btn-add-to-cart {
+        width: 55%;
+    }
+}
+
+
+/* Set responsive for screen 840px) */
+
+@media (max-width:840px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 4%;
+    }
+    .header-contact-email {
+        width: 45%;
+    }
+    .register {
+        width: 28%;
+    }
+    .login {
+        width: 29%;
+    }
+    .image-logo-header {
+        width: 88%;
+    }
+    .cart {
+        width: 40%;
+    }
+    /* Responsive for detail page */
+    .old-price-detail {
+        width: 30%;
+    }
+    /* Responsive for register page */
+    .register-section {
+        margin-top: 22%;
+    }
+    .modal-content {
+        width: 70%;
+    }
+}
+
+
+/* Set responsive for screen 600px) */
+
+@media (max-width:600px) {
+    .menu-toggle {
+        display: block;
+        width: 40px;
+        height: 30px;
+        float: left;
+        cursor: pointer;
+        text-align: center;
+        font-size: 1.5rem;
+        left: 0;
+        margin-top: 14px;
+        /* color: white; */
+    }
+    .menu-toggle::before {
+        content: '\f0c9';
+        font-family: fontAwesome;
+        line-height: 20px;
+        color: #fff;
+        font-size: 33px;
+    }
+    .language {
+        color: #fff;
+    }
+    .menu-close {
+        display: none;
+        width: 40px;
+        height: 40px;
+        float: left;
+        cursor: pointer;
+        text-align: center;
+        font-size: 1.5rem;
+        left: 0;
+    }
+    .menu-close::before {
+        content: '\f00d';
+        font-family: fontAwesome;
+        line-height: 20px;
+    }
+    .navbar-collapse {
+        display: none;
+    }
+    .navbar-collapse.active {
+        display: block;
+        width: 100%;
+    }
+    .navbar-collapse.active .menu-item {
+        width: 100%;
+    }
+    .menu-toggle.active {
+        display: none;
+    }
+    .menu-close.active {
+        display: block;
+    }
+    .header-left {
+        width: 100%;
+    }
+    .header-contact-email {
+        width: 38%;
+    }
+    .header-right {
+        width: 60%;
+    }
+    .login {
+        width: 37%;
+    }
+    .register {
+        width: 63%;
+    }
+    .header-logo {
+        display: grid;
+        background: white;
+        padding-bottom: 10px;
+    }
+    .logo-img {
+        padding-top: 18px;
+        width: 40%;
+    }
+    .search-bar {
+        width: 70%;
+    }
+    .cart {
+        width: 53%;
+    }
+    .slideshow {
+        margin-top: 316px;
+    }
+    .menu-btn-group {
+        display: inline-block;
+    }
+    /* Responsive for detail page */
+    .detail-price {
+        width: 100%;
+    }
+    .product-image {
+        width: 100%;
+        margin-top: 30%;
+    }
+    /* Responsive for register page */
+    .register-section {
+        margin-top: 58%;
+        width: 99%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+
+
+/* Set responsive for screen 480px) */
+
+@media (max-width:480px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    .cart {
+        width: 66%;
+    }
+    /* Responsive for register page */
+    .register-section {
+        margin-top: 70%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+
+
+/* Set responsive for screen 360px) */
+
+@media (max-width:360px) {
+    .header-contact-email {
+        width: 65%;
+    }
+    .header-right {
+        width: 100%;
+    }
+    .login {
+        width: 37%;
+    }
+    .cart {
+        width: 96%;
+    }
+    .product-image {
+        width: 100%;
+        margin-top: 43%;
+    }
+    /* Responsive for register page */
+    .register-section {
+        margin-top: 88%;
+        width: 99%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}

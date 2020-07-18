@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handmade Disable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+</head>
+
+<body>
+    <header class="fixed-header">
+        <div class="container header-top">
+            <div class="header-left">
+                <div class="header-contact-email">
+                    <span><i class="fa-icon fa fa-envelope"></i></span><a class="icon-header link" href="mailto:hdflash@gmail.com" target="_top">hdflash@gmail.com</a>
+                </div>
+                <div class="heaeder-contact-phone">
+                    <span><i class="fa-icon fa fa-phone"></i></span><a class="icon-header link" href="tel:0334778516">0334778516</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="login">
+                    <!-- Trigger/Open The Modal -->
+                    <span><i class="fa-icon fa fa-user"></i></span><a class="icon-header  link" id="login-button" href="#" target="_top">Đăng nhập</a>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Đăng nhập</h2>
+
+                            <form action="/action_page.php" method="post" class="login-form">
+                                <div class="imgcontainer">
+                                    <img src="image/img_avatar2.png" alt="Avatar" class="avatar">
+                                </div>
+
+                                <div class="login-container">
+                                    <label for="uname"><b>Tên đăng nhập hoặc email</b></label>
+                                    <input type="text" class="input-infor" placeholder="Nhập tên hoặc email" name="uname" required>
+
+                                    <label for="psw"><b>Mật khẩu</b></label>
+                                    <input type="password" class="input-infor" placeholder="Nhập mật khẩu" name="psw" required>
+
+                                    <button type="submit" class="btnlogin">Login</button>
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
+                                    </label>
+                                </div>
+
+                                <div class="login-container" style="background-color:#f1f1f1">
+                                    <button type="button" class="cancelbtn">Hủy</button>
+                                    <span class="psw">Quên <a href="#">mật khẩu?</a></span>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="register">
+                    <span><i class="fa-icon fa fa-envelope"></i></span><a class=" icon-header link" href="#" target="_top">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+        <div class="container header-logo">
+            <div class="logo-img">
+                <img src="image/logo.png" class="image-logo-header" alt="logo">
+            </div>
+            <div class="search-bar">
+                <form class="search">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="cart">
+                <div class="product-cart">
+                    <a href="#" class="cart-toggle">
+                        <span class="cart-text">Giỏ hàng</span>
+                        <span class="cart-img">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="cart-number">0</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="favorite-cart">
+                    <a href="#" class="cart-toggle">
+                        <span class="cart-text">Danh sách yêu thích</span>
+                        <span class="cart-img">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="cart-number"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="container nagivation ">
+            <div class="menu-btn-group">
+                <div class="menu-toggle"></div>
+                <div class="menu-close"></div>
+            </div>
+            <div class="navbar-collapse">
+                <nav role="navigation">
+                    <ul class="nav-content">
+                        <li class="menu-item">
+                            <a class="active-item" href="#">TRANG CHỦ</a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="active-item" href="#">SẢN PHẨM</a>
+                            <ul id="nav" class=" item-submenu">
+                                <li>Hoa giấy</li>
+                                <li>Khuyên tai</li>
+                                <li>Len</li>
+                            </ul>
+
+                        </li>
+                        <li class="menu-item">
+                            <a class="active-item" href="#">GIỚI THIỆU</a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="active-item" href="#">LIÊN HỆ</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+
+        </div>
+
+    </header>
+    <main>
+        <div class="container product-detail">
+            <div class="product-image">
+                <img src="image/shoe.png" class="image-detail">
+            </div>
+            <div class="detail-price">
+                <div class="title-detail detail">
+                    <h4>Mô tả</h4>
+                </div>
+                <div class="name-detail detail">
+                    <h3 class="product-name-detail">Giày trẻ em</h3>
+                </div>
+                <div class="description-detail detail">
+                    <p class="description">Giày được thiết kế hoàn toàn bằng tay. Chất liệu len mềm thoải mái khi mang cho bé.</p>
+                </div>
+                <div class="price-detail">
+                    <div class="old-price-detail detail">
+                        100 000
+                    </div>
+                    <div class="new-price-detail detail">
+                        80 000
+                    </div>
+                    <div class="discount">8% giảm</div>
+                </div>
+                <div class="choose-product">
+                    <div class="quantity-detail detail">
+                        <h5>Số lượng</h5>
+                    </div>
+                    <div class="input-quantity">
+                        <span class="minus">-</span>
+                        <input type="text" value="1" class="quantity" />
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="available-product-detail detail">
+                        <p>100 sản phẩm có sẵn</h5>
+                    </div>
+                    <div class="buy-product">
+                        <div class="btn-add-to-cart "><button type="submit" class="btn"><i class="fa fa-cart-plus"> </i>Thêm vào giỏ hàng</button></div>
+                        <div class="btn-buy-now "><button type="submit" class="btn">Mua ngay</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container feedback-field">
+            <h3>Đánh giá</h3>
+            <div class="input-feedback">
+                <form>
+                    <textarea></textarea>
+                </form>
+            </div>
+            <div class="btn-feedback">
+                <button type="submit" class="btn">GỬI</button>
+            </div>
+        </div>
+        <div class="container customer-feedback">
+            <div class="customer-name">
+                <h5>Thanh Phạm</h5>
+            </div>
+            <div class="border"></div>
+            <div class="feedback content">
+                <p><i class="fa fa-comment comment"></i> Giày đẹp độ co giãn tốt, bền, chắc, hài lòng</p>
+            </div>
+        </div>
+        <div class="container customer-feedback">
+            <div class="customer-name">
+                <h5>Thanh Phạm</h5>
+            </div>
+            <div class="border"></div>
+            <div class="feedback content ">
+                <p>
+                    <i class="fa fa-comment comment"></i> Giày đẹp độ co giãn tốt, bền, chắc, hài lòng</p>
+            </div>
+        </div>
+        <div class="container contact-introduction">
+            <h4>NẾU QUÝ KHÁCH CÓ NHU CẦU ĐẶT HÀNG XIN LIÊN HỆ TRỰC TIẾP VỚI SHOP QUA SỐ HOTLINE: 0334 778 516</h4>
+            <br> - SẢN PHẨM THỰC TẾ NHƯ HÌNH </br>
+            - SHOP SHIP HÀNG TOÀN QUỐC ( HÓA ĐƠN TỪ 50.000 TRỞ LÊN) </br>
+            - CAM KẾT 100% HÀNG CHẤT LƯỢNG </br>
+            - THANH TOÁN KHI NHẬN ĐƯỢC HÀNG </br>
+            - NHẬN LÀM THEO YÊU CẦU CỦA KHÁCH HÀNG </br>
+            - GIÁ SỈ MUA BUÔN LIÊN HỆ SỐ HOTLINE: 0334778516</br>
+
+        </div>
+
+
+    </main>
+    <footer>
+    </footer>
+</body>
+
+<script src="javascript.js"></script>
+<script src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.menu-toggle').click(function() {
+            $('.menu-toggle').toggleClass('active')
+            $('.navbar-collapse').toggleClass('active')
+            $('.menu-close').toggleClass('active')
+        })
+
+        $('.menu-close').click(function() {
+            $('.menu-close').toggleClass('active')
+            $('.navbar-collapse').toggleClass('active')
+            $('.menu-toggle').toggleClass('active')
+        })
+
+    })
+</script>
+
+</html>

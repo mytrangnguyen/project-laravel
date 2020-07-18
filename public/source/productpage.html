@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="source/CSS/homepage.css">
+    <link rel="stylesheet" href="source/CSS/responsive.css">
+    <title>Product-page</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="top-row">
+            <div class="left-content col-3">
+                <div class="category-content">
+                    <h3 class="title-category-product">
+                        SẢN PHẨM
+                    </h3>
+                    <ul class="list-category">
+                        <li>Áo quần</li>
+                        <li>Mũ</li>
+                        <li>Khăn</li>
+                        <li>Móc khóa</li>
+                        <li>Gấu bông</li>
+                        <li>Hoa</li>
+                    </ul>
+                </div>
+                <div class="product-list-content">
+                    <h3 class="title-category">
+                        SẢN PHẨM HOT NHẤT
+                    </h3>
+                    <div class="group-product">
+                        <div class="item-product">
+                            <div class="image-product">
+                                <img src="./image/item2.jpg" alt="">
+                            </div>
+                            <div class="description-product">
+                                <div class="text-description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                        57,00₫/giỏ
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-product">
+                        <div class="item-product">
+                            <div class="image-product">
+                                <img src="./image/item4.jpg" alt="">
+                            </div>
+                            <div class="description-product">
+                                <div class="text-description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                        57,00₫/giỏ
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-product">
+                        <div class="item-product">
+                            <div class="image-product">
+                                <img src="./image/item3.jpg" alt="">
+                            </div>
+                            <div class="description-product">
+                                <div class="text-description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                        57,00₫/giỏ
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content col-9">
+                <!-- SECTION SLIDER -->
+                <div class="slideshow">
+                    <div class="mySlides" style="background-image: url('../image/item4.jpg');">
+                        <img src="./image/item2.jpg" class="hidden-image">
+                    </div>
+                    <div class="mySlides" style="background-image: url('../image/item4.jpg');">
+                        <img src="./image/item3.jpg" class="hidden-image">
+                    </div>
+                    <div class="mySlides" style="background-image: url('../image/item4.jpg');">
+                        <img src="./image/item4.jpg" class="hidden-image">
+                    </div>
+                    <div class="mySlides" style="background-image: url('../image/item4.jpg');">
+                        <img src="./image/item4.jpg" class="hidden-image">
+                    </div>
+                    <div class="dot-container">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <!-- CLOSE SLIDER -->
+            </div>
+        </div>
+        <!-- SECTION CONTENT ITEM  -->
+        <div class="content-product">
+            <div class="container-list-product">
+                <div class="title-product-show">
+                    <h2 class="title-main-category">Trang chủ</h2>
+                    <span>/</span>
+                    <p class="title-category">Hot product</p>
+                </div>
+                <div class="main-content-product">
+                    <div class="row-list-product">
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item2.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item3.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item4.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item2.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item2.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item2.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item2.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="item-product">
+                                <div class="image-product" style="background-image: url('../image/item2.jpg');">
+                                    <img src="./image/item2.jpg" alt="" class="hidden-image">
+                                </div>
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>Trung tâm KT</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>Giỏ hoa</p>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="price">
+                                    57,00₫/giỏ
+                                </span>
+                                        <span class="promo-price">
+                                    90,000₫
+                                </span>
+                                    </div>
+                                    <div class="card-product">
+                                        <i class='fas fa-heart'></i>
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CLOSE SECTION CONTENT ITEM-->
+        <div class="section-flash navigation">
+            <div class="navigation-main">
+                <nav class="navigate">
+                    <ul class="navigation-number">
+                        <li>
+                            <a href="#">
+                                <</a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- SECTION FOOTER  -->
+        <div class="section-flash footer">
+            <div class="row-footer">
+                <div class="footer-widget col-4">
+                    <img src="./image/logoe.png" alt="">
+                    <p>Giới thiệu mục đích tạo ra trang web.... giúp người khuyết tật</p>
+                </div>
+                <div class="footer-widget col-4">
+                    <h3>Đăng kí nhận tin khuyến mãi</h3>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="email" placeholder="Nhập địa chỉ email">
+                            <button class="submit">Gửi</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer-widget col-4">
+                    <h3 class="wedget-title">
+                        Thông tin liên hệ
+                    </h3>
+                    <div class="text-widget">
+                        <ul class="list-contact">
+                            <li class="item-phone">
+                                <a href="">
+                                    <i class="fa fa-phone"></i> 0971564533
+                                </a>
+                            </li>
+                            <li class="item-email">
+                                <a href="">
+                                    <i class="fa fa-envelope"></i> handmade@gmail.com
+                                </a>
+                            </li>
+                            <li class="item-location">
+                                <a href="">
+                                    <i class='fas fa-map-marker-alt'></i> 101B Lê Hữu Trác, An Hải Đông, Sơn Trà, Đà Nẵng
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="social-footer">
+                        <ul class="social">
+                            <li class="item-facebook">
+                                <a href="#" class="fa fa-facebook"></a>
+                            </li>
+                            <li class="item-youtube">
+                                <a href="#" class="fa fa-youtube"></a>
+                            </li>
+                            <li class="item-twiter">
+                                <a href="#" class="fa fa-twitter"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CLOSE SECTION FOOTER-->
+    </div>
+</body>
+<script src="JS/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+    $('.box-places-wrapper').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplaySpeed: 2000,
+        nextArrow: $('.next-p'),
+        prevArrow: $('.prev-p'),
+    });
+</script>
+<script>
+    var slideIndex = 1;
+
+    function plusSlides(n) {
+        clearInterval(myTimer);
+        if (n < 0) {
+            showSlides(slideIndex -= 1);
+        } else {
+            showSlides(slideIndex += 1);
+        }
+        if (n === -1) {
+            myTimer = setInterval(function() {
+                plusSlides(n + 2)
+            }, 4000);
+        } // set time to run slide in 4 second  
+        else {
+            myTimer = setInterval(function() {
+                plusSlides(n + 1)
+            }, 4000);
+        }
+    }
+
+    function currentSlide(n) {
+        clearInterval(myTimer);
+        myTimer = setInterval(function() {
+            plusSlides(n + 1)
+        }, 4000);
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+    window.addEventListener("load", function() {
+        showSlides(slideIndex);
+        myTimer = setInterval(function() {
+            plusSlides(1)
+        }, 4000);
+    })
+</script>
+
+</html>
