@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-    
+
     /**
      * Bootstrap any application services.
      *
@@ -26,17 +26,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('header',function($view){
+        view()->composer('header', function ($view) {
             $loai_sp = Category::all();
-            $view->with('loai_sp',$loai_sp);
+            $view->with('loai_sp', $loai_sp);
         });
 
-        view()->composer(['header','page.checkout','page.cart'],function($view){
-            if(Session('cart')){
+        view()->composer(['header', 'page.checkout', 'page.cart'], function ($view) {
+            if (Session('cart')) {
                 $oldCart = Session::get('cart');
                 $cart = new Cart($oldCart);
-                $view->with(['cart'=>Session::get('cart'),'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalQuantity'=>$cart->totalQuantity]);
-                // dd($cart);
+                $view->with(['cart' => Session::get('cart'), 'product_cart' => $cart->items, 'totalPrice' => $cart->totalPrice, 'totalQuantity' => $cart->totalQuantity]);
+                // dd($cart->items);
             }
         });
     }

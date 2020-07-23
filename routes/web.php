@@ -13,68 +13,71 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('index', [
-    'as'=>'trang-chu',
-    'uses'=>'PageController@getIndex'
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [
+    'as' => 'trang-chu',
+    'uses' => 'PageController@getIndex'
 ]);
 
 Route::get('product/{type}', [
-    'as'=>'sanpham',
-    'uses'=>'PageController@getProPagebyType'
+    'as' => 'sanpham',
+    'uses' => 'PageController@getProPagebyType'
 ]);
 
 Route::get('introduction', [
-    'as'=>'gioithieu',
-    'uses'=>'PageController@getIntroPage'
+    'as' => 'gioithieu',
+    'uses' => 'PageController@getIntroPage'
 ]);
 
-Route::get('contact',[
-    'as'=>'lienhe',
-    'uses'=>'PageController@getContactPage'
+Route::get('contact', [
+    'as' => 'lienhe',
+    'uses' => 'PageController@getContactPage'
 ]);
 
-Route::get('cart',[
-    'as'=>'giohang',
-    'uses'=>'PageController@getCartPage'
+Route::get('cart', [
+    'as' => 'giohang',
+    'uses' => 'PageController@getCartPage'
 ]);
 
 Route::get('product-detail/{id}', [
-    'as'=>'chitiet',
-    'uses'=>'PageController@getDetailPage'
+    'as' => 'chitiet',
+    'uses' => 'PageController@getDetailPage'
 ]);
 
 // Route for register
 Route::get('register', [
-    'as'=>'dangky',
-    'uses'=>'AccountController@getRegister'
+    'as' => 'dangky',
+    'uses' => 'AccountController@getRegister'
 ]);
 
-Route::post('addNguoidung',[
-    'as'=>'addUsers',
-    'uses'=>'AccountController@addUser'
+Route::post('addNguoidung', [
+    'as' => 'addUsers',
+    'uses' => 'AccountController@addUser'
 ]);
 
 // Route for seller register
-Route::get('sellerRegister',[
-    'as'=>'dangkybanhang',
-    'uses'=>'AccountController@getSellerRegister'
+Route::get('sellerRegister', [
+    'as' => 'dangkybanhang',
+    'uses' => 'AccountController@getSellerRegister'
 ]);
 
-Route::post('addSeller',[
-    'as'=>'addSellerRegister',
-    'uses'=>'AccountController@addSeller'
+Route::post('addSeller', [
+    'as' => 'addSellerRegister',
+    'uses' => 'AccountController@addSeller'
 ]);
 
 // Route tim kiem
-Route::get('timkiem',[
-    'as'=>'tim-kiem',
-    'uses'=>'PageController@getSearch']);
+Route::get('timkiem', [
+    'as' => 'tim-kiem',
+    'uses' => 'PageController@getSearch'
+]);
 
-    
+Route::get('signin', [
+    'as' => 'sign-in',
+    'uses' => 'AccountController@getLogin'
+]);
 Route::post('dang-nhap', [
     'as' => 'login',
     'uses' => 'AccountController@login',
@@ -88,29 +91,42 @@ Route::get('dang-xuat', [
 
 // Route thêm sản phẩm vào giỏ hàng 
 
-Route::get('add-to-cart/{id}',[
-    'as'=>'themgiohang',
-    'uses'=>'PageController@getAddToCart'
+Route::get('add-to-cart/{id}', [
+    'as' => 'themgiohang',
+    'uses' => 'PageController@getAddToCart'
 ]);
 
+
+//Route xóa sản phẩm trong giỏ hàng
+Route::get('del-cart/{id}', [
+    'as' => 'xoagiohang',
+    'uses' => 'PageController@getDeleteItemCart'
+]);
 // Route đến trang checkout
 
-Route::get('checkout',[
-    'as'=>'dathang',
-    'uses'=>'PageController@getCheckout'
+Route::get('checkout', [
+    'as' => 'dathang',
+    'uses' => 'PageController@getCheckout'
 ]);
 
-Route::post('checkout',[				
-    'as'=>'dathang',			
-    'uses'=>'PageController@postCheckout'			
-    ]);	
-    
+Route::post('checkout', [
+    'as' => 'dathang',
+    'uses' => 'PageController@postCheckout'
+]);
+
 //Route edit thông tin user
 Route::get('users/{user}',  [
-    'as' => 'users.edit', 
+    'as' => 'users.edit',
     'uses' => 'AccountController@edit'
-    ]);
+]);
 Route::patch('users/{user}/update',  [
-    'as' => 'users.update', 
+    'as' => 'users.update',
     'uses' => 'AccountController@update'
-    ]);
+]);
+
+//Route comment products
+
+Route::post('comment', [
+    'as' => "feedback",
+    'uses' => "PageController@postComment"
+]);
