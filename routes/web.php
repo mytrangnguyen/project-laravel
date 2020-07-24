@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,11 @@ Route::get('contact', [
     'uses' => 'PageController@getContactPage'
 ]);
 
+Route::post('addcontact', [
+    'as' => 'add-contact',
+    'uses' => 'PageController@postContact'
+]);
+
 Route::get('cart', [
     'as' => 'giohang',
     'uses' => 'PageController@getCartPage'
@@ -51,6 +57,7 @@ Route::get('register', [
     'as' => 'dangky',
     'uses' => 'AccountController@getRegister'
 ]);
+// Auth::routes(['verify' => true]);
 
 Route::post('addNguoidung', [
     'as' => 'addUsers',
@@ -82,7 +89,6 @@ Route::post('dang-nhap', [
     'as' => 'login',
     'uses' => 'AccountController@login',
 ]);
-// Route::post('login','AccountController@login');
 
 Route::get('dang-xuat', [
     'as' => 'logout',

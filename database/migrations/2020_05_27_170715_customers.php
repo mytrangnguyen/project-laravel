@@ -11,14 +11,14 @@ class Customers extends Migration
      *
      * @return void
      */
-   
+
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('gender');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('address');
             $table->string('note');
             $table->string('phone_number');

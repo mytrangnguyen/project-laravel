@@ -15,10 +15,13 @@ class OrderProds extends Migration
     {
         Schema::create('order_prods', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('id')->references('id')->on('products');
+            $table->integer('id_order')->unsigned();;
+            $table->foreign('id_order')->references('id')->on('orders');
+            $table->string('prod_name');
             $table->integer('quantity');
             $table->float('price_out');
             $table->string('center_name');
+            // $table->primary(array('id', 'i/d_order'))/;
             $table->timestamps();
         });
     }

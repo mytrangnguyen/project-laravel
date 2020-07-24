@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Support\Facades\Session;
 use App\Cart;
 
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -31,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('loai_sp', $loai_sp);
         });
 
-        view()->composer(['header', 'page.checkout', 'page.cart'], function ($view) {
+        view()->composer(['header', 'page.checkout', 'page.cart', 'mail.shopping'], function ($view) {
             if (Session('cart')) {
                 $oldCart = Session::get('cart');
                 $cart = new Cart($oldCart);

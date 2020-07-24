@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Seller;
+use App\Order;
+use App\Order_Prods;
+use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Guest;
@@ -55,6 +58,7 @@ class AccountController extends Controller
                 'repassword.required' => "Nhập lại mật khẩu là trường bắt buộc, vui lòng không bỏ trống"
             ]
         );
+
         // var_dump($this->validate);
         $newUser = new User();
         $newUser->username = $request->username;
@@ -153,7 +157,13 @@ class AccountController extends Controller
     public function edit(User $user)
     {
         $user = Auth::user();
-        return view('page.editUser', compact('user'));
+        $history = DB::table('orders')
+            ->select('orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->get();
+        // dd($history);
+        return view('page.editUser', compact('user', 'history'));
     }
 
     public function update(User $user, Request $request)

@@ -39,6 +39,13 @@
     .new-price-detail {
         width: 30%;
     }
+    .search{
+        padding: 10px;
+    }
+
+    .cart{
+        padding: 7px;
+    }
 }
 
 
@@ -70,7 +77,15 @@
     .btn-add-to-cart {
         width: 55%;
     }
-}
+    form.search input[type="text"] {
+        font-size: 14px;
+    }
+    form.search button {
+        font-size: 14px;
+    }
+    .cart-toggle {
+        padding: 7px 30px 5px 10px;
+    }
 
 
 /* Set responsive for screen 840px) */
@@ -216,6 +231,13 @@
     }
     .modal-content {
         width: 90%;
+    }
+    .header-right {
+        width: 37%;
+    }
+
+    .header-logo{
+        display: inline-flex;
     }
 }
 

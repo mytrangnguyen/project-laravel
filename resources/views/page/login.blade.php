@@ -10,7 +10,7 @@
         <!-- <form method="POST" enctype="multipart/form-data" class="login-form"> -->
         <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
         @if(count($errors)>0)
-        <div class="alert alert-danger" id="error">
+        <div class="alert alert-danger">
           <ul class="error-message">
             <a><i class="fa fa-times-circle"></i></a>
             @foreach ($errors->all() as $error)
