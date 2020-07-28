@@ -6,7 +6,14 @@
     <div class="checkout-infor">
       <div class="customer-information">
         <h2>Đặt hàng</h2>
-        <div class="space20">&nbsp;</div>
+        <div class="thongbao">&nbsp;
+          <br>
+          @if(Session::has('thongbao'))
+          {{ Session::get('thongbao') }}
+          @endif
+        </div>
+
+
 
         <div class="form-block">
           <label for="name">Họ tên*</label>

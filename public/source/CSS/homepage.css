@@ -189,6 +189,7 @@ body {
 
 .box-content {
     display: inline-block;
+    width: 30%;
 }
 
 
@@ -476,10 +477,10 @@ body {
 
 /* product show */
 
-.main-content-product {
+/* .main-content-product {
     z-index: -1;
     position: relative;
-}
+} */
 
 .main-content-product .row-list-product {
     display: flex;

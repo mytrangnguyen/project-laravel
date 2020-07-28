@@ -28,12 +28,14 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js">
   </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
   <!-- <script type="text/javascript" src="/test/wp-content/themes/child/script/jquery.jcarousel.min.js"></script> -->
   <script type="text/javascript">
-  $('.box-product-wrapper').slick({
+  $('.box-product-wrapper').click({
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplaySpeed: 2000,
@@ -207,6 +209,8 @@
     });
   });
   </script>
+
+
 
 </body>
 

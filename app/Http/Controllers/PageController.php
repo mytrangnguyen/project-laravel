@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         $slide = Slide::all();
         $new_product = Product::where('status', 1)->paginate(8);
-        $sanpham_khuyenmai = Product::where('promotion_price', '<>', 0)->paginate(4);
+        $sanpham_khuyenmai = Product::where('promotion_price', '<>', 0)->paginate(8);
         return view('page.home', compact('slide', 'new_product', 'sanpham_khuyenmai'));
     }
 
@@ -137,6 +137,7 @@ class PageController extends Controller
         $order_detail = [];
         Mail::to(Auth::user()->email)->send(new ShoppingMail($bill, $order_detail));
         foreach ($cart->items as $key => $value) {
+
             $bill_detail = new Order_Prods;
             $bill_detail->id_order = $bill->id;
             $bill_detail->center_name = "MT";
@@ -145,8 +146,14 @@ class PageController extends Controller
             $bill_detail->price_out = $value['price'] / $value['quantity'];
             $bill_detail->save();
         }
+
         Session::forget('cart');
-        return redirect()->back()->with('thongbao', 'Đặt hàng thành công');
+        $notification = array(
+            'message' => 'Đặt hàng thành công',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with('thongbao', 'Bạn đã đặt hàng thành công, vui lòng kiểm tra email về thông tin đơn hàng');
     }
 
     public function getDeleteItemCart($id)

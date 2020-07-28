@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="contact-form">
+<div class="contact-form history">
   <!-- Tab links -->
   <div class="tab">
     <button class="tablinks" onclick="openCity(event, 'London')">Thông tin cá nhân</button>
@@ -15,6 +15,7 @@
         <div class="avt-user"><img src="https://avatarfiles.alphacoders.com/151/thumb-151727.jpg" alt="Avatar"
             class="user-avatar"></div>
         <div>
+
           <table>
             <thead>
               <tr>
@@ -42,7 +43,6 @@
   </div>
 
   <div id="Paris" class="tabcontent">
-    <h3>Lịch sử đặt hàng</h3>
     <table>
       <tr>
         <th>Người mua hàng</th>
@@ -52,56 +52,43 @@
         <th>Chi tiết đơn hàng</th>
         <th>Tổng tiền</th>
         <th>Tình trạng</th>
+        <th>Thời gian</th>
       </tr>
       <tr>
-        <td>January</td>
-        <td>January</td>
-        <td>January</td>
-        <td>January</td>
+        @foreach($history as $key=>$item)
+        <td>{{$item[0]->name}}</td>
+        <td>{{$item[0]->address}}</td>
+        <td>0334778516</td>
+        <td>{{$item[0]->email}}</td>
         <td>
           <table>
             <tr>
-              <th>Month</th>
-              <th>Savings</th>
+              <th>Sản phẩm</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
             </tr>
-            <tr>
-              <td>January</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>February</td>
-              <td>$80</td>
-            </tr>
-          </table>
-        </td>
-        <td>January</td>
-        <td>January</td>
+            @for($i = 0; $i< count($item); $i++) <tr>
+              <td>{{$item[$i]->prod_name}}</td>
+              <td>{{$item[$i]->price_out}}</td>
+              <td>{{$item[$i]->quantity}}</td>
       </tr>
-      <!-- <tr>
-        <td>February</td>
+      @endfor
       </tr>
-      <tr>
-        <td>February</td>
-      </tr>
-      <tr>
-        <td>February</td>
-      </tr>
-      <tr>
-        <td>February</td>
-      </tr>
-      <tr>
-        <td>February</td>
-      </tr>
-      <tr>
-        <td>February</td>
-      </tr> -->
+    </table>
+    </td>
+    <td>{{$item[0]->total}}</td>
+    <td>{{$item[0]->status}}</td>
+    <td>{{$item[0]->created_at}}</td>
+    </tr>
+
+    @endforeach
+
 
     </table>
   </div>
 
   <div id="Tokyo" class="tabcontent">
     <div class="resgiser-container">
-      <h2>Thông tin cá nhân</h2>
       <form method="POST" action="{{route('users.update', $user)}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         {{ csrf_field() }}

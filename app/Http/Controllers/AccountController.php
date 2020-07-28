@@ -157,13 +157,20 @@ class AccountController extends Controller
     public function edit(User $user)
     {
         $user = Auth::user();
-        $history = DB::table('orders')
-            ->select('orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        $historyarr = DB::table('orders')
+            ->select('orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
             ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
             ->where('orders.user_id', '=', Auth::user()->id)
+            // ->groupBy('created_at')
+            // ->map(function ($item) {
+            //     return array_merge(...$item->toArray());
+            // })
             ->get();
+        $history = collect($historyarr)->groupBy('created_at')->toArray();
+        $length = count($history);
         // dd($history);
-        return view('page.editUser', compact('user', 'history'));
+
+        return view('page.editUser', compact('user', 'history', 'length'));
     }
 
     public function update(User $user, Request $request)
@@ -172,7 +179,7 @@ class AccountController extends Controller
         //     'tendangnhap' => 'required',
         //     'email' => 'required|email|unique:users',
         //     'matkhau' => 'required|min:6|confirmed'
-        // ]); // cái này bị lỗi nek -  chị check lại nhen
+        // ]); // cái này bị lỗi nek -
         $user->username = $request->tendangnhap;
         $user->email = $request->email;
         $user->password = bcrypt($request->matkhau);
