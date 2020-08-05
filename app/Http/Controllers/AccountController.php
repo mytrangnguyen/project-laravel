@@ -142,9 +142,15 @@ class AccountController extends Controller
         }
         $credentials = array('email' => $request->email, 'password' => $request->password);
         if (Auth::attempt($credentials)) { //login đúng
-            // dd('đăng nhập thành công');
-            // var_dump("login thành công");
-            return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
+
+            if($request->email=="admin@gmail.com"){
+                return redirect()->route('admin.product.getListProduct');
+            }
+            else{
+                // var_dump("login thành công");
+                return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
+            }
+
         } else { //login sai
             // dd('tk Hoặc mật khẩu chưa đúng');
             // var_dump("login k thành công");

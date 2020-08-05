@@ -1,0 +1,30 @@
+.container{
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input{
+    position: absolute; 
+    opacity: 0; 
+    right: 0; 
+    top: 0;
+}
+.profile-head ul{
+    margin-top: 80px;
+}
