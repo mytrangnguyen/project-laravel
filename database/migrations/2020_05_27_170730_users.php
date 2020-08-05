@@ -20,7 +20,7 @@ class Users extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('user_role');
-            $table->string('avatar')->default('source/image/user.png');
+            $table->string('avatar');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('confirmed')->default(0);

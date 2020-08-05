@@ -18,6 +18,7 @@ use App\Customer;
 use App\Contact;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ShoppingMail;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
@@ -96,13 +97,24 @@ class PageController extends Controller
 
     public function getAddToCart(Request $req, $id)
     {
-        $product = Product::find($id);
-        $oldCart = Session('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->addCart($product, $id);
-        $req->session()->put('cart', $cart);
-        // session()->flush();
-        return redirect()->back();
+        if(Auth::user()){
+            $product = Product::find($id);
+            if($product->quantity == 0){
+                Alert::warning('Cảnh báo', 'Bạn không thể đặt hàng vì số lượng sản phẩm này đã hết');
+                return redirect()->back();
+            }
+            else{
+                $oldCart = Session('cart') ? Session::get('cart') : null;
+                $cart = new Cart($oldCart);
+                $cart->addCart($product, $id);
+                $req->session()->put('cart', $cart);
+                return redirect()->back();
+            }
+        }
+        else{
+            Alert::warning('Cảnh báo', 'Bạn phải đăng nhập trước khi mua hàng');
+            return view('page.login');
+        }
     }
 
     public function getCheckout()
@@ -137,7 +149,8 @@ class PageController extends Controller
         $order_detail = [];
         Mail::to(Auth::user()->email)->send(new ShoppingMail($bill, $order_detail));
         foreach ($cart->items as $key => $value) {
-
+            $product = Product::find($value['item']['id']);
+            $product->decrement('quantity', $value['quantity']);
             $bill_detail = new Order_Prods;
             $bill_detail->id_order = $bill->id;
             $bill_detail->center_name = "MT";
@@ -147,13 +160,18 @@ class PageController extends Controller
             $bill_detail->save();
         }
 
+        // foreach ($cart as $item) {
+        //     $product = Product::find($item->id);
+        //     $product->decrement('votes', $item->quantity);
+        // }
+
         Session::forget('cart');
         $notification = array(
             'message' => 'Đặt hàng thành công',
             'alert-type' => 'success'
         );
-
-        return redirect()->back()->with('thongbao', 'Bạn đã đặt hàng thành công, vui lòng kiểm tra email về thông tin đơn hàng');
+        Alert::success('Thành công', 'Bạn đã đặt hàng thành công, vui lòng kiểm tra email về thông tin đơn hàng');
+        return redirect()->back();
     }
 
     public function getDeleteItemCart($id)
@@ -169,7 +187,7 @@ class PageController extends Controller
         return redirect()->back();
     }
 
-    //Controller post comment 
+    //Controller post comment
     public function postComment(Request $req)
     {
         $comment = new Comment();

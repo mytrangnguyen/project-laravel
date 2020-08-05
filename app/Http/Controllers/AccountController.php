@@ -8,9 +8,11 @@ use App\Seller;
 use App\Order;
 use App\Order_Prods;
 use DB;
+use File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Guest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AccountController extends Controller
@@ -66,6 +68,7 @@ class AccountController extends Controller
         $newUser->address = $request->address;
         $newUser->phone = $request->phone;
         $newUser->email = $request->email;
+        $newUser->avatar = "";
         $newUser->user_role = "user";
         $newUser->save();
         return redirect()->route('trang-chu')->with('alert', 'Đăng ký thành công');
@@ -108,8 +111,8 @@ class AccountController extends Controller
         $newSeller->address = $req->diachiSeller;
         $newSeller->phone = $req->sdtSeller;
         $newSeller->paper_identication = $file_name;
-        $destination = base_path() . '/IT_Biz_Project/public/source/image';
-        $req->file('imageIdentify')->move($destination, $file_name);
+        $user = base_path() . '/project-laravel/public/source/image';
+        $req->file('imageIdentify')->move($user, $file_name);
         $newSeller->user_role = "seller";
         $newSeller->password = Hash::make($req->mkSeller);
         $newSeller->save();
@@ -154,36 +157,41 @@ class AccountController extends Controller
         Auth::logout();
         return redirect()->route('trang-chu');
     }
-    public function edit(User $user)
+    public function getOrdersHistory(User $user)
     {
         $user = Auth::user();
         $historyarr = DB::table('orders')
             ->select('orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
             ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
             ->where('orders.user_id', '=', Auth::user()->id)
-            // ->groupBy('created_at')
-            // ->map(function ($item) {
-            //     return array_merge(...$item->toArray());
-            // })
             ->get();
         $history = collect($historyarr)->groupBy('created_at')->toArray();
         $length = count($history);
-        // dd($history);
-
         return view('page.editUser', compact('user', 'history', 'length'));
     }
 
-    public function update(User $user, Request $request)
+    public function updateUser(User $user, Request $request)
     {
-        // $data = $request->validate([
-        //     'tendangnhap' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'matkhau' => 'required|min:6|confirmed'
-        // ]); // cái này bị lỗi nek -
-        $user->username = $request->tendangnhap;
+        $user->username = $request->username;
         $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $img_current = 'public/source/image/'. $request->img_current;
+		if(!empty($request->file('avatar')))
+		{
+
+			$file_name =  $request->file('avatar')->getClientOriginalName();
+			$user->avatar = $file_name;
+			$request->file('avatar')->move('public/source/image/',$file_name);
+			if(File::exists($img_current))
+			{
+				File::delete($img_current);
+			}
+		}
+
         $user->password = bcrypt($request->matkhau);
         $user->save();
+        Alert::success('Thành công', 'Chỉnh sửa thành công');
         return back();
     }
 }

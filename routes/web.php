@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [
     'as' => 'trang-chu',
     'uses' => 'PageController@getIndex'
+
 ]);
 
 Route::get('product/{type}', [
@@ -95,7 +96,7 @@ Route::get('dang-xuat', [
     'uses' => 'AccountController@getLogout',
 ]);
 
-// Route thêm sản phẩm vào giỏ hàng 
+// Route thêm sản phẩm vào giỏ hàng
 
 Route::get('add-to-cart/{id}', [
     'as' => 'themgiohang',
@@ -123,11 +124,11 @@ Route::post('checkout', [
 //Route edit thông tin user
 Route::get('users/{user}',  [
     'as' => 'users.edit',
-    'uses' => 'AccountController@edit'
+    'uses' => 'AccountController@getOrdersHistory'
 ]);
 Route::patch('users/{user}/update',  [
     'as' => 'users.update',
-    'uses' => 'AccountController@update'
+    'uses' => 'AccountController@updateUser'
 ]);
 
 //Route comment products

@@ -14,10 +14,10 @@
         <div class="container-introduce">
             <h5 class="title-about">Chúng tôi là ai?</h5>
             <p class="introduce-description">
-                Nice to meet you! We are a tech-driven online retailer located near Salt Lake City in the shadow of the
-                Wasatch Mountains. Since our beginnings in 1999, Shopmal has evolved from a fledging startup to a
-                billion-dollar online retailer as a result of a hard-working
-                and creative team.
+                Chúng tôi là những người trẻ, chúng tôi muốn đóng góp một phần sức lực của mình cho xã hội, cho những
+                người đang cần sự giúp đỡ ở đất nước hình chữ s này bằng việc tạo ra một trang website bán hàng dành cho
+                người khuyết tật. Giúp kết nối những sản phẩm thủ công chính tay những người khuyết tật làm ra đến với
+                nhiều người không chỉ trong nước mà còn cả ngoài nước.
             </p>
         </div>
     </div>
@@ -43,13 +43,14 @@
                         <div class="box-infor black-box">
                             <h2 class="title-value">Kết nối mọi người</h2>
                             <div class="description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum, mi id
-                                    sodales venenatis, purus turpis ultricies magna, vitae eleifend felis tortor eget
-                                    leo. Proin venenatis dolor a est pharetra, sit amet
-                                    dignissim arcu pellentesque. Cras dolor metus, feugiat ac lacinia vel, facilisis ac
-                                    leo. Quisque nec felis vel nisi semper gravida ac ut eros. Donec pulvinar lectus a
-                                    massa laoreet, sed molestie felis gravida.
-                                    Ut ultrices libero et tortor accumsan, at aliquam metus volutpat....
+                                <p>Con người ta sinh ra ai cũng muốn được lành lặn, khỏe mạnh, nhưng vì nhiều nguyên
+                                    nhân, có những mảnh đời luôn mang trên mình những khuyết tật, ảnh hưởng đến thẩm mỹ,
+                                    trí tuệ, giảm và mất khả năng lao động, các sinh hoạt cộng đồng và có lẽ vì những
+                                    điều đó mà người khuyết tật trở tự ti về bản thân và thu hẹp lại cuộc sống của chính
+                                    họ. Vì vậy chúng tôi tạo trang website này không chỉ để mọi người biết sản phẩm của
+                                    những người tàn tật mà còn một phần nào đó để họ được kết nối với cộng đồng qua tất
+                                    cả mọi hình thức có thể
+
                                 </p>
                             </div>
                         </div>
@@ -67,17 +68,11 @@
                             <h2 class="title-value">Trách nhiệm xã hội</h2>
                             <div class="description">
                                 <p>
-                                    <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean bibendum, mi
-                                        id sodales
-                                        venenatis, purus turpis ultricies magna, vitae eleifend felis tortor eget leo.
-                                        Proin
-                                        venenatis dolor a est pharetra, sit amet dignissim arcu pellentesque. Cras dolor
-                                        metus,
-                                        feugiat ac lacinia vel, facilisis ac leo. Quisque nec felis vel nisi semper
-                                        gravida ac
-                                        ut eros. Donec pulvinar lectus a massa laoreet, sed molestie felis gravida. Ut
-                                        ultrices
-                                        libero et tortor accumsan, at aliquam metus volutpat....
+                                    <span>Chia sẻ, giúp đỡ những người tàn tật không chỉ thể hiện được lòng thương người
+                                        mà còn thể hiện được trách nhiệm của bản thân đối với xã hội. Mỗi hành động đóng
+                                        góp cả về vật chất lẫn tinh thần giúp người khuyết tật vơi đi nỗi đau, vươn lên
+                                        hòa nhập với cộng đồng. Và một phần nào đó thúc đẩy phát triển xã hội.
+
                                     </span>
                                 </p>
                             </div>
@@ -98,13 +93,16 @@
         <div class="container-introduce">
             <h5 class="title-about">Sứ mệnh của chúng tôi là gì?</h5>
             <p class="introduce-description">
-                Nice to meet you! We are a tech-driven online retailer located near Salt Lake City in the shadow of the
-                Wasatch Mountains. Since our beginnings in 1999, Shopmal has evolved from a fledging startup to a
-                billion-dollar online retailer as a result of a hard-working
-                and creative team.
+                Trang website chúng tôi tạo ra với sứ mệnh là giúp đỡ những người khuyết tật có thể phát triển được
+                những tài năng của họ. giúp những tài năng những thành quả họ tạo ra được vươn cao hơn, vươn xa hơn
+                không chỉ ở trong nước mà cả ngoài nước. Giúp họ có việc làm và thu nhập ổn định hơn để có một cuộc sống
+                tốt hơn
+
+
             </p>
         </div>
     </div>
+
 </div>
 <!-- close section what mission -->
 @endsection
