@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     // Lấy dữ liệu vừa nhập và lưu lại
     public function postAddProduct(Request $request) {
-    	  $product = new Product;
+    	$product = new Product;
         $product->prod_name = $request->txtname;
         $filename = $request->file('txtimage')->getClientOriginalName();
         $product->url_img = $filename;

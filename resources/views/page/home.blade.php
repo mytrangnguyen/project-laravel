@@ -34,7 +34,6 @@
             <!-- <i class="fa fa-chevron-left prev-p"></i>
         <i class="fa fa-chevron-right next-p"></i> -->
             <div class="slider">
-                <p>Tìm được {{count($new_product)}} sản phẩm mới</p>
                 <div class="box-product-wrapper">
                     @foreach($new_product as $new)
                     <div class="box-content">
@@ -79,12 +78,13 @@
             </div>
             <!-- close slider -->
         </div>
+        <div class="links">
+            {{$new_product->links()}}
+        </div>
     </div>
     <!-- CLOSE SECTION CONTENT ITEM-->
     <!-- button view more -->
-    <div class="">
-        {{$new_product->links()}}
-    </div>
+
 
 </div>
 <!-- CLOSE SECTION NEW PRODUCT -->
@@ -102,9 +102,6 @@
 <div class="section-flash new-product container">
     <div class="section-th content-item ">
         <div class="container-slider-item">
-            <p>Tìm được {{count($sanpham_khuyenmai)}} sản phẩm khuyến mãi</p>
-            <!-- <i class="fa fa-chevron-left prev-p"></i>
-        <i class="fa fa-chevron-right next-p"></i> -->
             <div class="slider">
                 <div class="box-product-wrapper">
                     @foreach($sanpham_khuyenmai as $spkm)
@@ -141,14 +138,12 @@
             </div>
             <!-- close slider -->
         </div>
+        <div class="links">
+            {{$sanpham_khuyenmai->links()}}
+        </div>
     </div>
     <!-- CLOSE SECTION CONTENT ITEM-->
     <!-- button view more -->
-    <div class="btn-view-more">
-        <div class="view-more">
-            <span class="view-more-title">Xem tất cả sản phẩm</span>
-        </div>
-    </div>
 
 </div>
 <!-- CLOSE SECTION FLOWERs PRODUCT -->

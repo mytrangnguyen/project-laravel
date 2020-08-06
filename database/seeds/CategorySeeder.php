@@ -15,8 +15,12 @@ class CategorySeeder extends Seeder
             ['cate_name' => 'Hoa tai'],
             ['cate_name' => 'Hoa giấy'],
             ['cate_name' => 'Gấu len'],
+            ['cate_name' => 'Tất len'],
+            ['cate_name' => 'Mũ len'],
+            ['cate_name' => 'Khăn len'],
+            ['cate_name' => 'Túi xách'],
+            ['cate_name' => 'Găng tay'],
             ['cate_name' => 'Khác']
         ]);
     }
 }
-

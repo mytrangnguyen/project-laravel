@@ -175,13 +175,11 @@ body {
     overflow: hidden;
     position: relative;
     padding: 10px 0px 10px 0px;
-    padding-right: 7%;
-    padding-left: 10%;
 }
 
 .box-content {
     display: inline-block;
-    width: 30%;
+    width: 24%;
 }
 
 /* .next-p, .prev-p {
@@ -440,7 +438,22 @@ body {
 .title-product-show span {
     margin: 8px 10px;
 }
+.title-product h3 {
+    font-size: 16px;
+}
 
+.name-product {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.name-product p {
+    font-size: 14px;
+}
+
+.links {
+    height: 30px;
+}
 /* close title main category */
 
 /* product show */

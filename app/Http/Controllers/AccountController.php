@@ -182,13 +182,13 @@ class AccountController extends Controller
         $user->email = $request->email;
         $user->address = $request->address;
         $user->phone = $request->phone;
-        $img_current = 'public/source/image/'. $request->img_current;
+        $img_current = 'public/avatar/'. $request->img_current;
 		if(!empty($request->file('avatar')))
 		{
 
 			$file_name =  $request->file('avatar')->getClientOriginalName();
 			$user->avatar = $file_name;
-			$request->file('avatar')->move('public/source/image/',$file_name);
+			$request->file('avatar')->move('public/avatar/',$file_name);
 			if(File::exists($img_current))
 			{
 				File::delete($img_current);
