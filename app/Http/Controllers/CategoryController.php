@@ -22,19 +22,19 @@ class CategoryController extends Controller
 
   // show list Category
     public function getListCategory() {
-      $category = category::select('id','cate_name')->get()->toArray();
+      $category = Category::all();
       return view('admin.category.listCategory',compact('category'));
     }
 
     // Edit category
     public function getEditCategory($id) {
-      $category = category::select('id','cate_name')->get()->toArray();
-      $category = category::find($id);
-      return view('admin.category.edit',compact('category'));
+      $cate = Category::find($id);
+    //   dd($cate);
+      return view('admin.category.edit',compact('cate'));
   }
 
     public function postEditCategory($id,Request $request) {
-      $category = category::find($id);
+      $category = Category::find($id);
       $category->cate_name = $request->input('txtcate_name');
       $category->save();
       return redirect()->route('admin.category.getListCategory')->with('success','Update successfully!');
@@ -42,7 +42,7 @@ class CategoryController extends Controller
 
     // delete Category
     public function getDeleteCategory($id) {
-      $category = category::find($id);
+      $category = Category::find($id);
       $category->delete($id);
       return back();
     }

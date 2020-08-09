@@ -27,13 +27,12 @@ class UserController extends Controller
 
     // show list User
     public function getListUser() {
-        $user = User::select('id','username','email','address','phone','user_role','password')->get()->toArray();
+        $user = User::all();
         return view('admin.user.list',compact('user'));
       }
 
        // Edit User
     public function getEditUser($id) {
-        $user = User::select('id','username','email','address','phone','user_role','password')->get()->toArray();
         $user = User::find($id);
         return view('admin.user.edit',compact('user'));
     }

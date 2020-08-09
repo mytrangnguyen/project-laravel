@@ -1,60 +1,84 @@
-<div class="col-3 left-menu">
-    <div class="navbar-header">
-        <a class="navbar-brand" href=""><img src="{{ url('./source/image/logo_admin.png') }}" alt="Logo"></a>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div> <img src="{{ asset('/img/logo.PNG') }}" alt=""> </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/category/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>CATEGORIES</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/comment/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>COMMENTS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/customer/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>CUSTOMERS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/order/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>ORDERS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/order_prods/add') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>ORDER PRODUCTS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/seller/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>SELLERS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/user/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>USERS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/slider/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>SLIDERS</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{!! url('admin/product/list') !!}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>PRODUCTS</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    <div class="main-menu">
-        <ul class="list-table">
-            <li class="active">
-                <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-            </li>
-            <h3 class="menu-title">FORM</h3><!-- /.menu-title -->
-
-            <!-- SLIDE -->
-            <li class="">
-                <a href="{!! url('admin/slide/list') !!}"> <i class="menu-icon fa fa-table"></i>Slides</a>
-            </li>
-
-            <!-- USERS -->
-            <li class="">
-                <a href="{!! url('admin/user/list') !!}"> <i class="menu-icon fa fa-table"></i>Users</a>
-            </li>
-
-            <!-- SHIPPERS -->
-            <li class="">
-                <a href="#"> <i class="menu-icon fa fa-table"></i>Customers</a>
-            </li>
-
-            <!-- ORDERS -->
-            <li class="">
-                <a href="#"> <i class="menu-icon fa fa-table"></i>Orders</a>
-            </li>
-
-            <!-- ORDERS_PRODS -->
-            <li class="">
-                <a href="#"> <i class="menu-icon fa fa-table"></i>Orders_prods</a>
-            </li>
-
-            <!-- CATEGORIES -->
-            <li class="">
-                <a href="{!! url('admin/category/list') !!}"> <i class="menu-icon fa fa-table"></i>Categories</a>
-            </li>
-
-            <!-- PRODUCTS -->
-            <li class="">
-                <a href="{!! url('admin/product/list') !!}"> <i class="menu-icon fa fa-table"></i>Products</a>
-            </li>
-
-            <!-- COMMENTS -->
-            <li class="">
-                <a href="#"> <i class="menu-icon fa fa-table"></i>Sellers</a>
-            </li>
-
-            <!-- COMMENTS -->
-            <li class="">
-                <a href="#"> <i class="menu-icon fa fa-table"></i>Comments</a>
-            </li>
-
-        </ul>
-    </div><!-- /.navbar-collapse -->
-</div>
+</ul>

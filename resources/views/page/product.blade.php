@@ -166,21 +166,5 @@
     </div>
 </div>
 <!-- CLOSE SECTION CONTENT ITEM-->
-<div class="section-flash navigation">
-    <div class="navigation-main">
-        <nav class="navigate">
-            <ul class="navigation-number">
-                <li>
-                    <a href="#">
-                        << /a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">></a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
+
 @endsection

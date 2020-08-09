@@ -141,9 +141,17 @@ Route::post('comment', [
 
 // ROUTE ADMIN
 
-Route::get('home', function () {
-    return view('admin.indexAdmin');
+Route::group(['prefix' => 'admin/'], function () {
+	Route::get('login',
+		['as' 	=> 'admin.showLoginPage',
+		'uses' 	=> 'PageAdminController@showLoginPage'
+	]);
+	Route::get('home',
+		['as' 	=> 'admin.showAdminPage',
+		'uses' 	=> 'PageAdminController@showAdminPage'
+    ]);
 });
+
 
 // category
 Route::group(['prefix' => 'admin/category/'], function () {
@@ -299,5 +307,59 @@ Route::group(['prefix' => 'admin/customer/'], function () {
 	Route::get('delete/{id}', [
 		'as' 	=> 'getDeleteCustomer',
 		'uses' 	=> 'CustomerController@getDeleteCustomer'
+	]);
+});
+
+// Seller
+Route::group(['prefix' => 'admin/seller/'], function () {
+	Route::get('add',
+		['as' 	=> 'admin.seller.getAddSeller',
+		'uses' 	=> 'SellerController@getAddSeller'
+    ]);
+	Route::post('postAdd',['as'=>'postAdd','uses'=>'SellerController@postAddSeller']);
+
+	Route::get('list',
+		['as' 	=> 'admin.seller.getListSeller',
+		'uses' 	=> 'SellerController@getListSeller'
+	]);
+
+	// Updated Seller
+	Route::get('edit/{id}', [
+		'as' 	=> 'admin.seller.getEditSeller',
+		'uses' 	=> 'SellerController@getEditSeller'
+	]);
+
+	Route::post('edit/{id}', [
+		'as' 	=> 'admin.seller.postEditSeller',
+		'uses' 	=> 'SellerController@postEditSeller'
+	]);
+
+	// Delete Seller
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteSeller',
+		'uses' 	=> 'SellerController@getDeleteSeller'
+	]);
+});
+
+// Comment
+Route::group(['prefix' => 'admin/comment/'], function () {
+
+	Route::get('list',
+		['as' 	=> 'admin.comment.getListComment',
+		'uses' 	=> 'CommentController@getListComment'
+	]);
+
+	// Delete Comment
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteComment',
+		'uses' 	=> 'CommentController@getDeleteComment'
+	]);
+});
+
+// Page User Profile
+Route::group(['prefix' => 'user/'], function () {
+	Route::get('view',
+		['as' 	=> 'user.getViewUserProfile',
+		'uses' 	=> 'UserProfileController@getViewUserProfile'
 	]);
 });
