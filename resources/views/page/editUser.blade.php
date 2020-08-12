@@ -16,7 +16,7 @@
                 <div class="avt-user"><img src="https://www.jbrhomes.com/wp-content/uploads/blank-avatar.png"
                         alt="Avatar" class="user-avatar"></div>
                 @else
-                <div class="avt-user"><img src="{{ asset('public/source/image/'.$user->avatar)}}" alt="Avatar"
+                <div class="avt-user"><img src="{{ asset('public/avatar/'.$user->avatar)}}" alt="Avatar"
                         class="user-avatar"></div>
                 @endempty
                 <div>
@@ -118,7 +118,7 @@
                         width="100px" class="user-avatar" name="img_current">
                 </div>
                 @else
-                <div class="avt-user"> <img src="{{ asset('public/source/image/'.$user->avatar)}}" width="100px"
+                <div class="avt-user"> <img src="{{ asset('public/avatar/'.$user->avatar)}}" width="100px"
                         class="user-avatar" name="img_current">
                 </div>
                 @endempty

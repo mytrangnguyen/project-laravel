@@ -26,7 +26,8 @@ class Products extends Migration
             $table->string('description');
             $table->integer('cate_id')->unsigned();
             $table->foreign('cate_id')->references('cate_id')->on('categories');
-            $table->string('center_name');
+            $table->integer('center_id')->unsigned();
+            $table->foreign('center_id')->references('id')->on('sellers');
             $table->boolean('status');
             $table->timestamps();
         });

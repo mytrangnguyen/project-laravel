@@ -17,11 +17,11 @@ class Cart
             $this->totalPrice = $oldCart->totalPrice;
         }
     }
-    //Them phan tu vao gio hang							
+    //Them phan tu vao gio hang
     public function addCart($item, $id, $quantity = 1)
     {
         if ($item->promotion_price == 0) {
-            $giohang = ['quantity' => 0, 'price' => $item->price_out, 'item' => $item];
+            $giohang = ['quantity' => 0, 'price' => $item->price_out, 'center_id'=> $item->center_id, 'item' => $item];
             if ($this->items) {
                 if (array_key_exists($id, $this->items)) {
                     $giohang = $this->items[$id];
@@ -33,7 +33,7 @@ class Cart
             $this->totalQuantity = $this->totalQuantity + $quantity;
             $this->totalPrice += $item->price_out * $giohang['quantity'];
         } else {
-            $giohang = ['quantity' => 0, 'price' => $item->promotion_price, 'item' => $item];
+            $giohang = ['quantity' => 0, 'price' => $item->promotion_price,'center_id'=> $item->center_id, 'item' => $item];
             if ($this->items) {
                 if (array_key_exists($id, $this->items)) {
                     $giohang = $this->items[$id];

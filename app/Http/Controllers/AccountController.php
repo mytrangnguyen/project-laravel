@@ -173,6 +173,7 @@ class AccountController extends Controller
             ->get();
         $history = collect($historyarr)->groupBy('created_at')->toArray();
         $length = count($history);
+
         return view('page.editUser', compact('user', 'history', 'length'));
     }
 
@@ -185,7 +186,6 @@ class AccountController extends Controller
         $img_current = 'public/avatar/'. $request->img_current;
 		if(!empty($request->file('avatar')))
 		{
-
 			$file_name =  $request->file('avatar')->getClientOriginalName();
 			$user->avatar = $file_name;
 			$request->file('avatar')->move('public/avatar/',$file_name);
@@ -194,7 +194,6 @@ class AccountController extends Controller
 				File::delete($img_current);
 			}
 		}
-
         $user->password = bcrypt($request->matkhau);
         $user->save();
         Alert::success('Thành công', 'Chỉnh sửa thành công');

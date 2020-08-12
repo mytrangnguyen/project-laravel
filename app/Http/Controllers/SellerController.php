@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Seller;
+use App\Order_Prods;
 use input;
 
 class SellerController extends Controller
@@ -24,8 +25,6 @@ class SellerController extends Controller
         $seller->user_role = $request->txtuser_role;
         $seller->password = $request->txtpassword;
         $seller->save();
-
-
 		return redirect()->route('admin.seller.getListSeller');
     }
 
@@ -63,5 +62,13 @@ class SellerController extends Controller
         $seller = Seller::find($id);
         $seller->delete($id);
         return back();
-      }
+    }
+
+    public function getOrdersByCenter(){
+        $orderByCenter = DB::table('order_prods')
+        ->select('order_prods.id', 'order_prods.id_order', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out', 'order_prods.created_at')
+        ->where('order_prods.center_id', '=', '3')->get();
+        $orderByCenter1 = collect($orderByCenter)->groupBy('created_at')->toArray();
+        // dd($orderByCenter1);
+    }
 }

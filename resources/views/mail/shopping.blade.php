@@ -44,7 +44,7 @@
                                     <td align="left" valign="middle"
                                         style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666666;padding:0 10px 20px 10px;line-height:17px">
                                         Chào {{ $order->name }},
-                                        <br> Cám ơn bạn đã mua sắm tại Electrolic Store
+                                        <br> Cám ơn bạn đã mua sắm tại Handmade Store
                                         <br>
                                         <br> Đơn hàng của bạn đang
                                         <b>chờ shop</b>

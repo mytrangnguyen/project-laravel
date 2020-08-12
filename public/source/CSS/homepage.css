@@ -522,7 +522,7 @@ body {
     .description
     .card-product {
     padding-top: 20px;
-    text-align: right;
+    /* text-align: right; */
 }
 
 .main-content-product
@@ -718,11 +718,11 @@ body {
     height: 100%;
 }
 
-.main-content .box-infor.black-box {
-    color: #fff;
-    background-color: #00182e !important;
-    /* padding-top: 40px; */
-}
+/* .main-content .box-infor.black-box { */
+/* color: #fff; */
+/* background-color: #00182e !important; */
+/* padding-top: 40px; */
+/* } */
 
 .box-infor .title-value {
     font-size: 25px;

@@ -22,6 +22,7 @@
             <div class="group-product">
                 <div class="item-product">
                     <div class="image-product">
+
                         <img src="{{ asset('source/image/item2.jpg') }}" alt="">
                     </div>
                     <div class="description-product">
@@ -118,41 +119,41 @@
         </div>
         <div class="main-content-product">
             <div class="row-list-product">
-                @foreach($sp_theoloai as $sptl)
+                @foreach($prodByCenter as $spttt)
                 <div class="col-3">
                     <div class="item-product">
                         <div class="image-product">
-                            <a href="{{Route('chitiet',$sptl->id)}}">
-                                <img src='{{ asset("source/image/$sptl->url_img") }}' alt="" class="hidden-image">
+                            <a href="{{Route('chitiet',$spttt->id)}}">
+                                <img src='{{ asset("source/image/$spttt->url_img") }}' alt="" class="hidden-image">
                             </a>
                         </div>
                         <div class="description">
                             <div class="title-product">
-                                <h3>{{$sptl->center_name}}</h3>
+                                <h3>{{$spttt->center_name}}</h3>
                             </div>
                             <div class="name-product">
-                                <p>{{$sptl->prod_name}}</p>
+                                <p>{{$spttt->prod_name}}</p>
                             </div>
-                            @if($sptl->promotion_price==0)
+                            @if($spttt->promotion_price==0)
                             <div class="price-product">
                                 <span class="price">
-                                    {{$sptl->price_out}} đ
+                                    {{$spttt->price_out}} đ
                                 </span>
                             </div>
                             @else
                             <div class="price-product">
                                 <span class="price">
-                                    {{$sptl->promotion_price}} đ
+                                    {{$spttt->promotion_price}} đ
 
                                 </span>
                                 <span class="promo-price">
-                                    {{$sptl->price_out}} đ
+                                    {{$spttt->price_out}} đ
                                 </span>
                             </div>
                             @endif
                             <div class="card-product">
                                 <!-- <a href="#"><i class='fas fa-heart'></i></a> -->
-                                <a href="{{Route('themgiohang',$sptl->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="{{Route('themgiohang',$spttt->id)}}"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -162,7 +163,7 @@
             </div>
         </div>
         <div class="links">
-            {{$sp_theoloai->links()}}
+            {{$prodByCenter->links()}}
         </div>
     </div>
 </div>

@@ -16,6 +16,7 @@ use App\Order_Prods;
 use App\Order;
 use App\Customer;
 use App\Contact;
+use App\Seller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ShoppingMail;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -23,19 +24,40 @@ use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
+
     public function getIndex()
     {
         $slide = Slide::all();
-        $new_product = Product::where('status', 1)->paginate(8);
-        $sanpham_khuyenmai = Product::where('promotion_price', '<>', 0)->paginate(8);
+        $new_product = DB::table('products')->where('status', 1)->orderBy('id')
+        ->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
+        ->join('sellers', 'sellers.id', '=', 'products.center_id')
+        ->paginate(8);
+
+        $sanpham_khuyenmai = DB::table('products')->where('promotion_price', '<>', 0)->orderBy('id')
+        ->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
+        ->join('sellers', 'sellers.id', '=', 'products.center_id')
+        ->paginate(8);
+        // $new_product = Product::where('status', 1)->paginate(8);
+        // $sanpham_khuyenmai = Product::where('promotion_price', '<>', 0)->paginate(8);
         return view('page.home', compact('slide', 'new_product', 'sanpham_khuyenmai'));
     }
 
     public function getProPagebyType($type)
     {
         $slide = Slide::all();
-        $sp_theoloai = Product::where('cate_id', $type)->get();
-        return view('page.product', compact('slide', 'sp_theoloai'));
+        $new_product = DB::table('products')->where('status', 1)->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
+        ->join('sellers', 'sellers.id', '=', 'products.center_id')->limit(3)->get();
+        $sp_theoloai = Product::where('cate_id', $type)->paginate(8);
+        return view('page.product', compact('slide', 'sp_theoloai','new_product'));
+    }
+
+    public function getProductByCenterName($center_id){
+        $slide = Slide::all();
+        $prodByCenter =  DB::table('products')->where('center_id', $center_id)->orderBy('id')
+        ->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
+        ->join('sellers', 'sellers.id', '=', 'products.center_id')
+        ->paginate(8);
+        return view('page.productByCenter', compact('slide', 'prodByCenter'));
     }
 
     public function getIntroPage()
@@ -153,7 +175,7 @@ class PageController extends Controller
             $product->decrement('quantity', $value['quantity']);
             $bill_detail = new Order_Prods;
             $bill_detail->id_order = $bill->id;
-            $bill_detail->center_name = "MT";
+            $bill_detail->center_id = $value['center_id'];
             $bill_detail->prod_name = $value['item']['prod_name'];
             $bill_detail->quantity = $value['quantity'];
             $bill_detail->price_out = $value['price'] / $value['quantity'];

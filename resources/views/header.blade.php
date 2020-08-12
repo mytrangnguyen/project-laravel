@@ -159,6 +159,15 @@
 
                     </li>
                     <li class="menu-item">
+                        <a class="active-item" href="#">TRUNG TÂM</a>
+                        <ul id="nav" class=" item-submenu">
+                            @foreach($productByCenter as $center)
+                            <li><a href="{{route('sanphamtheoloai',$center->id)}}">{{$center->center_name}}</a></li>
+                            @endforeach
+                        </ul>
+
+                    </li>
+                    <li class="menu-item">
                         <a class="active-item" href="{{route('gioithieu')}}">GIỚI THIỆU</a>
                     </li>
                     <li class="menu-item">
@@ -171,6 +180,7 @@
 
 
     </div>
+
 
 
 </header>

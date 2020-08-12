@@ -20,7 +20,7 @@ class OrderProds extends Migration
             $table->string('prod_name');
             $table->integer('quantity');
             $table->float('price_out');
-            $table->string('center_name');
+            $table->integer('center_id');
             // $table->primary(array('id', 'i/d_order'))/;
             $table->timestamps();
         });

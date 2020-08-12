@@ -28,6 +28,11 @@ Route::get('product/{type}', [
     'uses' => 'PageController@getProPagebyType'
 ]);
 
+Route::get('product-by-center/{center_id}',[
+    'as' => 'sanphamtheoloai',
+    'uses' => 'PageController@getProductByCenterName'
+]);
+
 Route::get('introduction', [
     'as' => 'gioithieu',
     'uses' => 'PageController@getIntroPage'

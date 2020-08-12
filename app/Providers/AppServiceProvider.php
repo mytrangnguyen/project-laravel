@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Category;
+use App\Seller;
 use Illuminate\Support\Facades\Session;
 use App\Cart;
 
@@ -30,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('header', function ($view) {
             $loai_sp = Category::all();
             $view->with('loai_sp', $loai_sp);
+        });
+
+        view()->composer('header', function ($view) {
+            $productByCenter = Seller::all();
+            $view->with('productByCenter', $productByCenter);
         });
 
         view()->composer(['header', 'page.checkout', 'page.cart', 'mail.shopping'], function ($view) {

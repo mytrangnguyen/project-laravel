@@ -67,7 +67,7 @@
                                 @endif
 
                                 <div class="card-product">
-                                    <a href="#"><i class='fas fa-heart'></i></a>
+                                    <!-- <a href="#"><i class='fas fa-heart'></i></a> -->
                                     <a href="{{Route('themgiohang',$new->id)}}"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                                     </span>
                                 </div>
                                 <div class="card-product">
-                                    <a href="#"><i class='fas fa-heart'></i></a>
+                                    <!-- <a href="#"><i class='fa fa-heart'></i></a> -->
                                     <a href="{{Route('themgiohang',$spkm->id)}}"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
