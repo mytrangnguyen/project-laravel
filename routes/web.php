@@ -126,11 +126,40 @@ Route::post('checkout', [
     'uses' => 'PageController@postCheckout'
 ]);
 
+//huy đơn
+Route::post('cancelOrder/{id}',[
+    'as' => 'huydonhang',
+    'uses' => 'PageController@postCancel'
+]);
+
+//re order
+Route::post('reOrder/{id}',[
+    'as' => 'dathanglai',
+    'uses' => 'PageController@postReOrder'
+]);
+// chị biết as đó dùng làm gì không ?ko nhớ
+
 //Route edit thông tin user
-Route::get('users/{user}',  [
-    'as' => 'users.edit',
+
+Route::get('historyOrder',[
+    'as' => 'history',
     'uses' => 'AccountController@getOrdersHistory'
 ]);
+
+//Route quên mật khẩu
+
+Route::get('forgotPassword',[
+    'as' => 'quenmatkhau',
+    'uses' => 'AccountController@getFormResetPassword'
+]);
+
+// Route::get('resetPassword')
+
+Route::get('users/{user}',  [
+    'as' => 'users.edit',
+    'uses' => 'AccountController@getUserProfile'
+]);
+
 Route::patch('users/{user}/update',  [
     'as' => 'users.update',
     'uses' => 'AccountController@updateUser'

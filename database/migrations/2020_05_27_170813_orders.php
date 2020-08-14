@@ -25,7 +25,7 @@ class Orders extends Migration
             $table->float('total');
             $table->string('payment');
             $table->string('note');
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

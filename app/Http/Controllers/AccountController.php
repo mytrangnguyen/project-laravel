@@ -135,46 +135,102 @@ class AccountController extends Controller
                 'password.max' => 'Mật khẩu không quá 20 ký tự'
             ]
         );
-        if ($request->remember == trans('remember.Remember Me')) {
-            $remember = true;
-        } else {
-            $remember = false;
-        }
-        $credentials = array('email' => $request->email, 'password' => $request->password);
-        if (Auth::attempt($credentials)) { //login đúng
+        // if ($request->remember == trans('remember.Remember Me')) {
+        //     $remember = true;
+        // } else {
+        //     $remember = false;
+        // }
 
-            if($request->email=="admin@gmail.com"){
-                return redirect()->route('admin.product.getListProduct');
-            }
-            else{
-                // var_dump("login thành công");
+        $remember = $request->has('remember') ? true : false;
+        $credentials = array();
+        // dd("login thành công", $credentials);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) { //login đúng
+
+                // dd("login thành công", Auth::user()->username);
                 return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
-            }
+
 
         } else { //login sai
             // dd('tk Hoặc mật khẩu chưa đúng');
-            // var_dump("login k thành công");
-            return redirect()->back()->with(['flag' => 'danger', 'message' => 'Đăng nhập không thành công!']);
+            // dd("login k thành công");
+            return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
         }
     }
 
+    public function getFormResetPassword(){
+        return view('page.resetPassword');
+    }
     public function getLogout()
     {
         Auth::logout();
         return redirect()->route('trang-chu');
     }
-    public function getOrdersHistory(User $user)
+    public function getUserProfile(User $user)
     {
         $user = Auth::user();
-        $historyarr = DB::table('orders')
-            ->select('orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-            ->where('orders.user_id', '=', Auth::user()->id)
-            ->get();
-        $history = collect($historyarr)->groupBy('created_at')->toArray();
-        $length = count($history);
 
-        return view('page.editUser', compact('user', 'history', 'length'));
+
+        return view('page.profile', compact('user', 'history', 'length'));
+    }
+
+    public function getOrdersHistory(){
+        //get all orders
+        $historyarr= DB::table('orders')
+        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+        ->where('orders.user_id', '=', Auth::user()->id)
+        ->get();
+        $history = collect($historyarr)->groupBy('created_at')->toArray();
+
+        //get orders with "Chờ xác nhận"
+        $historyarr1 = DB::table('orders')
+        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+        ->where('orders.user_id', '=', Auth::user()->id)
+        ->where('orders.status',1)
+        ->get();
+        $history1 = collect($historyarr1)->groupBy('created_at')->toArray();
+
+        //get orders with "Đang giao"
+        $historyarr2 = DB::table('orders')
+        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+        ->where('orders.user_id', '=', Auth::user()->id)
+        ->where('orders.status',2)
+        ->get();
+        $history2 = collect($historyarr2)->groupBy('created_at')->toArray();
+
+        //get orders with "Đã giao"
+        $historyarr3 = DB::table('orders')
+        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+        ->where('orders.user_id', '=', Auth::user()->id)
+        ->where('orders.status',3)
+        ->get();
+        $history3 = collect($historyarr3)->groupBy('created_at')->toArray();
+
+        //get orders with "Đã hủy"
+        $historyarr3 = DB::table('orders')
+        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+        ->where('orders.user_id', '=', Auth::user()->id)
+        ->where('orders.status',3)
+        ->get();
+        $history3 = collect($historyarr3)->groupBy('created_at')->toArray();
+
+        $historyarr4 = DB::table('orders')
+        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+        ->where('orders.user_id', '=', Auth::user()->id)
+        ->where('orders.status',4)
+        ->get();
+        $history4 = collect($historyarr4)->groupBy('created_at')->toArray();
+
+        return view('page.historyOrder', compact('history','history1','history2','history3','history4'));
+    }
+
+    public function getProfile(){
+        return view('page.profile');
     }
 
     public function updateUser(User $user, Request $request)

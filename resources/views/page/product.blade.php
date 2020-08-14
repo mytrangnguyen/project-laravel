@@ -117,42 +117,51 @@
             <p class="title-category">Hot product</p>
         </div>
         <div class="main-content-product">
+            <div class="main-title">
+                <div class="title-new-pr">
+                    <b></b>
+                    <span class="title-product">Sản phẩm mới</span>
+                    <b></b>
+                </div>
+            </div>
             <div class="row-list-product">
                 @foreach($sp_theoloai as $sptl)
                 <div class="col-3">
                     <div class="item-product">
-                        <div class="image-product">
-                            <a href="{{Route('chitiet',$sptl->id)}}">
-                                <img src='{{ asset("source/image/$sptl->url_img") }}' alt="" class="hidden-image">
-                            </a>
-                        </div>
-                        <div class="description">
-                            <div class="title-product">
-                                <h3>{{$sptl->center_name}}</h3>
+                        <div class="product-session">
+                            <div class="">
+                                <a href="{{Route('chitiet',$sptl->id)}}">
+                                    <img src='{{ asset("source/image/$sptl->url_img") }}' alt="" class="pr-image">
+                                </a>
                             </div>
-                            <div class="name-product">
-                                <p>{{$sptl->prod_name}}</p>
-                            </div>
-                            @if($sptl->promotion_price==0)
-                            <div class="price-product">
-                                <span class="price">
-                                    {{$sptl->price_out}} đ
-                                </span>
-                            </div>
-                            @else
-                            <div class="price-product">
-                                <span class="price">
-                                    {{$sptl->promotion_price}} đ
+                            <div class="description">
+                                <div class="title-product">
+                                    <h3>{{$sptl->center_name}}</h3>
+                                </div>
+                                <div class="name-product">
+                                    <p>{{$sptl->prod_name}}</p>
+                                </div>
+                                @if($sptl->promotion_price==0)
+                                <div class="price-product">
+                                    <span class="price">
+                                        {{$sptl->price_out}} đ
+                                    </span>
+                                </div>
+                                @else
+                                <div class="price-product">
+                                    <span class="price">
+                                        {{$sptl->promotion_price}} đ
 
-                                </span>
-                                <span class="promo-price">
-                                    {{$sptl->price_out}} đ
-                                </span>
-                            </div>
-                            @endif
-                            <div class="card-product">
-                                <!-- <a href="#"><i class='fas fa-heart'></i></a> -->
-                                <a href="{{Route('themgiohang',$sptl->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                    </span>
+                                    <span class="promo-price">
+                                        {{$sptl->price_out}} đ
+                                    </span>
+                                </div>
+                                @endif
+                                <div class="card-product">
+                                    <!-- <a href="#"><i class='fas fa-heart'></i></a> -->
+                                    <a href="{{Route('themgiohang',$sptl->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

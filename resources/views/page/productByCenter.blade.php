@@ -122,38 +122,41 @@
                 @foreach($prodByCenter as $spttt)
                 <div class="col-3">
                     <div class="item-product">
-                        <div class="image-product">
-                            <a href="{{Route('chitiet',$spttt->id)}}">
-                                <img src='{{ asset("source/image/$spttt->url_img") }}' alt="" class="hidden-image">
-                            </a>
-                        </div>
-                        <div class="description">
-                            <div class="title-product">
-                                <h3>{{$spttt->center_name}}</h3>
+                        <div class="product-session">
+                            <div class="">
+                                <a href="{{Route('chitiet',$spttt->id)}}">
+                                    <img src='{{ asset("source/image/$spttt->url_img") }}' alt="" class="pr-image">
+                                </a>
                             </div>
-                            <div class="name-product">
-                                <p>{{$spttt->prod_name}}</p>
-                            </div>
-                            @if($spttt->promotion_price==0)
-                            <div class="price-product">
-                                <span class="price">
-                                    {{$spttt->price_out}} đ
-                                </span>
-                            </div>
-                            @else
-                            <div class="price-product">
-                                <span class="price">
-                                    {{$spttt->promotion_price}} đ
+                            <div class="description">
+                                <div class="title-product">
+                                    <h3>{{$spttt->center_name}}</h3>
+                                </div>
+                                <div class="name-product">
+                                    <p>{{$spttt->prod_name}}</p>
+                                </div>
+                                @if($spttt->promotion_price==0)
+                                <div class="price-product">
+                                    <span class="price">
+                                        {{$spttt->price_out}} đ
+                                    </span>
+                                </div>
+                                @else
+                                <div class="price-product">
+                                    <span class="price">
+                                        {{$spttt->promotion_price}} đ
 
-                                </span>
-                                <span class="promo-price">
-                                    {{$spttt->price_out}} đ
-                                </span>
-                            </div>
-                            @endif
-                            <div class="card-product">
-                                <!-- <a href="#"><i class='fas fa-heart'></i></a> -->
-                                <a href="{{Route('themgiohang',$spttt->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                    </span>
+                                    <span class="promo-price">
+                                        {{$spttt->price_out}} đ
+                                    </span>
+                                </div>
+                                @endif
+                                <div class="card-product">
+                                    <!-- <a href="#"><i class='fas fa-heart'></i></a> -->
+                                    <a href="{{Route('themgiohang',$spttt->id)}}"><i
+                                            class="fa fa-shopping-cart"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

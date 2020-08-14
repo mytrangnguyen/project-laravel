@@ -139,6 +139,20 @@ class PageController extends Controller
         }
     }
 
+    public function postCancel($id){
+        $orders = Order::find($id);
+        $orders->status=4;
+        $orders->save();
+        return redirect()->back();
+    }
+
+    public function postReOrder($id){
+        $orders = Order::find($id);
+        $orders->status = 1;
+        $orders->save();
+        return redirect()->back();
+    }
+
     public function getCheckout()
     {
         return view('page.checkout');
@@ -155,8 +169,9 @@ class PageController extends Controller
         $customer->phone_number = $req->phone;
         $customer->note = $req->notes;
         $customer->save();
-
-        $bill = new Order;
+        DB::beginTransaction();
+        try {
+            $bill = new Order;
         $bill->order_date = date('Y-m-d');
         $bill->user_id = Auth::user()->id;
         $bill->total = $cart->totalPrice;
@@ -165,7 +180,7 @@ class PageController extends Controller
         $bill->email = $req->email;
         $bill->address = $req->address;
         $bill->note = $req->notes;
-        $bill->status = "Chờ xác nhận";
+        $bill->status = 1;
         $bill->save();
 
         $order_detail = [];
@@ -182,18 +197,18 @@ class PageController extends Controller
             $bill_detail->save();
         }
 
-        // foreach ($cart as $item) {
-        //     $product = Product::find($item->id);
-        //     $product->decrement('votes', $item->quantity);
-        // }
-
         Session::forget('cart');
+        DB::commit();
         $notification = array(
             'message' => 'Đặt hàng thành công',
             'alert-type' => 'success'
         );
         Alert::success('Thành công', 'Bạn đã đặt hàng thành công, vui lòng kiểm tra email về thông tin đơn hàng');
         return redirect()->back();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+
     }
 
     public function getDeleteItemCart($id)

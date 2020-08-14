@@ -12,12 +12,15 @@
         </div>
         <div class="header-right">
             @if(Auth::check())
-            <div class="avatar">
-                <div class="user"><span><i class="fa fa-user" aria-hidden="true"></i></span><a class="icon-header link"
-                        id="login-button" href="{{route('users.edit',Auth::user())}}"
+            <div class="avatar ">
+                <div class="user dropdown"><span><i class="fa fa-user" aria-hidden="true"></i></span><a
+                        class="icon-header link dropbtn" id="login-button" href="#"
                         target="_top">{{Auth::user()->username}}</a>
                     &emsp;
-
+                    <div class="dropdown-content">
+                        <a href="{{route('users.edit',Auth::user())}}">Tài khoản của tôi</a>
+                        <a href="{{route('history')}}">Đơn mua</a>
+                    </div>
                 </div>
                 <div class="logout"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span><a
                         href="{{route('logout')}}" class="icon-header  link" id="login-button" target="_top">Đăng
