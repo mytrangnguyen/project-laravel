@@ -25,7 +25,8 @@
                         <td>{{$comment[$i]['username']}}</td>
                         <td>{{$comment[$i]['prod_name']}}</td>
                         <td>{{$comment[$i]['comment']}}</td>
-                        <td><a href="{!! url('admin/comment/delete',$i) !!}"> <i class="menu-icon fa fa-trash"></i></a>
+                        <td><a onclick="return confirm('Bạn có muốn xóa không?')"
+                                href="{!! url('admin/comment/delete',$i) !!}"> <i class="menu-icon fa fa-trash"></i></a>
                         </td>
                         </tr>
                         @endfor

@@ -176,15 +176,25 @@ Route::post('comment', [
 // ROUTE ADMIN
 
 Route::group(['prefix' => 'admin/'], function () {
-	Route::get('login',
-		['as' 	=> 'admin.showLoginPage',
-		'uses' 	=> 'PageAdminController@showLoginPage'
-	]);
+    Route::get('login', [
+        'as' => 'admin.login.getLoginAdmin',
+        'uses' => 'LoginAdminController@getLoginAdmin',
+    ]);
+    Route::post('postLogin', [
+        'as' => 'postLogin',
+        'uses' => 'LoginAdminController@postLoginAdmin',
+    ]);
 	Route::get('home',
 		['as' 	=> 'admin.showAdminPage',
-		'uses' 	=> 'PageAdminController@showAdminPage'
+		'uses' 	=> 'LoginAdminController@showAdminPage'
     ]);
+
 });
+
+Route::get('logoutAdmin',
+['as' 	=> 'postLogout',
+'uses' 	=> 'LoginAdminController@postLogoutAdmin'
+]);
 
 
 // category
@@ -390,10 +400,38 @@ Route::group(['prefix' => 'admin/comment/'], function () {
 	]);
 });
 
-// Page User Profile
-Route::group(['prefix' => 'user/'], function () {
-	Route::get('view',
-		['as' 	=> 'user.getViewUserProfile',
-		'uses' 	=> 'UserProfileController@getViewUserProfile'
+// Order
+Route::group(['prefix' => 'admin/order/'], function () {
+
+	Route::get('list',
+		['as' 	=> 'admin.comment.getListOrder',
+		'uses' 	=> 'OrderController@getListOrder'
+	]);
+
+	// Delete Order
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteOrder',
+		'uses' 	=> 'OrderController@getDeleteOrder'
+    ]);
+    // Change Status
+    Route::post('changeStatus/{id}',[
+        'as' =>'thaydoitrangthai',
+        'uses' => 'OrderController@postChangeStatus'
+    ]);
+
+});
+
+// Order_Prods
+Route::group(['prefix' => 'admin/order_prods/'], function () {
+
+	Route::get('list',
+		['as' 	=> 'admin.order_prods.getListOrder_Prods',
+		'uses' 	=> 'OrderProdsController@getListOrder_Prods'
+	]);
+
+	// Delete Order_Prods
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteOrder_Prods',
+		'uses' 	=> 'OrderProdsController@getDeleteOrder_Prods'
 	]);
 });

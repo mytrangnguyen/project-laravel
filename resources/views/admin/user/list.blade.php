@@ -1,7 +1,8 @@
 @extends('admin.master')
 @section('content')
 
-<a href="{!! url('admin/user/add') !!}">Add more User</a>
+<button type="submit" class="btn-add btn btn-success"><a class="add-button" href="{!! url('admin/user/add') !!}">Add</a>
+    <i class="menu-icon fa fa-plus"></i></button>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-success">User Data</h6>
@@ -33,7 +34,8 @@
                         <td>
                             <a href="{!! url('admin/user/edit',$value->id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>
-                            <a href="{!! url('admin/user/delete',$value->id) !!}"> <i
+                            <a onclick="return confirm('Bạn có muốn xóa không?')"
+                                href="{!! url('admin/user/delete',$value->id) !!}"> <i
                                     class="menu-icon fa fa-trash"></i></a>
                         </td>
                     </tr>

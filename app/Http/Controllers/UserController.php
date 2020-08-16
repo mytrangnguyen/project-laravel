@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use input;
 
@@ -20,7 +21,7 @@ class UserController extends Controller
         $user->address = $request->txtaddress;
         $user->phone = $request->txtphone;
         $user->user_role = $request->txtuser_role;
-        $user->password = $request->txtpassword;
+        $user->password = Hash::make($request->txtpassword);
 		$user->save();
 		return redirect()->route('admin.user.getListUser');
     }

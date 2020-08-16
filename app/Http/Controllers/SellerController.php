@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Seller;
 use App\Order_Prods;
 use input;
+use File;
 
 class SellerController extends Controller
 {
@@ -19,10 +20,14 @@ class SellerController extends Controller
         $seller->fullname = $request->txtfullname;
         $seller->address = $request->txtaddress;
         $seller->center_name = $request->txtcenter_name;
-        $seller->paper_identication = $request->txtpaper_identication;
+
+        $filename = $request->file('txtimage')->getClientOriginalName();
+        $seller->paper_identication = $filename;
+        $request->file('txtimage')->move('public/avatar/',$filename);
+
         $seller->email = $request->txtemail;
         $seller->phone = $request->txtphone;
-        $seller->user_role = $request->txtuser_role;
+        $seller->user_role = $request->txtuser_role="seller";
         $seller->password = $request->txtpassword;
         $seller->save();
 		return redirect()->route('admin.seller.getListSeller');
@@ -47,11 +52,23 @@ class SellerController extends Controller
         $seller = Seller::find($id);
         $seller->fullname = $request->input('txtfullname');
         $seller->address = $request->input('txtaddress');
+
+        $img_current = 'public/avatar/'. $request->img_current;
+		if(!empty($request->file('txtimage')))
+		{
+
+			$filename =  $request->file('txtimage')->getClientOriginalName();
+			$seller->paper_identication = $filename;
+			$request->file('txtimage')->move('public/avatar/',$filename);
+			if(File::exists($img_current))
+			{
+				File::delete($img_current);
+			}
+		}
+
         $seller->center_name = $request->input('txtcenter_name');
-        $seller->paper_identication = $request->input('txtpaper_identication');
         $seller->email = $request->input('txtemail');
         $seller->phone = $request->input('txtphone');
-        $seller->user_role = $request->input('txtuser_role');
         $seller->password = $request->input('txtpassword');
 		$seller->save();
         return redirect()->route('admin.seller.getListSeller')->with('success','Update successfully!');

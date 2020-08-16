@@ -7,16 +7,8 @@ use input;
 
 class PageAdminController extends Controller
 {
-    public function showLoginPage() {
-    	return view('admin.login');
-    }
-    public function showAdminPage(Request $request) {
-        $email = $request->input('txtemail');
-        $password = $request->input('txtpassword');
+    // public function showLoginPage() {
+    // 	return view('admin.indexAdmin');
+    // }
 
-        if ($email=="thaotran@gmail.com" && $password=="123456") {
-            return view('admin.indexAdmin');
-        }
-    	return view('admin.login');
-    }
 }

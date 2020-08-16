@@ -1,7 +1,9 @@
 @extends('admin.master')
 @section('content')
 
-<a href="{!! url('admin/category/add') !!}">Add more Category</a>
+<button type="submit" class="btn-add btn btn-success"><a class="add-button"
+        href="{!! url('admin/category/add') !!}">Add</a>
+    <i class="menu-icon fa fa-plus"></i></button>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -27,7 +29,8 @@
                             <a href="{!! url('admin/category/edit',$value->cate_id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>
 
-                            <a href="{!! url('admin/category/delete',$value->cate_id) !!}"> <i
+                            <a onclick="return confirm('Bạn có muốn xóa không?')"
+                                href="{!! url('admin/category/delete',$value->cate_id) !!}"> <i
                                     class="menu-icon fa fa-trash"></i></a>
                         </td>
                     </tr>
