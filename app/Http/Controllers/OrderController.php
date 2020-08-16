@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Mail\ConfirmedMail;
+use Illuminate\Support\Facades\Mail;
+
 
 class OrderController extends Controller
 {
@@ -23,7 +26,9 @@ class OrderController extends Controller
         $order = Order::find($id);
         if($order->status==1){
             $order->status=2;
+        //    dd($order->name);
             $order->save();
+            Mail::to($order->email)->send(new ConfirmedMail($order));
 
         }
         elseif($order->status==2){
