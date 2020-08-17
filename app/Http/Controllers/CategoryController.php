@@ -14,6 +14,17 @@ class CategoryController extends Controller
 
     // Lấy dữ liệu vừa nhập và lưu lại vào database
     public function postAddCategory(Request $request) {
+        $this->validate($request, [
+
+            'category' => 'required|max:30',
+            'category' => 'required|min:5',
+        ],
+        [
+            'category.required' => 'Vui lòng nhập category',
+        ]
+
+        );
+
     	$category = new Category;
         $category->cate_name = $request->txtname;
 		    $category->save();

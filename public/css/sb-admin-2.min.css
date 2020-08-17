@@ -1479,6 +1479,9 @@ pre code {
     margin-bottom: 1rem;
     color: #858796;
 }
+li.text-error {
+    color: rgb(238, 10, 10);
+}
 
 i.menu-icon.fa.fa-edit,
 i.menu-icon.fa.fa-check {

@@ -20,34 +20,34 @@
                     <table class="user-information">
                         <thead>
                             <tr>
-                                <th class="table-th"> <label><b>Tên</b></label></th>
+                                <th class="table-th"> <label class="label"><b>Tên</b></label></th>
                                 <td class="table-th"><input type="text" class="input-infor"
                                         value="{{ $user->username }}" placeholder="Nhập tên" id="tendangnhap"
                                         name="username"></td>
                             </tr>
                         </thead>
                         <tr>
-                            <th class="table-th"><label><b>Email</b></label></th>
+                            <th class="table-th"><label class="label"><b>Email</b></label></th>
                             <td class="table-th"><input type="text" class="input-infor" value="{{ $user->email }}"
                                     placeholder="Nhập email" id="email" name="email"></td>
                         </tr>
                         <tr>
-                            <th class="table-th"><label><b>Địa chỉ</b></label></th>
+                            <th class="table-th"><label class="label"><b>Địa chỉ</b></label></th>
                             <td class="table-th"><input type="text" class="input-infor" value="{{ $user->address }}"
                                     placeholder="Nhập địa chỉ" id="address" name="address"></td>
                         </tr>
                         <tr>
-                            <th class="table-th"><label><b>Số điện thoại</b></label></th>
+                            <th class="table-th"><label class="label"><b>Số điện thoại</b></label></th>
                             <td class="table-th"><input type="text" class="input-infor" value="{{ $user->phone }}"
                                     placeholder="Nhập số điện thoại" id="phone" name="phone"></td>
                         </tr>
                         <tr>
-                            <th class="table-th"><label for=" psw"><b>Mật khẩu</b></label></th>
+                            <th class="table-th"><label for=" psw" class="label"><b>Mật khẩu</b></label></th>
                             <td class="table-th"><input type="password" class="input-infor" placeholder="Nhập mật khẩu"
                                     id="password" name="password"></td>
                         </tr>
                         <tr>
-                            <th class="table-th"> <label for="psw"><b>Nhập lại mật khẩu</b></label>
+                            <th class="table-th"> <label for="psw " class="label"><b>Nhập lại mật khẩu</b></label>
                             </th>
                             <td class="table-th">
                                 <input type="password" class="input-infor" placeholder="Nhập lại mật khẩu"
@@ -57,9 +57,9 @@
                 </div>
                 <div class="my-account-profile__right">
                     <div class="custom-avt">
-                        <label><b>Ảnh đại diện</b></label>
+                        <label class="label"><b>Ảnh đại diện</b></label>
                         @empty($user->avatar)
-                        <div class="avt-user"> <img src="https://www.jbrhomes.com/wp-content/uploads/blank-avatar.png"
+                        <div class=" avt-user"> <img src="https://www.jbrhomes.com/wp-content/uploads/blank-avatar.png"
                                 width="100px" class="user-avatar" name="img_current">
                         </div>
                         @else

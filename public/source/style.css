@@ -256,6 +256,12 @@ form.search button:hover {
     font-weight: bold;
 }
 
+.time-cmt {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.54);
+}
+
 .dropdown {
     display: none;
 }
@@ -1282,7 +1288,11 @@ span.psw {
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0.125rem;
+    background: #fff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -1291,7 +1301,11 @@ span.psw {
     float: left;
     border: none;
     outline: none;
-    font-size: 18px;
+    user-select: none;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
@@ -1340,6 +1354,10 @@ th,
 td {
     border: 1px solid #ccc;
     border-collapse: collapse;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
 }
 
 .thongbao {
@@ -1507,4 +1525,25 @@ td {
     border: 1px solid #8bc34a;
     border-radius: 10px;
     background: whitesmoke;
+}
+
+.my-account-section__header-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #333;
+    text-transform: capitalize;
+}
+
+.my-account-section__header-subtitle {
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+    color: #555;
+    margin-top: 3px;
+}
+
+.label {
+    text-align: right;
+    color: rgba(85, 85, 85, 0.8);
+    text-transform: capitalize;
 }

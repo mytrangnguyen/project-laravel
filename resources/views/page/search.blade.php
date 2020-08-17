@@ -20,36 +20,39 @@
                     @foreach($product as $pro)
                     <div class="box-content">
                         <div class="item-product">
-                            <div class="image-product">
-                                <a href="{{Route('chitiet',$pro->id)}}"><img src="source/image/{{$pro->url_img}}" alt="" class="hidden-image"></a>
-                            </div>
-                            <div class="description">
-                                <div class="title-product">
-                                    <h3>{{$pro->center_name}}</h3>
+                            <div class="product-session">
+                                <div class="">
+                                    <a href="{{Route('chitiet',$pro->id)}}"><img src="source/image/{{$pro->url_img}}"
+                                            alt="" class="pr-image"></a>
                                 </div>
-                                <div class="name-product">
-                                    <p>{{$pro->prod_name}}</p>
-                                </div>
-                                @if($pro->promotion_price==0)
-                                <div class="price-product">
-                                    <span class="price">
-                                        {{$pro->price_out}} đ
-                                    </span>
-                                </div>
-                                @else
-                                <div class="price-product">
-                                    <span class="price">
-                                        {{$pro->promotion_price}} đ
-                                    </span>
-                                    <span class="promo-price">
-                                        {{$pro->price_out}} đ
-                                    </span>
-                                </div>
-                                @endif
+                                <div class="description">
+                                    <div class="title-product">
+                                        <h3>{{$pro->center_name}}</h3>
+                                    </div>
+                                    <div class="name-product">
+                                        <p>{{$pro->prod_name}}</p>
+                                    </div>
+                                    @if($pro->promotion_price==0)
+                                    <div class="price-product">
+                                        <span class="price">
+                                            {{$pro->price_out}} đ
+                                        </span>
+                                    </div>
+                                    @else
+                                    <div class="price-product">
+                                        <span class="price">
+                                            {{$pro->promotion_price}} đ
+                                        </span>
+                                        <span class="promo-price">
+                                            {{$pro->price_out}} đ
+                                        </span>
+                                    </div>
+                                    @endif
 
-                                <div class="card-product">
-                                    <a href="#"><i class='fas fa-heart'></i></a>
-                                    <a href="{{Route('themgiohang',$pro->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                    <div class="card-product">
+                                        <a href="{{Route('themgiohang',$pro->id)}}"><i
+                                                class="fa fa-shopping-cart"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

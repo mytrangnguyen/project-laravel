@@ -78,209 +78,225 @@
         </center>
     </div>
     <div id="Paris" class="tabcontent">
-        <div class="user-infor">
-            @empty($history1)
-            <div class="purchase-empty-order__container">
-                <div class="purchase-empty-order__icon"> </div>
-                <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+        <center>
+            <div class="user-infor">
+                @empty($history1)
+                <div class="purchase-empty-order__container">
+                    <div class="purchase-empty-order__icon"> </div>
+                    <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+                </div>
+                @else
+                <table>
+                    <tr>
+                        <th>Người mua hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Chi tiết đơn hàng</th>
+                        <th>Tổng tiền</th>
+                        <th>Thời gian</th>
+                    </tr>
+                    <tr>
+                        @foreach($history1 as $key=>$item)
+                        <td>{{$item[0]->name}}</td>
+                        <td>{{$item[0]->address}}</td>
+                        <td>0334778516</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                @for($i = 0; $i< count($item); $i++) <tr>
+                                    <td>{{$item[$i]->prod_name}}</td>
+                                    <td>{{$item[$i]->price_out}}</td>
+                                    <td>{{$item[$i]->quantity}}</td>
+                    </tr>
+                    @endfor
+                    </tr>
+                </table>
+                </td>
+                <td>{{$item[0]->total}}</td>
+                <td>{{$item[0]->created_at}}</td>
+                <td>
+                    <form method="POST" action="{{URL::action('PageController@postCancel',$item[0]->id)}}">
+                        {{ csrf_field() }}
+                        <button type="submit" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng')"
+                            class="btn-cancel">Hủy đơn</button></form>
+                </td>
+                <!-- {!! url('huydonhang',$item[0]->id) !!} -->
+                </tr>
+                @endforeach
+                </table>
+                @endempty
             </div>
-            @else
-            <table>
-                <tr>
-                    <th>Người mua hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Chi tiết đơn hàng</th>
-                    <th>Tổng tiền</th>
-                    <th>Thời gian</th>
-                </tr>
-                <tr>
-                    @foreach($history1 as $key=>$item)
-                    <td>{{$item[0]->name}}</td>
-                    <td>{{$item[0]->address}}</td>
-                    <td>0334778516</td>
-                    <td>
-                        <table>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                            </tr>
-                            @for($i = 0; $i< count($item); $i++) <tr>
-                                <td>{{$item[$i]->prod_name}}</td>
-                                <td>{{$item[$i]->price_out}}</td>
-                                <td>{{$item[$i]->quantity}}</td>
-                </tr>
-                @endfor
-                </tr>
-            </table>
-            </td>
-            <td>{{$item[0]->total}}</td>
-            <td>{{$item[0]->created_at}}</td>
-            <td>
-                <form method="POST" action="{{URL::action('PageController@postCancel',$item[0]->id)}}">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn-cancel">Hủy đơn</button></form>
-            </td>
-            <!-- {!! url('huydonhang',$item[0]->id) !!} -->
-            </tr>
-            @endforeach
-            </table>
-            @endempty
-        </div>
-    </div>
+        </center>
 
+    </div>
     <div id="Tokyo" class="tabcontent">
-        <div class="user-infor">
-            @empty($history2)
-            <div class="purchase-empty-order__container">
-                <div class="purchase-empty-order__icon"> </div>
-                <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+        <center>
+
+            <div class="user-infor">
+                @empty($history2)
+                <div class="purchase-empty-order__container">
+                    <div class="purchase-empty-order__icon"> </div>
+                    <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+                </div>
+                @else
+                <table>
+                    <tr>
+                        <th>Người mua hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Chi tiết đơn hàng</th>
+                        <th>Tổng tiền</th>
+                        <th>Thời gian</th>
+                    </tr>
+                    <tr>
+                        @foreach($history2 as $key=>$item)
+                        <td>{{$item[0]->name}}</td>
+                        <td>{{$item[0]->address}}</td>
+                        <td>0334778516</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                @for($i = 0; $i< count($item); $i++) <tr>
+                                    <td>{{$item[$i]->prod_name}}</td>
+                                    <td>{{$item[$i]->price_out}}</td>
+                                    <td>{{$item[$i]->quantity}}</td>
+                    </tr>
+                    @endfor
+                    </tr>
+                </table>
+                </td>
+                <td>{{$item[0]->total}}</td>
+                <td>{{$item[0]->created_at}}</td>
+                </tr>
+                @endforeach
+                </table>
+                @endempty
             </div>
-            @else
-            <table>
-                <tr>
-                    <th>Người mua hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Chi tiết đơn hàng</th>
-                    <th>Tổng tiền</th>
-                    <th>Thời gian</th>
-                </tr>
-                <tr>
-                    @foreach($history2 as $key=>$item)
-                    <td>{{$item[0]->name}}</td>
-                    <td>{{$item[0]->address}}</td>
-                    <td>0334778516</td>
-                    <td>
-                        <table>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                            </tr>
-                            @for($i = 0; $i< count($item); $i++) <tr>
-                                <td>{{$item[$i]->prod_name}}</td>
-                                <td>{{$item[$i]->price_out}}</td>
-                                <td>{{$item[$i]->quantity}}</td>
-                </tr>
-                @endfor
-                </tr>
-            </table>
-            </td>
-            <td>{{$item[0]->total}}</td>
-            <td>{{$item[0]->created_at}}</td>
-            </tr>
-            @endforeach
-            </table>
-            @endempty
-        </div>
+        </center>
+
     </div>
     <div id="finish" class="tabcontent">
-        <div class="user-infor">
-            @empty($history3)
-            <div class="purchase-empty-order__container">
-                <div class="purchase-empty-order__icon"> </div>
-                <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
-            </div>
-            @else
-            <table>
-                <tr>
-                    <th>Người mua hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Chi tiết đơn hàng</th>
-                    <th>Tổng tiền</th>
-                    <th>Thời gian</th>
-                </tr>
-                <tr>
-                    @foreach($history3 as $key=>$item)
-                    <td>{{$item[0]->name}}</td>
-                    <td>{{$item[0]->address}}</td>
-                    <td>0334778516</td>
-                    <td>
-                        <table>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                            </tr>
-                            @for($i = 0; $i< count($item); $i++) <tr>
-                                <td>{{$item[$i]->prod_name}}</td>
-                                <td>{{$item[$i]->price_out}}</td>
-                                <td>{{$item[$i]->quantity}}</td>
-                </tr>
-                @endfor
-                </tr>
-            </table>
-            </td>
-            <td>{{$item[0]->total}}</td>
-            <td>{{$item[0]->created_at}}</td>
+        <center>
 
-            <!-- {!! url('huydonhang',$item[0]->id) !!} -->
-            </tr>
-            @endforeach
-            </table>
-            @endempty
-        </div>
+            <div class="user-infor">
+                @empty($history3)
+                <div class="purchase-empty-order__container">
+                    <div class="purchase-empty-order__icon"> </div>
+                    <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+                </div>
+                @else
+                <table>
+                    <tr>
+                        <th>Người mua hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Chi tiết đơn hàng</th>
+                        <th>Tổng tiền</th>
+                        <th>Thời gian</th>
+                    </tr>
+                    <tr>
+                        @foreach($history3 as $key=>$item)
+                        <td>{{$item[0]->name}}</td>
+                        <td>{{$item[0]->address}}</td>
+                        <td>0334778516</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                @for($i = 0; $i< count($item); $i++) <tr>
+                                    <td>{{$item[$i]->prod_name}}</td>
+                                    <td>{{$item[$i]->price_out}}</td>
+                                    <td>{{$item[$i]->quantity}}</td>
+                    </tr>
+                    @endfor
+                    </tr>
+                </table>
+                </td>
+                <td>{{$item[0]->total}}</td>
+                <td>{{$item[0]->created_at}}</td>
+
+                <!-- {!! url('huydonhang',$item[0]->id) !!} -->
+                </tr>
+                @endforeach
+                </table>
+                @endempty
+            </div>
+        </center>
+
     </div>
     <div id="cancel" class="tabcontent">
-        <div class="user-infor">
-            @empty($history4)
-            <div class="purchase-empty-order__container">
-                <div class="purchase-empty-order__icon"> </div>
-                <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+        <center>
+
+            <div class="user-infor">
+                @empty($history4)
+                <div class="purchase-empty-order__container">
+                    <div class="purchase-empty-order__icon"> </div>
+                    <div class="purchase-empty-order__text"> Chưa có đơn hàng </div>
+                </div>
+                @else
+                <table>
+                    <tr>
+                        <th>Người mua hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Chi tiết đơn hàng</th>
+                        <th>Tổng tiền</th>
+                        <th>Thời gian</th>
+                    </tr>
+                    <tr>
+                        @foreach($history4 as $key=>$item)
+                        <td>{{$item[0]->name}}</td>
+                        <td>{{$item[0]->address}}</td>
+                        <td>0334778516</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                @for($i = 0; $i< count($item); $i++) <tr>
+                                    <td>{{$item[$i]->prod_name}}</td>
+                                    <td>{{$item[$i]->price_out}}</td>
+                                    <td>{{$item[$i]->quantity}}</td>
+                    </tr>
+                    @endfor
+                    </tr>
+                </table>
+                </td>
+                <td>{{$item[0]->total}}</td>
+                <td>{{$item[0]->created_at}}</td>
+                <td>
+                    <form method="POST" action="{{URL::action('PageController@postReOrder',$item[0]->id)}}">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn">Đặt lại</button>
+                    </form>
+                </td>
+                </tr>
+                @endforeach
+                </table>
+                @endempty
             </div>
-            @else
-            <table>
-                <tr>
-                    <th>Người mua hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Chi tiết đơn hàng</th>
-                    <th>Tổng tiền</th>
-                    <th>Thời gian</th>
-                </tr>
-                <tr>
-                    @foreach($history4 as $key=>$item)
-                    <td>{{$item[0]->name}}</td>
-                    <td>{{$item[0]->address}}</td>
-                    <td>0334778516</td>
-                    <td>
-                        <table>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                            </tr>
-                            @for($i = 0; $i< count($item); $i++) <tr>
-                                <td>{{$item[$i]->prod_name}}</td>
-                                <td>{{$item[$i]->price_out}}</td>
-                                <td>{{$item[$i]->quantity}}</td>
-                </tr>
-                @endfor
-                </tr>
-            </table>
-            </td>
-            <td>{{$item[0]->total}}</td>
-            <td>{{$item[0]->created_at}}</td>
-            <td>
-                <form method="POST" action="{{URL::action('PageController@postReOrder',$item[0]->id)}}">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn">Đặt lại</button>
-                </form>
-            </td>
-            </tr>
-            @endforeach
-            </table>
-            @endempty
-        </div>
+        </center>
+
     </div>
 </div>
 <div class="">
 
 </div>
 </div>
+
 
 
 

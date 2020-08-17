@@ -17,46 +17,37 @@
                             </div>
                             <form class="user" action="{{URL::action('LoginAdminController@postLoginAdmin')}}"
                                 method="POST">
-                                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}" />
 
-                                @if(count($errors)>0)
-                                <div class="alert alert-danger">
-                                    <ul class="error-message">
-                                        <a><i class="fa fa-times-circle"></i></a>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{!! $error !!}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+
+                                @if ($errors->any())
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li class="text-error">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                                 @endif
-                                @if(session('thongbao'))
-                                <div class="alert alert-danger">
-                                    <ul class="error-message">
-                                        <a><i class="fa fa-times-circle"></i></a>
-                                        <li>Đăng nhập thất bại</li>
-                                    </ul>
-                                    @endif
 
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" name="email"
-                                            placeholder="Enter Email Address...">
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" name="email"
+                                        placeholder="Enter Email Address...">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" name="password"
+                                        placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck"
+                                            value="remember" name="remember">
+                                        <label class="custom-control-label" for="customCheck">Remember Me</label>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck"
-                                                value="remember" name="remember">
-                                            <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-success btn-user btn-block">Log in</button>
-                                    <hr>
-                                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                                        <i class="fab fa-google fa-fw"></i> Login with Google
-                                    </a>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-user btn-block">Log in</button>
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Login with Google
+                                </a>
                             </form>
                             <hr>
                             <div class="text-center">

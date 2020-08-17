@@ -12,7 +12,7 @@
                 @if(count($errors)>0)
                 <div class="alert alert-danger">
                     <ul class="error-message">
-                        <a><i class="fa fa-times-circle"></i></a>
+                        <a id="close-error"><i class="fa fa-times-circle"></i></a>
                         @foreach ($errors->all() as $error)
                         <li>{!! $error !!}</li>
                         @endforeach
@@ -22,14 +22,14 @@
                 @if(session('thongbao'))
                 <div class="alert alert-danger">
                     <ul class="error-message">
-                        <a><i class="fa fa-times-circle"></i></a>
+                        <a id="close-error"><i class="fa fa-times-circle"></i></a>
                         <li>Đăng nhập thất bại</li>
                     </ul>
                     @endif
 
 
                     <div class="login-container">
-                        <label for="uname"><b>Tên đăng nhập hoặc email</b></label>
+                        <label for="uname"><b>Email đăng nhập</b></label>
                         <input type="text" class="input-infor" placeholder="Nhập tên hoặc email" name="email">
 
                         <label for="psw"><b>Mật khẩu</b></label>

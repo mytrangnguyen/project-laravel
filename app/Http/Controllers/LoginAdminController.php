@@ -24,48 +24,32 @@ class LoginAdminController extends Controller
         return view('admin.login');
     }
     public function postLoginAdmin(Request $request){
-    $this->validate(
-        $request,
-        [
-            'email' => 'required|email',
+
+        $this->validate($request, [
+            'email' => 'required|max:100',
+            'email' => 'required|min:10',
+            'password' => 'required|max:15',
+            'password' => 'required|min:6',
         ],
         [
             'email.required' => 'Vui lòng nhập email',
-            'email.email' => 'Không đúng định dạng email',
             'password.required' => 'Vui lòng nhập mật khẩu',
-            'password.min' => 'Mật khẩu phải chứa ít nhất 6 ký tự',
-            'password.max' => 'Mật khẩu không quá 20 ký tự'
-        ]
-    );
+        ]);
 
-    $remember = $request->has('remember') ? true : false;
-    $email = $request->email;
-    $password = $request->password;
-    // dd("login thành công", $credentials);
-    if ($user = User::where('email', $email)->first()) {
 
-        if (Hash::check($password, $user->password)) {
-// dd($user->password);
+        $remember = $request->has('remember') ? true : false;
 
-            if (Auth::attempt(['email' => $email, 'password' => $password],$remember)) { //login đúng
+        $email = $request->input('email');
+        $password = $request->input('password');
+            if (Auth::attempt(array('email' => $email, 'password' => $password),$remember)){
                 return redirect()->route('admin.showAdminPage')->with('alert', 'Đăng nhập thành công');
-                    // dd("login thành công");
-
-
-    //         // return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
-
-
-    } else { //login sai
-        // dd('tk Hoặc mật khẩu chưa đúng');
-        return redirect()->route('admin.login.getLoginAdmin')->with('alert', 'Đăng nhập thành công');
-        // dd("login k thành công");
-        // return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
-
+            }
+            else {
+                return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
+            }
 
     }
-    }}
 
-}
 public function postLogoutAdmin(){
     Auth::logout();
     return redirect()->route('admin.login.getLoginAdmin');

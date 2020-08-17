@@ -111,7 +111,14 @@ class PageController extends Controller
 
     public function getSearch(Request $req)
     {
-        $product = Product::where('prod_name', 'like', '%' . $req->key . '%')
+        $product= DB::table('products')
+        ->select('products.id','prod_name','products.url_img', 'price_out', 'promotion_price', 'sellers.center_name as center_name')
+        ->where('prod_name', 'like', '%' . $req->key . '%')
+        ->orWhere('price_out', $req->key)
+        ->join('sellers','sellers.id','products.center_id')
+        ->get();
+        // dd($product);
+        $product1 = Product::where('prod_name', 'like', '%' . $req->key . '%')
             ->orWhere('price_out', $req->key)
             ->get();
         return view('page.search', compact('product'));

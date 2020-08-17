@@ -135,17 +135,10 @@ class AccountController extends Controller
                 'password.max' => 'Mật khẩu không quá 20 ký tự'
             ]
         );
-        // if ($request->remember == trans('remember.Remember Me')) {
-        //     $remember = true;
-        // } else {
-        //     $remember = false;
-        // }
 
         $remember = $request->has('remember') ? true : false;
         $credentials = array();
-        // dd("login thành công", $credentials);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) { //login đúng
-
                 // dd("login thành công", Auth::user()->username);
                 return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
 

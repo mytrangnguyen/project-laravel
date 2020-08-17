@@ -33,11 +33,11 @@
             <div class="quantity-detail detail">
                 <h5>Số lượng</h5>
             </div>
-            <div class="input-quantity">
+            <!-- <div class="input-quantity">
                 <span class="minus">-</span>
                 <input type="text" value="1" class="quantity" />
                 <span class="plus">+</span>
-            </div>
+            </div> -->
             <div class="available-product-detail detail">
                 <p>Còn {{$chitiet_sp->quantity}} sản phẩm trong kho</h5>
             </div>
@@ -73,7 +73,7 @@
     <div class="border"></div>
     <div class="feedback content">
         <p><i class="fa fa-comment comment"></i> {{$cmt->comment}}</p>
-        <h5>{{$cmt->created_at}}</h5>
+        <h5 class="time-cmt">{{$cmt->created_at}}</h5>
     </div>
 </div>
 @endforeach
