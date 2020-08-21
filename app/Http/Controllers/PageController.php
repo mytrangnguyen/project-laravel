@@ -174,6 +174,7 @@ class PageController extends Controller
         $customer->email = $req->email;
         $customer->address = $req->address;
         $customer->phone_number = $req->phone;
+        $customer->ship_method = $req->ship_method;
         $customer->note = $req->notes;
         $customer->save();
         DB::beginTransaction();
@@ -218,6 +219,10 @@ class PageController extends Controller
 
     }
 
+    public function getBill(){
+        return view('page.bill');
+    }
+
     public function getDeleteItemCart($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -234,11 +239,17 @@ class PageController extends Controller
     //Controller post comment
     public function postComment(Request $req)
     {
-        $comment = new Comment();
-        $comment->id_prod = $req->id_prod;
-        $comment->id_user = $req->id_user;
-        $comment->comment = $req->comment;
-        $comment->save();
-        return redirect()->back();
+        if(Auth::user()){
+            $comment = new Comment();
+            $comment->id_prod = $req->id_prod;
+            $comment->id_user = $req->id_user;
+            $comment->comment = $req->comment;
+            $comment->save();
+            return redirect()->back();
+        }
+        else{
+            Alert::warning('Cảnh báo', 'Bạn phải đăng nhập trước khi bình luận');
+            return redirect()->back();
+        }
     }
 }

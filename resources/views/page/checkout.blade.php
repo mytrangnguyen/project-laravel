@@ -43,7 +43,15 @@
                     <label for="phone">Điện thoại*</label>
                     <input type="text" id="phone" name="phone" required>
                 </div>
+                <div class="form-block">
+                    <label>Hình thức giao hàng</label>
+                    </br>
+                    <input id="gender" type="radio" class="input-radio" name="ship_method" value="Giao hàng tiết kiệm"
+                        checked="checked" style="width: 10%"><span style="margin-right: 10%">Giao hàng tiết kiệm</span>
+                    <input id="gender" type="radio" class="input-radio" name="ship_method" value="Giao hàng nhanh"
+                        style="width: 10%"><span>Giao hàng nhanh</span>
 
+                </div>
                 <div class="form-block">
                     <label for="notes">Ghi chú</label>
                     <textarea id="notes" namespace="note" name="notes"></textarea>

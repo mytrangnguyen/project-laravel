@@ -20,6 +20,7 @@ class Customers extends Migration
             $table->string('gender');
             $table->string('email');
             $table->string('address');
+            $table->string('ship_method');
             $table->string('note');
             $table->string('phone_number');
             $table->timestamps();

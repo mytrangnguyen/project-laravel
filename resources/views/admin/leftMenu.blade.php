@@ -21,55 +21,55 @@
     <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/category/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-list"></i>
             <span>CATEGORIES</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/comment/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="far fa-comments"></i>
             <span>COMMENTS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/customer/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-user-check"></i>
             <span>CUSTOMERS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/order/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-file-invoice"></i>
             <span>ORDERS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/order_prods/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-wallet"></i>
             <span>ORDER PRODUCTS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/seller/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-user"></i>
             <span>SELLERS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/user/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-user-friends"></i>
             <span>USERS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/slider/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fab fa-slideshare"></i>
             <span>SLIDERS</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/product/list') !!}">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fab fa-product-hunt"></i>
             <span>PRODUCTS</span></a>
     </li>
 

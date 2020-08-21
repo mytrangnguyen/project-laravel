@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Product;
 use App\Seller;
 use App\Order;
+use App\Customer;
 use App\Order_Prods;
 use DB;
 use File;
@@ -17,7 +19,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 class LoginAdminController extends Controller
 {
     public function showAdminPage() {
-    	return view('admin.indexAdmin');
+        $product_count=Product::count();
+        $order_count= Order::count();
+        $customer_count=Customer::count();
+        $seller_count=Seller::count();
+        $new_order = Order::where('status', 1)->get();
+    	return view('admin.indexAdmin',compact('product_count','order_count','customer_count','seller_count','new_order'));
     }
     public function getLoginAdmin()
     {

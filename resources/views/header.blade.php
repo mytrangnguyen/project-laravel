@@ -24,8 +24,8 @@
                 </div>
                 <div class="logout"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span><a
                         href="{{route('logout')}}" class="icon-header  link" id="login-button" target="_top">Đăng
-                        xuất</a></div>
-
+                        xuất</a>
+                </div>
             </div>
             @else
             <div class="login">
@@ -45,14 +45,8 @@
                     alt="logo"></a>
 
         </div>
-        <div class="search-bar">
-            <form class="search" method="get" action="{{route('tim-kiem')}}">
-                <input type="text" value="" placeholder="Search.." name="key">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div class="cart">
 
+        <div class="cart">
             <div class="product-cart">
                 <a href="{{route('giohang')}}" class="cart-toggle">
                     <span class="cart-text">Giỏ hàng</span>
@@ -138,6 +132,17 @@
                 </a>
             </div> -->
         </div>
+    </div>
+    <div class="search-bar">
+        <form class="search" method="get" action="{{route('tim-kiem')}}">
+            <input type="text" value="" placeholder="Search.." name="key">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
+
+
+
     </div>
 
     </div>

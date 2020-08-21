@@ -56,7 +56,11 @@
         <form action="{{route('feedback')}}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="id_prod" value="{{$chitiet_sp->id}}" />
+            @if(Auth::user())
             <input type="hidden" name="id_user" value="{{Auth::user()->id}}" />
+            @else
+            <input type="hidden" name="id_user" value="" />
+            @endif
             <textarea name="comment"></textarea>
             <!-- <div class="btn-feedback"> -->
             <button type="submit" class="btn">GỬI</button>
@@ -72,7 +76,8 @@
     </div>
     <div class="border"></div>
     <div class="feedback content">
-        <p><i class="fa fa-comment comment"></i> {{$cmt->comment}}</p>
+        <span><i class="fa fa-comment comment"></i> </span>
+        <p>{{$cmt->comment}}</p>
         <h5 class="time-cmt">{{$cmt->created_at}}</h5>
     </div>
 </div>
@@ -98,5 +103,6 @@
     - GIÁ SỈ MUA BUÔN LIÊN HỆ SỐ HOTLINE: 0334778516</br>
 
 </div>
+
 
 @endsection

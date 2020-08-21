@@ -26,8 +26,6 @@
                         <li>Đăng nhập thất bại</li>
                     </ul>
                     @endif
-
-
                     <div class="login-container">
                         <label for="uname"><b>Email đăng nhập</b></label>
                         <input type="text" class="input-infor" placeholder="Nhập tên hoặc email" name="email">

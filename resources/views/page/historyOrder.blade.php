@@ -6,7 +6,7 @@
         <button class="tablinks" onclick="openCity(event, 'London')">Tất cả</button>
         <button class="tablinks" onclick="openCity(event, 'Paris')">Chờ xác nhận</button>
         <button class="tablinks" onclick="openCity(event, 'Tokyo')">Đang giao</button>
-        <button class="tablinks" onclick="openCity(event, 'finish')">Đã giao</button>
+        <button class="tablinks" onclick="openCity(event, 'finish')">Đã nhận</button>
         <button class="tablinks" onclick="openCity(event, 'cancel')">Đã hủy</button>
     </div>
 

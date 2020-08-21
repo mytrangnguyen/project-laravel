@@ -182,6 +182,7 @@ body {
 .box-content {
     display: inline-block;
     width: 24%;
+    margin: 4px;
 }
 
 /* .next-p, .prev-p {

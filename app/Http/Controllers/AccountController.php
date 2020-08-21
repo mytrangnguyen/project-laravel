@@ -137,10 +137,11 @@ class AccountController extends Controller
         );
 
         $remember = $request->has('remember') ? true : false;
-        $credentials = array();
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) { //login đúng
-                // dd("login thành công", Auth::user()->username);
-                return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+            //login đúng
+            // dd("login thành công", Auth::user()->username);
+            return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
 
 
         } else { //login sai
@@ -242,8 +243,10 @@ class AccountController extends Controller
 			{
 				File::delete($img_current);
 			}
-		}
-        $user->password = bcrypt($request->matkhau);
+        }
+        if($request->matkhau != ""){
+            $user->password = bcrypt($request->matkhau);
+        }
         $user->save();
         Alert::success('Thành công', 'Chỉnh sửa thành công');
         return back();
