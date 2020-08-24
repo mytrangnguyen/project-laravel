@@ -31,11 +31,6 @@
                         <th>Thời gian</th>
                     </tr>
                     <tr>
-                        <!-- <th>Sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th> -->
-                    </tr>
-                    <tr>
                         @foreach($history as $key=>$item)
                         <td>{{$item[0]->name}}</td>
                         <td>{{$item[0]->address}}</td>

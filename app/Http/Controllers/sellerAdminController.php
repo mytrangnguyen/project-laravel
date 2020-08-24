@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Guest;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class LoginAdminController extends Controller
+class sellerAdminController extends Controller
 {
     public function showAdminPage() {
         $product_count=Product::count();
@@ -24,11 +24,11 @@ class LoginAdminController extends Controller
         $customer_count=Customer::count();
         $seller_count=Seller::count();
         $new_order = Order::where('status', 1)->get();
-    	return view('admin.indexAdmin',compact('product_count','order_count','customer_count','seller_count','new_order'));
+    	return view('sellerAdmin.indexAdmin',compact('product_count','order_count','customer_count','seller_count','new_order'));
     }
     public function getLoginAdmin()
     {
-        return view('admin.login');
+        return view('sellerAdmin.login');
     }
     public function postLoginAdmin(Request $request){
 
@@ -48,22 +48,23 @@ class LoginAdminController extends Controller
 
         $email = $request->input('email');
         $password = $request->input('password');
-        // if ($user = User::where('user_role', 'admin')->first()) {
-            if (Auth::guard('admin')->attempt(array('email' => $email, 'password' => $password),$remember)){
-                // dd()
-                return redirect()->route('admin.showAdminPage')->with('alert', 'Đăng nhập thành công');
+        $user_role="seller";
+        // dd($testAccount);
+        if ($user = User::where('user_role', $user_role)->first()) {
+
+            if (Auth::attempt(array('email' => $email, 'password' => $password),$remember)){
+                // dd(Auth::user()->email);
+                return redirect()->route('sellerAdmin.showAdminPage')->with('alert', 'Đăng nhập thành công');
             }
             else {
                 return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
             }
-        // }
-
+        }
     }
 
 public function postLogoutAdmin(){
     Auth::logout();
-    return redirect()->route('admin.login.getLoginAdmin');
+    return redirect()->route('sellerAdmin.login.getLoginAdmin');
 
 }
-
 }

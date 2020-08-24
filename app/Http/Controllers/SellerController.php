@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Seller;
+use App\User;
 use App\Order_Prods;
 use input;
 use File;
@@ -28,8 +30,23 @@ class SellerController extends Controller
         $seller->email = $request->txtemail;
         $seller->phone = $request->txtphone;
         $seller->user_role = $request->txtuser_role="seller";
-        $seller->password = $request->txtpassword;
+        $seller->password = Hash::make($request->txtpassword);
         $seller->save();
+
+        $user = new User;
+
+        $user->id= $seller->id;
+        $user->username = $request->txtfullname;
+        $user->email = $request->txtemail;
+        $user->address = $request->txtaddress;
+        $user->phone = $request->txtphone;
+        $user->user_role = $request->txtuser_role="seller";
+
+        $user->password = Hash::make($request->txtpassword);
+        $user->save();
+
+
+
 		return redirect()->route('admin.seller.getListSeller');
     }
 

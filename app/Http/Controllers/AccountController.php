@@ -137,8 +137,10 @@ class AccountController extends Controller
         );
 
         $remember = $request->has('remember') ? true : false;
-
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+        $user_role="user";
+        // dd($testAccount);
+        if ($user = User::where('user_role', $user_role)->first()) {
+    if (Auth::attempt(['email' => $request->email, 'word' => $request->password], $remember)) {
             //login đúng
             // dd("login thành công", Auth::user()->username);
             return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
@@ -149,6 +151,7 @@ class AccountController extends Controller
             // dd("login k thành công");
             return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
         }
+    }
     }
 
     public function getFormResetPassword(){

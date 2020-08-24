@@ -435,3 +435,169 @@ Route::group(['prefix' => 'admin/order_prods/'], function () {
 		'uses' 	=> 'OrderProdsController@getDeleteOrder_Prods'
 	]);
 });
+
+
+
+// ROUTE SELLER ADMIN
+
+Route::group(['prefix' => 'sellerAdmin/'], function () {
+    Route::get('login', [
+        'as' => 'sellerAdmin.login.getLoginAdmin',
+        'uses' => 'sellerAdminController@getLoginAdmin',
+    ]);
+    Route::post('postLogin', [
+        'as' => 'loginSellerAdmin',
+        'uses' => 'sellerAdminController@postLoginAdmin',
+    ]);
+	Route::get('home',
+		['as' 	=> 'sellerAdmin.showAdminPage',
+		'uses' 	=> 'sellerAdminController@showAdminPage'
+    ]);
+
+});
+
+// category seller
+Route::group(['prefix' => 'sellerAdmin/category/'], function () {
+	Route::get('add',
+		['as' 	=> 'sellerAdmin.category.getAddCategory',
+		'uses' 	=> 'sellerCategoryController@getAddCategory'
+    ]);
+    Route::post('postAdd',['as'=>'postAdd','uses'=>'sellerCategoryController@postAddCategory']);
+    Route::get('edit/{id}', [
+		'as' 	=> 'sellerAdmin.category.getEditCategory',
+		'uses' 	=> 'sellerCategoryController@getEditCategory'
+	]);
+	Route::get('list',
+		['as' 	=> 'sellerAdmin.category.getListCategory',
+		'uses' 	=> 'sellerCategoryController@getListCategory'
+	]);
+
+	Route::get('edit/{id}', [
+		'as' 	=> 'sellerAdmin.category.getEditCategory',
+		'uses' 	=> 'sellerCategoryController@getEditCategory'
+	]);
+
+	Route::post('edit/{id}', [
+		'as' 	=> 'sellerAdmin.category.postEditCategory',
+		'uses' 	=> 'sellerCategoryController@postEditCategory'
+	]);
+
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteCategory',
+		'uses' 	=> 'sellerCategoryController@getDeleteCategory'
+	]);
+
+});
+
+// product
+Route::group(['prefix' => 'sellerAdmin/product/'], function () {
+	Route::get('add',
+		['as' 	=> 'sellerAdmin.product.getAddProduct',
+		'uses' 	=> 'sellerProductController@getAddProduct'
+    ]);
+	Route::post('postAdd',['as'=>'postAdd','uses'=>'sellerProductController@postAddProduct']);
+
+	Route::get('list',
+		['as' 	=> 'sellerAdmin.product.getListProduct',
+		'uses' 	=> 'sellerProductController@getListProduct'
+	]);
+
+	// Updated Product
+	Route::get('edit/{id}', [
+		'as' 	=> 'sellerAdmin.products.getEditProduct',
+		'uses' 	=> 'sellerProductController@getEditProduct'
+	]);
+
+	Route::post('edit/{id}', [
+		'as' 	=> 'sellerAdmin.products.postEditProduct',
+		'uses' 	=> 'sellerProductController@postEditProduct'
+	]);
+
+	// Delete Product
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteProduct',
+		'uses' 	=> 'sellerProductController@getDeleteProduct'
+	]);
+});
+
+// Order
+Route::group(['prefix' => 'sellerAdmin/order/'], function () {
+
+	Route::get('list',
+		['as' 	=> 'sellerAdmin.comment.getListOrder',
+		'uses' 	=> 'sellerOrderController@getListOrder'
+	]);
+
+	// Delete Order
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteOrder',
+		'uses' 	=> 'sellerOrderController@getDeleteOrder'
+    ]);
+    // Change Status
+    Route::post('changeStatus/{id}',[
+        'as' =>'thaydoitrangthai',
+        'uses' => 'sellerOrderController@postChangeStatus'
+    ]);
+
+});
+
+// Order_Prods
+Route::group(['prefix' => 'sellerAdmin/order_prods/'], function () {
+
+	Route::get('list',
+		['as' 	=> 'sellerAdmin.order_prods.getListOrder_Prods',
+		'uses' 	=> 'sellerOrderProdsController@getListOrder_Prods'
+	]);
+
+	// Delete Order_Prods
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteOrder_Prods',
+		'uses' 	=> 'sellerOrderProdsController@getDeleteOrder_Prods'
+	]);
+});
+
+// Comment
+Route::group(['prefix' => 'sellerAdmin/comment/'], function () {
+
+	Route::get('list',
+		['as' 	=> 'sellerAdmin.comment.getListComment',
+		'uses' 	=> 'sellerCommentController@getListComment'
+	]);
+
+	// Delete Comment
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteComment',
+		'uses' 	=> 'sellerCommentController@getDeleteComment'
+	]);
+});
+
+// Customer
+Route::group(['prefix' => 'sellerAdmin/customer/'], function () {
+	Route::get('add',
+		['as' 	=> 'sellerAdmin.customer.getAddCustomer',
+		'uses' 	=> 'sellerCustomerController@getAddCustomer'
+    ]);
+	Route::post('postAdd',['as'=>'postAdd','uses'=>'sellerCustomerController@postAddCustomer']);
+
+	Route::get('list',
+		['as' 	=> 'sellerAdmin.customer.getListCustomer',
+		'uses' 	=> 'sellerCustomerController@getListCustomer'
+	]);
+
+	// Updated Customer
+	Route::get('edit/{id}', [
+		'as' 	=> 'sellerAdmin.customer.getEditCustomer',
+		'uses' 	=> 'sellerCustomerController@getEditCustomer'
+	]);
+
+	Route::post('edit/{id}', [
+		'as' 	=> 'sellerAdmin.customer.postEditCustomer',
+		'uses' 	=> 'sellerCustomerController@postEditCustomer'
+	]);
+
+	// Delete Customer
+	Route::get('delete/{id}', [
+		'as' 	=> 'getDeleteCustomer',
+		'uses' 	=> 'sellerCustomerController@getDeleteCustomer'
+	]);
+});
