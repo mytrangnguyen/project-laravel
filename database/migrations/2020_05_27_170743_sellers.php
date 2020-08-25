@@ -11,7 +11,7 @@ class Sellers extends Migration
      *
      * @return void
      */
-    
+
     public function up()
     {
         Schema::create('sellers', function (Blueprint $table) {

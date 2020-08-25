@@ -16,11 +16,9 @@ class sellerOrderController extends Controller
         $orderArr= DB::table('orders')
         ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
         ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('order_prods.center_id', '=', Auth::user()->id)
+        ->where('order_prods.center_id', '=', Auth::guard('seller')->user()->id)
         ->get();
         $order = collect($orderArr)->groupBy('created_at')->toArray();
-
-        // $order = Order::all();
         return view('sellerAdmin.order.list',compact('order'));
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\ConfirmedMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class OrderController extends Controller
 {
     public function getListOrder() {
+        // dd(Auth::guard('admin')->user()->email);
         $order = Order::all();
         return view('admin.order.list',compact('order'));
     }

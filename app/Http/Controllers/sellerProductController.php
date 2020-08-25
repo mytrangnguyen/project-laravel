@@ -44,7 +44,7 @@ class sellerProductController extends Controller
     public function getListProduct() {
         // dd(Auth::user()->email);
     	$cate = Category::all();
-		$product = Product::all()->where('center_id', Auth::user()->id);
+		$product = Product::all()->where('center_id', Auth::guard('seller')->user()->id);
 		return view('sellerAdmin.product.list',compact('product','cate'));
     }
 

@@ -35,7 +35,7 @@ class sellerCategoryController extends Controller
 
   // show list Category
     public function getListCategory() {
-        dd(Auth::user()->email);
+        dd(Auth::guard('seller')->user()->id);
 
       $category = Category::all();
       return view('sellerAdmin.category.listCategory',compact('category'));

@@ -33,17 +33,17 @@ class SellerController extends Controller
         $seller->password = Hash::make($request->txtpassword);
         $seller->save();
 
-        $user = new User;
+        // $user = new User;
 
-        $user->id= $seller->id;
-        $user->username = $request->txtfullname;
-        $user->email = $request->txtemail;
-        $user->address = $request->txtaddress;
-        $user->phone = $request->txtphone;
-        $user->user_role = $request->txtuser_role="seller";
+        // $user->id= $seller->id;
+        // $user->username = $request->txtfullname;
+        // $user->email = $request->txtemail;
+        // $user->address = $request->txtaddress;
+        // $user->phone = $request->txtphone;
+        // $user->user_role = $request->txtuser_role="seller";
 
-        $user->password = Hash::make($request->txtpassword);
-        $user->save();
+        // $user->password = Hash::make($request->txtpassword);
+        // $user->save();
 
 
 

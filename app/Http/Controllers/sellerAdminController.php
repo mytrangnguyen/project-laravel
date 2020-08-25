@@ -19,7 +19,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 class sellerAdminController extends Controller
 {
     public function showAdminPage() {
-        $product_count=Product::count();
+        $product=Product::all()->where('center_id', Auth::guard('seller')->user()->id);
+        $product_count = count($product);
         $order_count= Order::count();
         $customer_count=Customer::count();
         $seller_count=Seller::count();
@@ -50,16 +51,16 @@ class sellerAdminController extends Controller
         $password = $request->input('password');
         $user_role="seller";
         // dd($testAccount);
-        if ($user = User::where('user_role', $user_role)->first()) {
+        // if ($user = User::where('user_role', $user_role)->first()) {
 
-            if (Auth::attempt(array('email' => $email, 'password' => $password),$remember)){
+            if (Auth::guard('seller')->attempt(array('email' => $email, 'password' => $password),$remember)){
                 // dd(Auth::user()->email);
                 return redirect()->route('sellerAdmin.showAdminPage')->with('alert', 'Đăng nhập thành công');
             }
             else {
                 return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
             }
-        }
+        // }
     }
 
 public function postLogoutAdmin(){
