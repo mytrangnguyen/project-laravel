@@ -9,14 +9,16 @@ use Auth;
 use Illuminate\Support\ServiceProvider;
 use App\Product;
 use App\Category;
+use App\Seller;
 use input;
 use File;
 
 class sellerProductController extends Controller
 {
     public function getAddProduct() {
-    	$category = Category::all();
-    	return view('sellerAdmin.product.add', compact('category'));
+        $category = Category::all();
+        $sellers = Seller::all();
+    	return view('sellerAdmin.product.add', compact('category','sellers'));
     }
 
     // Lấy dữ liệu vừa nhập và lưu lại
@@ -33,7 +35,7 @@ class sellerProductController extends Controller
         $product->quantity = $request->txtquantity;
         $product->description = $request->txtdescription;
     	$product->cate_id = $request->txtcate_id;
-        $product->center_name = $request->txtdisabled_center;
+        $product->center_id = Auth::guard('seller')->user()->id;
         $product->status = $request->txtstatus;
         // dd(txtcate_id);
 		$product->save();
@@ -51,8 +53,9 @@ class sellerProductController extends Controller
     //Edit Product
     public function getEditProduct($id) {
 		$cate = Category::all();
-		$product = Product::find($id);
-		return view('sellerAdmin.product.edit',compact('cate','product'));
+        $product = Product::find($id);
+        $seller = Seller::all();
+		return view('sellerAdmin.product.edit',compact('cate','product','seller'));
     }
 
     public function postEditProduct($id,Request $request) {
@@ -83,8 +86,8 @@ class sellerProductController extends Controller
       $product->date_end = $request->input('txtend_date');
       $product->quantity = $request->input('txtquantity');
       $product->description = $request->input('txtdescription');
-    	$product->cate_id = $request->input('txtcate_id');
-      $product->center_name = $request->input('txtdisabled_center');
+      $product->cate_id = $request->input('txtcate_id');
+      $product->center_id = $request->input('txtcenter_id');
       $product->status = $request->input('txtstatus');
       $product->save();
       return redirect()->route('sellerAdmin.product.getListProduct')->with('success','Updated successfully!');

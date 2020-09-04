@@ -20,7 +20,7 @@ class UserController extends Controller
         $user->email = $request->txtemail;
         $user->address = $request->txtaddress;
         $user->phone = $request->txtphone;
-        $user->user_role = $request->txtuser_role;
+        $user->user_role = "user";
         $user->password = Hash::make($request->txtpassword);
 		$user->save();
 		return redirect()->route('admin.user.getListUser');

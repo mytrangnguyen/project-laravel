@@ -1,9 +1,9 @@
 @extends('admin.master')
 @section('content')
 
-<button type="submit" class="btn-add btn btn-success"><a class="add-button"
-        href="{!! url('admin/category/add') !!}">Add</a>
-    <i class="menu-icon fa fa-plus"></i></button>
+<a class="add-button btn-add btn btn-success" href="{!! url('admin/category/add') !!}">Add <i
+        class="menu-icon fa fa-plus"></i>
+</a>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">

@@ -2,7 +2,7 @@
 @section('content')
 
 <button type="submit" class="btn-add btn btn-success"><a class="add-button"
-        href="{!! url('admin/category/add') !!}">Add</a>
+        href="{!! url('sellerAdmin/category/add') !!}">Add</a>
     <i class="menu-icon fa fa-plus"></i></button>
 
 <div class="card shadow mb-4">
@@ -26,11 +26,11 @@
                         <td> {!! $value["cate_id"] !!} </td>
                         <td> {!! $value["cate_name"] !!} </td>
                         <td>
-                            <a href="{!! url('admin/category/edit',$value->cate_id) !!}"> <i
+                            <a href="{!! url('sellerAdmin/category/edit',$value->cate_id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>
 
                             <a onclick="return confirm('Bạn có muốn xóa không?')"
-                                href="{!! url('admin/category/delete',$value->cate_id) !!}"> <i
+                                href="{!! url('sellerAdmin/category/delete',$value->cate_id) !!}"> <i
                                     class="menu-icon fa fa-trash"></i></a>
                         </td>
                     </tr>

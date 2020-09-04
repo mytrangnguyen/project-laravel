@@ -11,7 +11,7 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">ADD PRODUCT</h1>
                     </div>
-                    <form class="user" action="{{URL::action('ProductController@postAddProduct')}}" method="post"
+                    <form class="user" action="{{URL::action('sellerProductController@postAddProduct')}}" method="post"
                         role="form" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group row">
@@ -46,8 +46,10 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="txtdisabled_center"
-                                    placeholder="Disabled Center">
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" name="txtdescription" placeholder="Description"
+                                        rows="3"></textarea>
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <select class="form-control" name="txtstatus">
@@ -67,13 +69,6 @@
                                 <label for=""> End date: </label>
                                 <input type="date" class="form-control" name="txtend_date"
                                     value="<?php echo date("Y-m-d"); ?>">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <textarea class="form-control" name="txtdescription" placeholder="Description"
-                                    rows="3"></textarea>
                             </div>
                         </div>
 

@@ -117,7 +117,6 @@ class PageController extends Controller
         ->orWhere('price_out', $req->key)
         ->join('sellers','sellers.id','products.center_id')
         ->get();
-        // dd($product);
         $product1 = Product::where('prod_name', 'like', '%' . $req->key . '%')
             ->orWhere('price_out', $req->key)
             ->get();
@@ -140,9 +139,9 @@ class PageController extends Controller
                 return redirect()->back();
             }
         }
-        else{
+        else {
             Alert::warning('Cảnh báo', 'Bạn phải đăng nhập trước khi mua hàng');
-            return view('page.login');
+            return redirect()->back();
         }
     }
 

@@ -1,5 +1,6 @@
 @extends('admin.master1')
 @section('content1')
+
 <div class="row justify-content-center">
 
     <div class="col-xl-10 col-lg-12 col-md-9">
@@ -18,7 +19,7 @@
                             <form class="user" action="{{URL::action('LoginAdminController@postLoginAdmin')}}"
                                 method="POST">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}" />
-
+                                @if(Auth::guard('admin')->check())
 
                                 @if ($errors->any())
                                 <ul>
@@ -27,6 +28,7 @@
                                     @endforeach
                                 </ul>
                                 @endif
+
 
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" name="email"
@@ -43,11 +45,13 @@
                                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                                     </div>
                                 </div>
+
                                 <button type="submit" class="btn btn-success btn-user btn-block">Log in</button>
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Login with Google
                                 </a>
+                                @endif
                             </form>
                             <hr>
                             <div class="text-center">
@@ -68,5 +72,4 @@
 
 
 </div>
-
 @endsection

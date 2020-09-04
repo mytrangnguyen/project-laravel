@@ -1,9 +1,9 @@
 @extends('sellerAdmin.master')
 @section('content')
 
-<button type="submit" class="btn-add btn btn-success"><a class="add-button"
-        href="{!! url('admin/category/add') !!}">Add</a>
-    <i class="menu-icon fa fa-plus"></i></button>
+<a class="add-button btn-add btn btn-success" href="{!! url('sellerAdmin/product/add') !!}">Add <i
+        class="menu-icon fa fa-plus"></i></a>
+
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-success">Product Data</h6>
@@ -46,10 +46,10 @@
                         </td>
                         <td> {!! $value["status"] !!} </td>
                         <td>
-                            <a href="{!! url('admin/product/edit',$value->id) !!}"> <i
+                            <a href="{!! url('sellerAdmin/product/edit',$value->id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>
                             <a onclick="return confirm('Bạn có muốn xóa không?')"
-                                href="{!! url('admin/product/delete',$value->id) !!}"> <i
+                                href="{!! url('sellerAdmin/product/delete',$value->id) !!}"> <i
                                     class="menu-icon fa fa-trash"></i></a>
                         </td>
                     </tr>
@@ -59,5 +59,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

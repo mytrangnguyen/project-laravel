@@ -44,7 +44,7 @@
                                     placeholder="Confirm Password">
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <div class="col-sm-12">
                                 <select class="form-control" name="txtuser_role">
                                     <option>seller</option>
@@ -52,7 +52,7 @@
                                     <option>admin</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <div class="text-center">

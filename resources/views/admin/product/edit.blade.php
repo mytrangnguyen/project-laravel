@@ -65,8 +65,13 @@
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for=""> Center Name: </label>
-                                <input type="text" class="form-control" name="txtdisabled_center"
-                                    value="{!! old ('txtdisabled_center',isset($product)?$product['center_name']:NULL) !!}">
+                                <select class="form-control" name="txtcenter_id">
+                                    @foreach($seller as $sell)
+                                    <option value="{{ $sell->id }}"
+                                        {{ $sell->center_id == $product['center_id']?'selected' : '' }}>
+                                        {{ $sell->center_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-sm-6">
                                 <label for=""> Stastus: </label>
@@ -95,6 +100,7 @@
 
                         <div class="form-group row">
                             <div class="col-sm-12">
+                                <label for=""> Description: </label>
                                 <textarea class="form-control" name="txtdescription"
                                     rows="3">{!! old ('txtdescription',isset($product)?$product['description']:NULL) !!}</textarea>
                             </div>

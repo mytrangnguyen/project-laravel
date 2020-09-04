@@ -44,12 +44,6 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{!! url('admin/order_prods/list') !!}">
-            <i class="fas fa-wallet"></i>
-            <span>ORDER PRODUCTS</span></a>
-    </li>
-
-    <li class="nav-item">
         <a class="nav-link" href="{!! url('admin/seller/list') !!}">
             <i class="fas fa-user"></i>
             <span>SELLERS</span></a>

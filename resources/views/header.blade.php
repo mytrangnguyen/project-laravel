@@ -45,7 +45,15 @@
                     alt="logo"></a>
 
         </div>
-
+        <div class="empty">
+            dgsfjkghjksdjkhsd
+        </div>
+        <div class="search-bar">
+            <form class="search" method="get" action="{{route('tim-kiem')}}">
+                <input type="text" value="" placeholder="Tìm kiếm..." name="key">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
         <div class="cart">
             <div class="product-cart">
                 <a href="{{route('giohang')}}" class="cart-toggle">
@@ -64,7 +72,6 @@
                         </div>
                         <div class="list-product">
                             <div class="scroll-content">
-
                                 <ul class="cart-list">
                                     @foreach($product_cart as $product)
                                     <li class="cart-item">
@@ -99,7 +106,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="cart-total text-center">
                             <label>Tổng tiền</label> <span
                                 class="price ng-binding">{{number_format(Session('cart')->totalPrice)}}
@@ -122,28 +128,14 @@
                 </div>
             </div>
             @endif
-            <!-- <div class="favorite-cart">
-                <a href="#" class="cart-toggle">
-                    <span class="cart-text">Yêu thích</span>
-                    <span class="cart-img">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span class="cart-number"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                    </span>
-                </a>
-            </div> -->
+
         </div>
-    </div>
-    <div class="search-bar">
-        <form class="search" method="get" action="{{route('tim-kiem')}}">
-            <input type="text" value="" placeholder="Search.." name="key">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
 
-
+    </div>
 
 
     </div>
+
 
     </div>
     <div class="container nagivation ">

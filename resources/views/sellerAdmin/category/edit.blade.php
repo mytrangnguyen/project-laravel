@@ -11,7 +11,8 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">EDIT CATEGORY</h1>
                     </div>
-                    <form class="user" action="{{URL::action('CategoryController@postEditCategory',$cate->cate_id)}}"
+                    <form class="user"
+                        action="{{URL::action('sellerCategoryController@postEditCategory',$cate->cate_id)}}"
                         method="post" role="form">
                         {{ csrf_field() }}
                         <div class="form-group row">

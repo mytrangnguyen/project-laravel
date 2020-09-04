@@ -50,6 +50,7 @@
                                     placeholder="Center Name">
                             </div>
                             <div class="col-sm-6">
+                                <label for=""> Paper Identication: </label>
                                 <input type="file" name="txtimage">
                             </div>
                         </div>

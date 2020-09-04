@@ -11,6 +11,7 @@ use App\Customer;
 use App\Order_Prods;
 use DB;
 use File;
+use Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Guest;
@@ -18,6 +19,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginAdminController extends Controller
 {
+
     public function showAdminPage() {
         $product_count=Product::count();
         $order_count= Order::count();
@@ -28,8 +30,14 @@ class LoginAdminController extends Controller
     }
     public function getLoginAdmin()
     {
-        return view('admin.login');
+        if(Auth::guard('admin')->check()){
+                return redirect()->route('admin.showAdminPage');
+        }
+        else {
+            return view('admin.login');
+
     }
+}
     public function postLoginAdmin(Request $request){
 
         $this->validate($request, [
@@ -44,25 +52,31 @@ class LoginAdminController extends Controller
         ]);
 
 
-        $remember = $request->has('remember') ? true : false;
+        $arr = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        if ($request->remember == trans('remember.Remember Me')) {
+            $remember = true;
+        } else {
+            $remember = false;
+        }
+        //kiểm tra trường remember có được chọn hay không
 
-        $email = $request->input('email');
-        $password = $request->input('password');
-        // if ($user = User::where('user_role', 'admin')->first()) {
-            if (Auth::guard('admin')->attempt(array('email' => $email, 'password' => $password),$remember)){
-                // dd()
-                return redirect()->route('admin.showAdminPage')->with('alert', 'Đăng nhập thành công');
-            }
-            else {
-                return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
-            }
-        // }
+        if (Auth::guard('admin')->attempt($arr)) {
 
+            // dd('đăng nhập thành công');
+            return redirect()->route('admin.showAdminPage')->with('alert', 'Đăng nhập thành công');
+        } else {
+
+            // dd('tài khoản và mật khẩu chưa chính xác');
+            return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
+        }
     }
 
 public function postLogoutAdmin(){
     Auth::logout();
-    return redirect()->route('admin.login.getLoginAdmin');
+    return view('admin.login');
 
 }
 

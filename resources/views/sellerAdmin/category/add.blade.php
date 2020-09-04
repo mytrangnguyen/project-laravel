@@ -10,8 +10,8 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">CATEGORY</h1>
                     </div>
-                    <form class="user" action="{{URL::action('CategoryController@postAddCategory')}}" method="post"
-                        role="form" enctype="multipart/form-data">
+                    <form class="user" action="{{URL::action('sellerCategoryController@postAddCategory')}}"
+                        method="post" role="form" enctype="multipart/form-data">
                         <input name="_token" type="hidden" value="{{ csrf_token() }}" />
                         {{ csrf_field() }}
 

@@ -46,8 +46,12 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" class="form-control" name="txtdisabled_center"
-                                    placeholder="Disabled Center">
+                                <select class="form-control" name="txtcenter_id">
+                                    <option value="">Tên trung tâmn</option>
+                                    @foreach($sellers as $value)
+                                    <option value="{!! $value['id']!!}">{!! $value['center_name'] !!}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-sm-6">
                                 <select class="form-control" name="txtstatus">

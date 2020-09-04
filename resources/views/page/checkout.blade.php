@@ -43,7 +43,7 @@
                     <label for="phone">Điện thoại*</label>
                     <input type="text" id="phone" name="phone" required>
                 </div>
-                <div class="form-block">
+                <div class="form-block" style="display: none">
                     <label>Hình thức giao hàng</label>
                     </br>
                     <input id="gender" type="radio" class="input-radio" name="ship_method" value="Giao hàng tiết kiệm"
@@ -55,6 +55,10 @@
                 <div class="form-block">
                     <label for="notes">Ghi chú</label>
                     <textarea id="notes" namespace="note" name="notes"></textarea>
+                </div>
+                <div class="form-block">
+                    <label for="notes">Lưu ý</label>
+                    <p style="font-size: 15px">Tất cả đơn hàng chỉ đồng giá phí vẫn chuyển là 35 000đ</p>
                 </div>
             </div>
             <div class="cart-information">

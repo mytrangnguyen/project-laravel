@@ -10,7 +10,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{!! url('sellerAdmin/home') !!}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -41,12 +41,6 @@
         <a class="nav-link" href="{!! url('sellerAdmin/order/list') !!}">
             <i class="fas fa-file-invoice"></i>
             <span>ORDERS</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="{!! url('sellerAdmin/order_prods/list') !!}">
-            <i class="fas fa-wallet"></i>
-            <span>ORDER PRODUCTS</span></a>
     </li>
 
     <li class="nav-item">

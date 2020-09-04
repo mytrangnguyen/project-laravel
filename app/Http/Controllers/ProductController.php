@@ -11,12 +11,15 @@ use App\Product;
 use App\Category;
 use input;
 use File;
+use DB;
+use App\Seller;
 
 class ProductController extends Controller
 {
     public function getAddProduct() {
-    	$category = Category::all();
-    	return view('admin.product.add', compact('category'));
+        $category = Category::all();
+        $sellers = Seller::all();
+    	return view('admin.product.add', compact('category','sellers'));
     }
 
     // Lấy dữ liệu vừa nhập và lưu lại
@@ -33,9 +36,8 @@ class ProductController extends Controller
         $product->quantity = $request->txtquantity;
         $product->description = $request->txtdescription;
     	$product->cate_id = $request->txtcate_id;
-        $product->center_name = $request->txtdisabled_center;
+        $product->center_id = $request->txtcenter_id;
         $product->status = $request->txtstatus;
-        // dd(txtcate_id);
 		$product->save();
 		return redirect()->route('admin.product.getListProduct');
     }
@@ -43,15 +45,17 @@ class ProductController extends Controller
     // show list Product
     public function getListProduct() {
     	$cate = Category::all();
-		$product = Product::all();
-		return view('admin.product.list',compact('product','cate'));
+        $product = Product::all();
+        $seller = Seller::all();
+		return view('admin.product.list',compact('product','cate','seller'));
     }
 
     //Edit Product
     public function getEditProduct($id) {
 		$cate = Category::all();
-		$product = Product::find($id);
-		return view('admin.product.edit',compact('cate','product'));
+        $product = Product::find($id);
+        $seller = Seller::all();
+		return view('admin.product.edit',compact('cate','product','seller'));
     }
 
     public function postEditProduct($id,Request $request) {

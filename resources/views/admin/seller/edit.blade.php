@@ -16,39 +16,47 @@
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for=""> Full Name: </label>
                                 <input type="text" class="form-control form-control-user" name="txtfullname"
                                     value="{!! old ('txtfullname',isset($seller)?$seller['fullname']:NULL) !!}">
                             </div>
                             <div class="col-sm-6">
+                                <label for="">Address: </label>
                                 <input type="text" class="form-control form-control-user" name="txtaddress"
                                     value="{!! old ('txtaddress',isset($seller)?$seller['address']:NULL) !!}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for=""> Email: </label>
                                 <input type="text" class="form-control form-control-user" name="txtemail"
                                     value="{!! old ('txtemail',isset($seller)?$seller['email']:NULL) !!}">
                             </div>
                             <div class="col-sm-6">
+                                <label for=""> Phone: </label>
                                 <input type="text" class="form-control form-control-user" name="txtphone"
                                     value="{!! old ('txtphone',isset($seller)?$seller['phone']:NULL) !!}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for=""> Password: </label>
                                 <input type="password" class="form-control form-control-user" name="txtpassword"
                                     value="{!! old ('txtpassword',isset($seller)?$seller['password']:NULL) !!}">
                             </div>
                             <div class="col-sm-6">
+                                <label for=""> Confirm Password: </label>
                                 <input type="password" class="form-control form-control-user" name="confirm_password">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label for=""> Center Name: </label>
                                 <input type="text" class="form-control form-control-user" name="txtcenter_name"
                                     value="{!! old ('txtcenter_name',isset($seller)?$seller['center_name']:NULL) !!}">
                             </div>
                             <div class="col-sm-6">
+                                <label for=""> Paper Identication: </label>
                                 <input type="file" name="txtimage" value="{!! $seller->paper_identication!!}">
                                 <img src="{!! asset('public/avatar/'.$seller['paper_identication']) !!}" width="100"
                                     name="img_current">

@@ -103,8 +103,8 @@ ul {
 .search-bar {
     height: auto;
     overflow: hidden;
-    width: 40%;
-    float: right;
+    width: 25%;
+    float: left;
 }
 
 form.search input[type="text"] {
@@ -1665,3 +1665,10 @@ td {
 .btn#later {
     margin-right: 2em;
 } */
+
+.empty {
+    width: 34%;
+    float: left;
+    color: white;
+    /* display: none; */
+}

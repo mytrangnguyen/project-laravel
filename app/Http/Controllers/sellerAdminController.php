@@ -21,6 +21,7 @@ class sellerAdminController extends Controller
     public function showAdminPage() {
         $product=Product::all()->where('center_id', Auth::guard('seller')->user()->id);
         $product_count = count($product);
+        $order = Order::all();
         $order_count= Order::count();
         $customer_count=Customer::count();
         $seller_count=Seller::count();

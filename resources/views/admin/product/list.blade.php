@@ -1,9 +1,8 @@
 @extends('admin.master')
 @section('content')
 
-<button type="submit" class="btn-add btn btn-success"><a class="add-button"
-        href="{!! url('admin/category/add') !!}">Add</a>
-    <i class="menu-icon fa fa-plus"></i></button>
+<a class="add-button btn-add btn btn-success" href="{!! url('admin/product/add') !!}">Add <i
+        class="menu-icon fa fa-plus"></i></a>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-success">Product Data</h6>
@@ -47,8 +46,16 @@
 
                             <!-- <img src="{{ URL::to('/source/image/'.$value->url_img) }}" width="100px" alt=""> -->
                         </td>
-                        <td> {!! $value["center_name"] !!} </td>
-                        <td> {!! $value["status"] !!} </td>
+                        <td> @foreach($seller as $sell)
+                            @if($value->center_id==$sell->id)
+                            {{$sell->center_name}}
+                            @endif
+                            @endforeach </td>
+                        @if($value->status ==1)
+                        <td>Còn hàng</td>
+                        @else
+                        <td>Hết hàng </td>
+                        @endif
                         <td>
                             <a href="{!! url('admin/product/edit',$value->id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>

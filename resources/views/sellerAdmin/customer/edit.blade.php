@@ -11,7 +11,8 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">EDIT CUSTOMER</h1>
                     </div>
-                    <form class="user" action="{{URL::action('CustomerController@postEditCustomer',$customer->id)}}"
+                    <form class="user"
+                        action="{{URL::action('sellerCustomerController@postEditCustomer',$customer->id)}}"
                         method="post" role="form" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group row">

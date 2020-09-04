@@ -2,7 +2,7 @@
 @section('content')
 
 <button type="submit" class="btn-add btn btn-success"><a class="add-button"
-        href="{!! url('admin/category/add') !!}">Add</a>
+        href="{!! url('admin/slider/add') !!}">Add</a>
     <i class="menu-icon fa fa-plus"></i></button>
 <div class="card shadow mb-4">
     <div class="card-header py-3">

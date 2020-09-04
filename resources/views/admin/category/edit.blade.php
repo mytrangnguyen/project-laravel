@@ -16,6 +16,7 @@
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <div class="col-sm-12">
+                                <label for=""> Category: </label>
                                 <input type="text" class="form-control form-control-user" name="txtname"
                                     value="{!! $cate['cate_name']!!}">
                             </div>
