@@ -18,7 +18,7 @@
                         <th>Address</th>
                         <th>Note</th>
                         <th>Phone</th>
-                        <th>Action</th>
+
                     </tr>
                 </thead>
 
@@ -32,11 +32,7 @@
                         <td> {!! $value["address"] !!} </td>
                         <td> {!! $value["note"] !!} </td>
                         <td> {!! $value["phone_number"] !!} </td>
-                        <td>
-                            <a onclick="return confirm('Bạn có muốn xóa không?')"
-                                href="{{ url('admin/customer/delete',$value["id"]) }}"> <i
-                                    class="menu-icon fa fa-trash"></i></a>
-                        </td>
+
                     </tr>
                     @endforeach
                 </tbody>

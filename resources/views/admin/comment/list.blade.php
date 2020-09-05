@@ -21,12 +21,13 @@
 
                 <tbody>
                     @for($i=0;$i< $size;$i++) <tr>
-                        <td>{{$i}}</td>
+                        <td>{{$comment[$i]['id']}}</td>
                         <td>{{$comment[$i]['username']}}</td>
                         <td>{{$comment[$i]['prod_name']}}</td>
                         <td>{{$comment[$i]['comment']}}</td>
                         <td><a onclick="return confirm('Bạn có muốn xóa không?')"
-                                href="{!! url('admin/comment/delete',$i) !!}"> <i class="menu-icon fa fa-trash"></i></a>
+                                href="{!! url('admin/comment/delete',$comment[$i]['id']) !!}"> <i
+                                    class="menu-icon fa fa-trash"></i></a>
                         </td>
                         </tr>
                         @endfor
@@ -35,5 +36,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

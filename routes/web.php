@@ -188,13 +188,14 @@ Route::group(['prefix' => 'admin/'], function () {
 		['as' 	=> 'admin.showAdminPage',
 		'uses' 	=> 'LoginAdminController@showAdminPage'
     ]);
+    Route::get('logoutAdmin',
+    ['as' 	=> 'postLogout',
+    'uses' 	=> 'LoginAdminController@postLogoutAdmin'
+]);
 
 });
 
-Route::get('logoutAdmin',
-['as' 	=> 'postLogout',
-'uses' 	=> 'LoginAdminController@postLogoutAdmin'
-]);
+
 
 
 // category
@@ -452,6 +453,10 @@ Route::group(['prefix' => 'sellerAdmin/'], function () {
 	Route::get('home',
 		['as' 	=> 'sellerAdmin.showAdminPage',
 		'uses' 	=> 'sellerAdminController@showAdminPage'
+    ]);
+    Route::get('postLogout', [
+        'as' => 'postLogout',
+        'uses' => 'sellerAdminController@postLogoutAdmin',
     ]);
 
 });

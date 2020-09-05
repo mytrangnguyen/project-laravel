@@ -29,7 +29,17 @@ class sellerProductController extends Controller
         $product->url_img = $filename;
         $request->file('txtimage')->move('public/source/image/',$filename);
         $product->price_out = $request->txtunit_price;
-        $product->promotion_price = $request->txtpromotion_price;
+
+        if(empty($request->txtpromotion_price)){
+            $product->promotion_price = 0;
+
+          }
+            else{
+
+                $product->promotion_price = $request->txtpromotion_price;
+
+            }
+
         $product->date_start = $request->txtstart_date;
         $product->date_end = $request->txtend_date;
         $product->quantity = $request->txtquantity;
@@ -81,13 +91,20 @@ class sellerProductController extends Controller
 
 
       $product->price_out = $request->input('txtunit_price');
-      $product->promotion_price = $request->input('txtpromotion_price');
+      if(empty($request->txtpromotion_price)){
+        $product->promotion_price = 0;
+      }
+        else{
+
+            $product->promotion_price = $request->txtpromotion_price;
+        }
+
       $product->date_start = $request->input('txtstart_date');
       $product->date_end = $request->input('txtend_date');
       $product->quantity = $request->input('txtquantity');
       $product->description = $request->input('txtdescription');
       $product->cate_id = $request->input('txtcate_id');
-      $product->center_id = $request->input('txtcenter_id');
+      $product->center_id = Auth::guard('seller')->user()->id;
       $product->status = $request->input('txtstatus');
       $product->save();
       return redirect()->route('sellerAdmin.product.getListProduct')->with('success','Updated successfully!');

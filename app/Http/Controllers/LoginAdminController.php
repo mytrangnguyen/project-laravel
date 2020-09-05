@@ -30,14 +30,16 @@ class LoginAdminController extends Controller
     }
     public function getLoginAdmin()
     {
-        if(Auth::guard('admin')->check()){
-                return redirect()->route('admin.showAdminPage');
-        }
-        else {
+        // if(Auth::guard('admin')->check()){
+        //         return redirect()->route('admin.showAdminPage');
+        // }
+
+
             return view('admin.login');
 
-    }
+
 }
+
     public function postLoginAdmin(Request $request){
 
         $this->validate($request, [
@@ -76,8 +78,7 @@ class LoginAdminController extends Controller
 
 public function postLogoutAdmin(){
     Auth::logout();
-    return view('admin.login');
-
+    return redirect()->route('admin.login.getLoginAdmin');
 }
 
 }

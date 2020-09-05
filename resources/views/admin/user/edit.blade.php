@@ -41,24 +41,11 @@
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for=""> Password: </label>
-                                <input type="password" class="form-control form-control-user" name="txtpassword"
-                                    value="{!! old ('txtpassword',isset($user)?$user['password']:NULL) !!}">
+                                <input type="password" class="form-control form-control-user" name="txtpassword">
                             </div>
                             <div class="col-sm-6">
                                 <label for=""> Confirm Password: </label>
-                                <input type="password" class="form-control form-control-user" name="confirm_password"
-                                    placeholder="Confirm Password">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for=""> User Role: </label>
-                                <select class="form-control" name="txtuser_role"
-                                    value="{!! old ('txtuser_role',isset($user)?$user['user_role']:NULL) !!}">
-                                    <option>Seller</option>
-                                    <option>Customer</option>
-                                    <option>Common User</option>
-                                </select>
+                                <input type="password" class="form-control form-control-user" name="confirm_password">
                             </div>
                         </div>
 

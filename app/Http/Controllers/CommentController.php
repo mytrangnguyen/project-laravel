@@ -17,7 +17,7 @@ class CommentController extends Controller
         // $comment = Comment::all();
 
         $comment = new Comment();
-        $comment = comment::select('id_user', 'id_prod', 'comment', 'comments.created_at as created_at', 'users.username as username', 'products.prod_name as prod_name')
+        $comment = comment::select('comments.id', 'id_user', 'id_prod', 'comment', 'comments.created_at as created_at', 'users.username as username', 'products.prod_name as prod_name')
         ->join('users', 'comments.id_user', 'users.id')
         ->join('products', 'comments.id_prod', 'products.id')
         ->get()->toArray();

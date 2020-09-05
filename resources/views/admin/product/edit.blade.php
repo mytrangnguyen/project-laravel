@@ -68,7 +68,7 @@
                                 <select class="form-control" name="txtcenter_id">
                                     @foreach($seller as $sell)
                                     <option value="{{ $sell->id }}"
-                                        {{ $sell->center_id == $product['center_id']?'selected' : '' }}>
+                                        {{ $sell->id == $product['center_id']?'selected' : '' }}>
                                         {{ $sell->center_name }}</option>
                                     @endforeach
                                 </select>

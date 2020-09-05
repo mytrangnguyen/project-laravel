@@ -14,15 +14,14 @@ class CategoryController extends Controller
 
     // Lấy dữ liệu vừa nhập và lưu lại vào database
     public function postAddCategory(Request $request) {
-        $this->validate($request, [
-
-            'category' => 'required|max:30',
-            'category' => 'required|min:5',
-        ],
-        [
-            'category.required' => 'Vui lòng nhập category',
-        ]
-
+        $this->validate(
+            $request,
+            [
+                'txtname' => 'required',
+            ],
+            [
+                'txtname.required' => "vui lòng không bỏ trống",
+            ]
         );
 
     	$category = new Category;
@@ -46,7 +45,7 @@ class CategoryController extends Controller
 
     public function postEditCategory($id,Request $request) {
       $category = Category::find($id);
-      $category->cate_name = $request->input('txtcate_name');
+      $category->cate_name = $request->input('txtname');
       $category->save();
       return redirect()->route('admin.category.getListCategory')->with('success','Update successfully!');
     }

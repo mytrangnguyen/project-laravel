@@ -41,8 +41,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for=""> Password: </label>
-                                <input type="password" class="form-control form-control-user" name="txtpassword"
-                                    value="{!! old ('txtpassword',isset($seller)?$seller['password']:NULL) !!}">
+                                <input type="password" class="form-control form-control-user" name="txtpassword">
                             </div>
                             <div class="col-sm-6">
                                 <label for=""> Confirm Password: </label>

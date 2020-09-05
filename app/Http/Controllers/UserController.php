@@ -15,6 +15,30 @@ class UserController extends Controller
 
     // Lấy dữ liệu vừa nhập và lưu lại vào database
     public function postAddUser(Request $request) {
+        $this->validate(
+            $request,
+            [
+                'txtusername' => 'required',
+                'txtaddress' => 'required',
+                'txtemail' => 'required',
+                'txtphone' => 'required|min:8|max:11',
+                'txtpassword' => 'required',
+                'txtphone' => 'required|numeric',
+                'txtemail' => 'required|email|unique:sellers,email',
+            ],
+            [
+                'txtname.required' => "vui lòng không bỏ trống trường họ và tên",
+                'txtaddress.required' => "vui lòng không bỏ trống địa chỉ",
+                'txtemail.required' => "vui lòng không bỏ trống email",
+                'txtphone.required' => "vui lòng không bỏ trống số điện thoại",
+                'txtpassword.required' => "vui lòng không bỏ trống mật khẩu",
+                'txtemail.unique' => "Email này đã được sử dụng",
+                'txtphone.numeric' => "vui lòng nhập số",
+                'txtphone.min' => "Số điện thoại ít nhất 8 kí tự",
+                'txtphone.max' => "Số điện thoại nhiều nhất 11 kí tự",
+            ]
+        );
+
     	$user = new User;
         $user->username = $request->txtusername;
         $user->email = $request->txtemail;
@@ -44,7 +68,7 @@ class UserController extends Controller
         $user->email = $request->input('txtemail');
         $user->address = $request->input('txtaddress');
         $user->phone = $request->input('txtphone');
-        $user->user_role = $request->input('txtuser_role');
+        $user->user_role = "user";
         $user->password = $request->input('txtpassword');
 		$user->save();
         return redirect()->route('admin.user.getListUser')->with('success','Update successfully!');

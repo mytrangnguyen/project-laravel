@@ -24,7 +24,7 @@
                         @endif
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <input type="text" class="form-control form-control-user" name="txtname"
+                                <input require type="text" class="form-control form-control-user" name="txtname"
                                     placeholder="Category name">
                             </div>
                         </div>

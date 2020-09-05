@@ -23,7 +23,12 @@
                     @foreach($slider as $value)
                     <tr>
                         <td> {!! $value["id"] !!} </td>
-                        <td> {!! $value["img_url"] !!} </td>
+                        <td>
+                            <img src="{{ asset('/source/image/'.$value->img_url)}}" width="100px"
+                                alt="{{$value->img_url}}">
+
+                        </td>
+
                         <td>
                             <a href="{!! url('admin/slider/edit',$value->id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>

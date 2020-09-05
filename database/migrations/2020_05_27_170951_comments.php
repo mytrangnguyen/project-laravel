@@ -14,7 +14,7 @@ class Comments extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+            // $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('id_prod')->unsigned();
             $table->foreign('id_prod')->references('id')->on('products');

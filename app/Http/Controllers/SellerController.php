@@ -18,6 +18,30 @@ class SellerController extends Controller
 
     // Lấy dữ liệu vừa nhập và lưu lại vào database
     public function postAddSeller(Request $request) {
+
+        $this->validate(
+            $request,
+            [
+                'txtfullname' => 'required',
+                'txtaddress' => 'required',
+                'txtcenter_name' => 'required',
+                'txtemail' => 'required',
+                'txtphone' => 'required',
+                'txtpassword' => 'required',
+                'txtphone' => 'required|numeric',
+                'txtemail' => 'required|email|unique:sellers,email',
+            ],
+            [
+                'txtname.required' => "vui lòng không bỏ trống trường họ và tên",
+                'txtaddress.required' => "vui lòng không bỏ trống địa chỉ",
+                'txtcenter_name.required' => "vui lòng không bỏ trống trung tâm",
+                'txtemail.required' => "vui lòng không bỏ trống email",
+                'txtphone.required' => "vui lòng không bỏ trống số điện thoại",
+                'txtpassword.required' => "vui lòng không bỏ trống mật khẩu",
+                'txtemail.unique' => "Email này đã được sử dụng",
+            ]
+        );
+
     	$seller = new Seller;
         $seller->fullname = $request->txtfullname;
         $seller->address = $request->txtaddress;
@@ -32,20 +56,6 @@ class SellerController extends Controller
         $seller->user_role = $request->txtuser_role="seller";
         $seller->password = Hash::make($request->txtpassword);
         $seller->save();
-
-        // $user = new User;
-
-        // $user->id= $seller->id;
-        // $user->username = $request->txtfullname;
-        // $user->email = $request->txtemail;
-        // $user->address = $request->txtaddress;
-        // $user->phone = $request->txtphone;
-        // $user->user_role = $request->txtuser_role="seller";
-
-        // $user->password = Hash::make($request->txtpassword);
-        // $user->save();
-
-
 
 		return redirect()->route('admin.seller.getListSeller');
     }
@@ -86,7 +96,9 @@ class SellerController extends Controller
         $seller->center_name = $request->input('txtcenter_name');
         $seller->email = $request->input('txtemail');
         $seller->phone = $request->input('txtphone');
-        $seller->password = $request->input('txtpassword');
+        if($request->txtpassword != ""){
+            $seller->password = bcrypt($request->txtpassword);
+        }
 		$seller->save();
         return redirect()->route('admin.seller.getListSeller')->with('success','Update successfully!');
       }
