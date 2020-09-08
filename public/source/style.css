@@ -937,13 +937,37 @@ span.psw {
 .mini-cart {
     margin: 0;
     padding: 10px 0 10px;
-    width: 300px;
+    width: 400px;
     position: absolute;
     right: 0;
     background-color: white;
     display: none;
 }
+.w3-green,
+.w3-hover-green:hover {
+    color: #fff !important;
+    background-color: #8bc34a !important;
+}
 
+.w3-btn,
+.w3-button {
+    margin-right: 5px;
+    border: none;
+    display: inline-block;
+    padding: 0px 9px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.cart-option {
+    padding: 1px 10px;
+}
 /* .mini-cart {
     opacity: 0;
     display: none;

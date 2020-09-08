@@ -81,6 +81,8 @@
                                                     class="img-product-item">
                                             </a>
                                         </div>
+                                        <div><a class="w3-a w3-xlarge w3-green cart-option"
+                                                href="{{route('minusOneItem',$product['item']['id'])}}">-</a></div>
                                         <div class="item-title">
                                             <a href="#" ng-bind="getTranslate(product.title)"
                                                 class="name-product-cart">{{$product['item']['prod_name']}}</a>
@@ -97,6 +99,8 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <div><a class="w3-a w3-xlarge w3-green cart-option"
+                                                href="{{route('addOneItem',$product['item']['id'])}}">+</a></div>
                                         <div class="item-action" ng-click="delete($index, product)">
                                             <a class="btn-remove" href="{{route('xoagiohang',$product['item']['id'])}}">
                                                 <i class="fa fa-times"></i></a>

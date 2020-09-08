@@ -47,13 +47,22 @@ class Cart
         }
     }
 
+    // tăng một sản phẩm
+    public function plusOneItem($id)
+    {
+        $this->items[$id]['quantity']++;
+        $this->items[$id]['price'] += $this[$id]['item']['price'];
+        $this->totalQuantity++;
+        $this->totalPrice += $this->items[$id]['item']['price'];
+
+    }
     // xóa 1 sản phẩm
     public function deleteByOne($id)
     {
         $this->items[$id]['quantity']--;
-        $this->item[$id]['price'] -= $this[$id]['item']['price'];
+        $this->items[$id]['price'] -= $this[$id]['item']['price'];
         $this->totalQuantity--;
-        $this->totalPrice -= $this->item[$id]['item']['price'];
+        $this->totalPrice -= $this->items[$id]['item']['price'];
         if ($this->items[$id]['quantity'] < 0) {
             unset($this->items[$id]);
         }

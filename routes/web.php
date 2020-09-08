@@ -114,6 +114,16 @@ Route::get('del-cart/{id}', [
     'as' => 'xoagiohang',
     'uses' => 'PageController@getDeleteItemCart'
 ]);
+
+Route::get('plus-cart/{id}',[
+    'as'=>'addOneItem',
+    'uses' => 'PageController@getPlusItemCart'
+]);
+
+Route::get('minus-cart/{id}',[
+    'as'=>'minusOneItem',
+    'uses' => 'PageController@getRemoveOneItem'
+]);
 // Route đến trang checkout
 
 Route::get('checkout', [
@@ -448,7 +458,7 @@ Route::group(['prefix' => 'sellerAdmin/'], function () {
     ]);
     Route::post('postLogin', [
         'as' => 'loginSellerAdmin',
-        'uses' => 'sellerAdminController@postLoginAdmin',
+        'uses' => 'sellerAdminController@postLoginAdmin'
     ]);
 	Route::get('home',
 		['as' 	=> 'sellerAdmin.showAdminPage',
