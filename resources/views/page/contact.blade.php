@@ -24,6 +24,7 @@
     <textarea id="subject" name="content" placeholder="Write something.." style="height:100px"></textarea>
 
     <button type="submit" class="btnlogin">Submit</button>
+    <!-- <a></a> -->
     <!-- <input type="submit" class="btnlogin" value="Submit"> -->
 
   </form>

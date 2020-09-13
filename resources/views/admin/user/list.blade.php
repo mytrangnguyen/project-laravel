@@ -17,7 +17,7 @@
                         <th>Email</th>
                         <th>Address</th>
                         <th>Phone</th>
-                        <th>User Role</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,13 +30,11 @@
                         <td> {!! $value["email"] !!} </td>
                         <td> {!! $value["address"] !!} </td>
                         <td> {!! $value["phone"] !!} </td>
-                        <td> {!! $value["user_role"] !!} </td>
+                        <td> <input data-id="{{$value->id}}"  class="toggle-class custom-control-input" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $value->status ? 'checked' : '' }}> </td>
                         <td>
                             <a href="{!! url('admin/user/edit',$value->id) !!}"> <i
                                     class="menu-icon fa fa-edit"></i></a>
-                            <a onclick="return confirm('Bạn có muốn xóa không?')"
-                                href="{!! url('admin/user/delete',$value->id) !!}"> <i
-                                    class="menu-icon fa fa-trash"></i></a>
+
                         </td>
                     </tr>
                     @endforeach

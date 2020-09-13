@@ -125,6 +125,7 @@ class PageController extends Controller
 
     public function getAddToCart(Request $req, $id)
     {
+
         if(Auth::user()){
             $product = Product::find($id);
             if($product->quantity == 0){
@@ -227,30 +228,55 @@ class PageController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->removeItem($id);
-
-        return redirect()->back();
-    }
-
-    public function getPlusItemCart($id){
-        $oldCart = Session::has('cart') ? Session::get('cart') :null;
-        $cart = new Cart($oldCart);
-        // dd($cart);
-        $cart->plusOneItem($id);
-        Session::put('cart', $cart);
-        return redirect()->back();
-
-    }
-
-    public function getRemoveOneItem($id){
-        $oldCart = Session::has('cart') ? Session::get('cart') :null;
-        $cart = new Cart($oldCart);
-        $cart->deleteByOne($id);
         if (count($cart->items) > 0) {
             Session::put('cart', $cart);
         } else {
             Session::forget('cart');
         }
         return redirect()->back();
+    }
+
+
+    public function getRemoveOneItem(Request $req, $id){
+
+        if(Auth::user()){
+            $oldCart = Session('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        if($cart->items[$id]['quantity']==1){
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->removeItem($id);
+            if (count($cart->items) > 0) {
+                Session::put('cart', $cart);
+            } else {
+                Session::forget('cart');
+            }
+            return redirect()->back();
+        }else{
+            $product = Product::find($id);
+            if($product->quantity == 0){
+                Alert::warning('Cảnh báo', 'Bạn không thể đặt hàng vì số lượng sản phẩm này đã hết');
+                return redirect()->back();
+            }
+            else{
+
+                $cart->deleteByOne($product, $id);
+                // dd($cart->items[$id]['quantity']);
+                if (count($cart->items) > 0) {
+                    $req->session()->put('cart', $cart);
+                } else {
+                    Session::forget('cart');
+                }
+
+                return redirect()->back();
+            }
+        }
+
+        }
+        else {
+            Alert::warning('Cảnh báo', 'Bạn phải đăng nhập trước khi mua hàng');
+            return redirect()->back();
+        }
     }
     //Controller post comment
     public function postComment(Request $req)

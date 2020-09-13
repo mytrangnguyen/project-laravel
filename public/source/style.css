@@ -942,13 +942,20 @@ span.psw {
     right: 0;
     background-color: white;
     display: none;
-}
-.w3-green,
-.w3-hover-green:hover {
-    color: #fff !important;
-    background-color: #8bc34a !important;
+
 }
 
+
+
+.w3-green,
+.w3-hover-green:hover {
+    border: 1px solid #8bc34a;
+    color: #8bc34a !important;
+    background-color: transparent !important;
+}
+.w3-xlarge{
+    font-size: 12px!important;
+}
 .w3-btn,
 .w3-button {
     margin-right: 5px;
@@ -962,11 +969,20 @@ span.psw {
     background-color: inherit;
     text-align: center;
     cursor: pointer;
+    margin-top: 3%;
+    padding: 7px 12px;
+    border-radius: 4px;
+    background-color: #8bc34a;
+    border: 1px solid #8bc34a;
+    color: #8bc34a;
     white-space: nowrap;
 }
 
 .cart-option {
-    padding: 1px 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+
 }
 /* .mini-cart {
     opacity: 0;
@@ -1039,6 +1055,7 @@ span.psw {
     border-radius: 100%;
     display: inline-block;
     padding: 2px 5px;
+    margin-left: 5px;
 }
 
 .mini-cart .cart-total {
@@ -1293,6 +1310,7 @@ span.psw {
 
 .color-black {
     font-size: 20px;
+    margin-top: 38%;
 }
 
 .avatar {
@@ -1696,3 +1714,63 @@ td {
     color: white;
     /* display: none; */
 }
+
+.change-qty.decrease {
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #B3B3B3;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-item span {
+    border: 1px solid #B3B3B3;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.add-item span.quantity {
+    border-left: none;
+    border-right: none;
+    margin-top: -3px;
+    margin-left: -6px;
+    margin-right: -6px;
+}
+.change-qty.increase {
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #B3B3B3;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product-name{
+    margin-top: 3%;
+    font-size: 17px;
+    color: black;
+    line-height: 80px;
+}
+.price-text{
+    margin-top: 6%;
+}
+
+.add-item{
+    margin-top: 12%;
+}
+.red{
+    color: red;
+    font-weight: bold;
+    float: left;
+    width: 78%;
+    margin-left: 27px;
+}
+

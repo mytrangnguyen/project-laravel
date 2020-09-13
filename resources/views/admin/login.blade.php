@@ -19,7 +19,7 @@
                             <form class="user" action="{{URL::action('LoginAdminController@postLoginAdmin')}}"
                                 method="POST">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}" />
-                                @if(Auth::guard('admin')->check())
+
 
                                 @if ($errors->any())
                                 <ul>
@@ -51,7 +51,6 @@
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Login with Google
                                 </a>
-                                @endif
                             </form>
                             <hr>
                             <div class="text-center">

@@ -15,7 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
 
     <link href=" {{ URL::to('/vendors/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
@@ -62,6 +62,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ URL::to('/js/sb-admin-2.min.js') }}"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
     <!-- Page level plugins -->
     <script src="{{ URL::to('/vendors/datatables/jquery.dataTables.min.js') }}"></script>
@@ -70,6 +71,25 @@
     <!-- Page level custom scripts -->
     <script src="{{ URL::to('/js/demo/datatables-demo.js') }} ">
     </script>
+    <script>
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0;
+        console.log("status", status);
+        var user_id = $(this).data('id');
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeStatus',
+            data: {'status': status, 'id': user_id},
+            success: function(data){
+              console.log(data.success)
+            }
+        });
+    })
+  })
+</script>
 
 </body>
 

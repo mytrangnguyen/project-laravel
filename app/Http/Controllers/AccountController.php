@@ -68,6 +68,7 @@ class AccountController extends Controller
         $newUser->address = $request->address;
         $newUser->phone = $request->phone;
         $newUser->email = $request->email;
+        $newUser->status = true;
         $newUser->avatar = "";
         $newUser->user_role = "user";
         $newUser->save();
@@ -137,20 +138,22 @@ class AccountController extends Controller
         );
 
         $remember = $request->has('remember') ? true : false;
-        $user_role="user";
-        // dd($testAccount);
-        // if ($user = User::where('user_role', $user_role)->first()) {
+        // $checkStatus = User::where('status', 1);
+        // dd($checkStatus);
+        // if(Auth::guard('web')->status==1){
             if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
-                    //login đúng
-                    // dd("login thành công", Auth::user()->username);
-                    return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
+                // dd("login thành công", Auth::user()->username);
+                return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
+            } else { //login sai
+                // dd('tk Hoặc mật khẩu chưa đúng');
+                // dd("login k thành công");
+                return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
+            }
+        // }
+        // else{
+        //     Alert::warning('Đăng nhập thất bại', 'Tài khoản đã không còn hoạt động');
+        // }
 
-
-                } else { //login sai
-                    // dd('tk Hoặc mật khẩu chưa đúng');
-                    // dd("login k thành công");
-                    return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
-                }
             // }
     }
 
@@ -253,5 +256,14 @@ class AccountController extends Controller
         $user->save();
         Alert::success('Thành công', 'Chỉnh sửa thành công');
         return back();
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->status = $request->status;
+        $user->save();
+
+        return redirect()->back();
     }
 }

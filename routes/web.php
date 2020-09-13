@@ -616,3 +616,5 @@ Route::group(['prefix' => 'sellerAdmin/customer/'], function () {
 		'uses' 	=> 'sellerCustomerController@getDeleteCustomer'
 	]);
 });
+
+Route::get('changeStatus', 'AccountController@changeStatus');

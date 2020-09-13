@@ -2,47 +2,39 @@
     <div class="container header-top">
         <div class="header-left">
             <div class="header-contact-email">
-                <span><i class="fa-icon fa fa-envelope"></i></span><a class="icon-header link"
-                    href="mailto:hdflash@gmail.com" target="_top">hdflash@gmail.com</a>
+                <span><i class="fa-icon fa fa-envelope"></i></span><a class="icon-header link" href="mailto:hdflash@gmail.com" target="_top">hdflash@gmail.com</a>
             </div>
             <div class="heaeder-contact-phone">
-                <span><i class="fa-icon fa fa-phone"></i></span><a class="icon-header link"
-                    href="tel:0334778516">0334778516</a>
+                <span><i class="fa-icon fa fa-phone"></i></span><a class="icon-header link" href="tel:0334778516">0334778516</a>
             </div>
         </div>
         <div class="header-right">
             @if(Auth::check())
             <div class="avatar ">
-                <div class="user dropdown"><span><i class="fa fa-user" aria-hidden="true"></i></span><a
-                        class="icon-header link dropbtn" id="login-button" href="#"
-                        target="_top">{{Auth::user()->username}}</a>
+                <div class="user dropdown"><span><i class="fa fa-user" aria-hidden="true"></i></span><a class="icon-header link dropbtn" id="login-button" href="#" target="_top">{{Auth::user()->username}}</a>
                     &emsp;
                     <div class="dropdown-content">
                         <a href="{{route('users.edit',Auth::user())}}">Tài khoản của tôi</a>
                         <a href="{{route('history')}}">Đơn mua</a>
                     </div>
                 </div>
-                <div class="logout"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span><a
-                        href="{{route('logout')}}" class="icon-header  link" id="login-button" target="_top">Đăng
+                <div class="logout"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span><a href="{{route('logout')}}" class="icon-header  link" id="login-button" target="_top">Đăng
                         xuất</a>
                 </div>
             </div>
             @else
             <div class="login">
-                <span><i class="fa-icon fa fa-user"></i></span><a class="icon-header  link" id="login-button"
-                    href="{{route('sign-in')}}" target="_top">Đăng nhập</a>
+                <span><i class="fa-icon fa fa-user"></i></span><a class="icon-header  link" id="login-button" href="{{route('sign-in')}}" target="_top">Đăng nhập</a>
             </div>
             <div class="register">
-                <span><i class="fa-icon fa fa-envelope"></i></span><a class=" icon-header link"
-                    href="{{route('dangky')}}" target="_top">Đăng ký</a>
+                <span><i class="fa-icon fa fa-envelope"></i></span><a class=" icon-header link" href="{{route('dangky')}}" target="_top">Đăng ký</a>
             </div>
             @endif
         </div>
     </div>
     <div class="container header-logo">
         <div class="logo-img">
-            <a href="{{route('trang-chu')}}"><img src=" {{ asset('source/image/logo.png') }}" class="image-logo-header"
-                    alt="logo"></a>
+            <a href="{{route('trang-chu')}}"><img src=" {{ asset('source/image/logo.png') }}" class="image-logo-header" alt="logo"></a>
 
         </div>
         <div class="empty">
@@ -77,18 +69,15 @@
                                     <li class="cart-item">
                                         <div class="item-thumb">
                                             <a href="#" title="" class="">
-                                                <img src="source/image/{{$product['item']['url_img']}}" alt=""
-                                                    class="img-product-item">
+                                                <img src="/source/image/{{$product['item']['url_img']}}" alt="" class="img-product-item">
                                             </a>
                                         </div>
-                                        <div><a class="w3-a w3-xlarge w3-green cart-option"
-                                                href="{{route('minusOneItem',$product['item']['id'])}}">-</a></div>
+                                        <div><a class="w3-a w3-xlarge w3-green cart-option" href="{{route('minusOneItem',$product['item']['id'])}}"><i class="fa fa-minus" aria-hidden="true"></i>
+                                            </a></div>
                                         <div class="item-title">
-                                            <a href="#" ng-bind="getTranslate(product.title)"
-                                                class="name-product-cart">{{$product['item']['prod_name']}}</a>
+                                            <a href="#" ng-bind="getTranslate(product.title)" class="name-product-cart">{{$product['item']['prod_name']}}</a>
                                             <div class="item-qty">
-                                                <span
-                                                    class="quantity-product-cart ng-binding">{{$product['quantity']}}</span>
+                                                <span class="quantity-product-cart ng-binding">{{$product['quantity']}}</span>
                                                 x
                                                 @if($product['item']['promotion_price']==0)
                                                 <span class="price ng-binding"> {{$product['item']['price_out']}}
@@ -99,8 +88,8 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div><a class="w3-a w3-xlarge w3-green cart-option"
-                                                href="{{route('addOneItem',$product['item']['id'])}}">+</a></div>
+
+                                        <div><a class="w3-a w3-xlarge w3-green cart-option" href="{{Route('themgiohang',$product['item']['id'])}}"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
                                         <div class="item-action" ng-click="delete($index, product)">
                                             <a class="btn-remove" href="{{route('xoagiohang',$product['item']['id'])}}">
                                                 <i class="fa fa-times"></i></a>
@@ -111,13 +100,11 @@
                             </div>
                         </div>
                         <div class="cart-total text-center">
-                            <label>Tổng tiền</label> <span
-                                class="price ng-binding">{{number_format(Session('cart')->totalPrice)}}
+                            <label>Tổng tiền</label> <span class="price ng-binding">{{number_format(Session('cart')->totalPrice)}}
                                 đồng</span>
                         </div>
                         <div class="cart-link">
-                            <a name="checkout" class=" btn-back" href="{{Route('dathang')}}">Thanh toán <i
-                                    class="fa fa-angle-right"></i>
+                            <a name="checkout" class=" btn-back" href="{{Route('dathang')}}">Thanh toán <i class="fa fa-angle-right"></i>
                             </a>
                         </div>
                     </div>

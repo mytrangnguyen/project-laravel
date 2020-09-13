@@ -21,6 +21,7 @@ class Users extends Migration
             $table->string('phone');
             $table->string('user_role');
             $table->string('avatar');
+            $table->boolean('status');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('confirmed')->default(0);
