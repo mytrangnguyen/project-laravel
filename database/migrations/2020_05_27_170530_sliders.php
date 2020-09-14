@@ -16,6 +16,8 @@ class Sliders extends Migration
         Schema::create('slides', function (Blueprint $table) {
             $table->increments('id');
             $table->string('img_url');
+            $table->timestamps();
+
         });
     }
 

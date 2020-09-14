@@ -97,12 +97,21 @@
                 những tài năng của họ. giúp những tài năng những thành quả họ tạo ra được vươn cao hơn, vươn xa hơn
                 không chỉ ở trong nước mà cả ngoài nước. Giúp họ có việc làm và thu nhập ổn định hơn để có một cuộc sống
                 tốt hơn
-
-
             </p>
         </div>
     </div>
-
+</div>
+<div class="section-flash">
+<h2 class="title-about">Hoạt động</h2>
+<div class="row">
+    <div class="box-infor">
+        @foreach($activities as $act)
+        <div class="column">
+            <img src='{{ asset("source/$act->image") }}' alt="Not Found" style="width:100%">
+        </div>
+        @endforeach
+    </div>
+</div>
 </div>
 <!-- close section what mission -->
 @endsection

@@ -17,7 +17,9 @@ use App\Order;
 use App\Customer;
 use App\Contact;
 use App\Seller;
+use App\Activity;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 use App\Mail\ShoppingMail;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +64,8 @@ class PageController extends Controller
 
     public function getIntroPage()
     {
-        return view('page.introduction');
+        $activities = Activity::all();
+        return view('page.introduction', compact('activities'));
     }
 
     public function getContactPage()
@@ -90,8 +93,9 @@ class PageController extends Controller
         $contact->name = $req->name;
         $contact->email = $req->email;
         $contact->content = $req->content;
-
         $contact->save();
+        Mail::to('mytrang4000@gmail.com')->send(new ContactMail($contact));
+        Alert::success('Thành công', 'Bạn đã gửi thông tin thành công');
         return redirect()->back();
     }
 

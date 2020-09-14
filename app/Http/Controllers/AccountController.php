@@ -11,7 +11,7 @@ use DB;
 use File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Guest;
+use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -140,14 +140,15 @@ class AccountController extends Controller
         $remember = $request->has('remember') ? true : false;
         // $checkStatus = User::where('status', 1);
         // dd($checkStatus);
-        // if(Auth::guard('web')->status==1){
-            if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+            if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password, 'status'=>1], $remember)) {
+
                 // dd("login thành công", Auth::user()->username);
                 return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
             } else { //login sai
                 // dd('tk Hoặc mật khẩu chưa đúng');
                 // dd("login k thành công");
-                return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
+
+                return redirect()->back()->with('thongbao', "Đăng nhập thất bại, mật khẩu hoặc email của bạn không đúng");
             }
         // }
         // else{
@@ -163,13 +164,13 @@ class AccountController extends Controller
     public function getLogout()
     {
         Auth::logout();
+        Session::flush();
         return redirect()->route('trang-chu');
     }
     public function getUserProfile(User $user)
     {
         $user = Auth::user();
-
-
+        // session()->flush();
         return view('page.profile', compact('user', 'history', 'length'));
     }
 
@@ -225,7 +226,6 @@ class AccountController extends Controller
         ->where('orders.status',4)
         ->get();
         $history4 = collect($historyarr4)->groupBy('created_at')->toArray();
-
         return view('page.historyOrder', compact('history','history1','history2','history3','history4'));
     }
 
@@ -263,7 +263,6 @@ class AccountController extends Controller
         $user = User::find($request->id);
         $user->status = $request->status;
         $user->save();
-
         return redirect()->back();
     }
 }
