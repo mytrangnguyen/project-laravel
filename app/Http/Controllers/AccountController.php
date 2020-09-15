@@ -138,27 +138,20 @@ class AccountController extends Controller
         );
 
         $remember = $request->has('remember') ? true : false;
-        // $checkStatus = User::where('status', 1);
-        // dd($checkStatus);
-            if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password, 'status'=>1], $remember)) {
-
-                // dd("login thành công", Auth::user()->username);
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+            $user = Auth::getLastAttempted();
+            if ($user->status == 1) {
                 return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
-            } else { //login sai
-                // dd('tk Hoặc mật khẩu chưa đúng');
-                // dd("login k thành công");
-
-                return redirect()->back()->with('thongbao', "Đăng nhập thất bại, mật khẩu hoặc email của bạn không đúng");
+            } else {
+                return redirect()->back()->with('thongbao', "Đăng nhập thất bại, tài khoản đã không còn hoạt động nữa");
             }
-        // }
-        // else{
-        //     Alert::warning('Đăng nhập thất bại', 'Tài khoản đã không còn hoạt động');
-        // }
-
-            // }
+        } else {
+            return redirect()->back()->with('thongbao', "Đăng nhập thất bại, mật khẩu hoặc email của bạn không đúng");
+        }
     }
 
-    public function getFormResetPassword(){
+    public function getFormResetPassword()
+    {
         return view('page.resetPassword');
     }
     public function getLogout()
@@ -174,62 +167,64 @@ class AccountController extends Controller
         return view('page.profile', compact('user', 'history', 'length'));
     }
 
-    public function getOrdersHistory(){
+    public function getOrdersHistory()
+    {
         //get all orders
-        $historyarr= DB::table('orders')
-        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('orders.user_id', '=', Auth::user()->id)
-        ->get();
+        $historyarr = DB::table('orders')
+            ->select('orders.id', 'orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->get();
         $history = collect($historyarr)->groupBy('created_at')->toArray();
 
         //get orders with "Chờ xác nhận"
         $historyarr1 = DB::table('orders')
-        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('orders.user_id', '=', Auth::user()->id)
-        ->where('orders.status',1)
-        ->get();
+            ->select('orders.id', 'orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->where('orders.status', 1)
+            ->get();
         $history1 = collect($historyarr1)->groupBy('created_at')->toArray();
 
         //get orders with "Đang giao"
         $historyarr2 = DB::table('orders')
-        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('orders.user_id', '=', Auth::user()->id)
-        ->where('orders.status',2)
-        ->get();
+            ->select('orders.id', 'orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->where('orders.status', 2)
+            ->get();
         $history2 = collect($historyarr2)->groupBy('created_at')->toArray();
 
         //get orders with "Đã giao"
         $historyarr3 = DB::table('orders')
-        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('orders.user_id', '=', Auth::user()->id)
-        ->where('orders.status',3)
-        ->get();
+            ->select('orders.id', 'orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->where('orders.status', 3)
+            ->get();
         $history3 = collect($historyarr3)->groupBy('created_at')->toArray();
 
         //get orders with "Đã hủy"
         $historyarr3 = DB::table('orders')
-        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('orders.user_id', '=', Auth::user()->id)
-        ->where('orders.status',3)
-        ->get();
+            ->select('orders.id', 'orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->where('orders.status', 3)
+            ->get();
         $history3 = collect($historyarr3)->groupBy('created_at')->toArray();
 
         $historyarr4 = DB::table('orders')
-        ->select('orders.id','orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
-        ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
-        ->where('orders.user_id', '=', Auth::user()->id)
-        ->where('orders.status',4)
-        ->get();
+            ->select('orders.id', 'orders.name', 'orders.address', 'orders.email', 'orders.status', 'orders.total', 'orders.created_at', 'order_prods.prod_name', 'order_prods.quantity', 'order_prods.price_out')
+            ->join('order_prods', 'order_prods.id_order', '=', 'orders.id')
+            ->where('orders.user_id', '=', Auth::user()->id)
+            ->where('orders.status', 4)
+            ->get();
         $history4 = collect($historyarr4)->groupBy('created_at')->toArray();
-        return view('page.historyOrder', compact('history','history1','history2','history3','history4'));
+        return view('page.historyOrder', compact('history', 'history1', 'history2', 'history3', 'history4'));
     }
 
-    public function getProfile(){
+    public function getProfile()
+    {
         return view('page.profile');
     }
 
@@ -239,18 +234,16 @@ class AccountController extends Controller
         $user->email = $request->email;
         $user->address = $request->address;
         $user->phone = $request->phone;
-        $img_current = 'public/avatar/'. $request->img_current;
-		if(!empty($request->file('avatar')))
-		{
-			$file_name =  $request->file('avatar')->getClientOriginalName();
-			$user->avatar = $file_name;
-			$request->file('avatar')->move('public/avatar/',$file_name);
-			if(File::exists($img_current))
-			{
-				File::delete($img_current);
-			}
+        $img_current = 'public/avatar/' . $request->img_current;
+        if (!empty($request->file('avatar'))) {
+            $file_name =  $request->file('avatar')->getClientOriginalName();
+            $user->avatar = $file_name;
+            $request->file('avatar')->move('public/avatar/', $file_name);
+            if (File::exists($img_current)) {
+                File::delete($img_current);
+            }
         }
-        if($request->matkhau != ""){
+        if ($request->matkhau != "") {
             $user->password = bcrypt($request->matkhau);
         }
         $user->save();

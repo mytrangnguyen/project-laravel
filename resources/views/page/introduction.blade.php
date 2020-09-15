@@ -107,7 +107,7 @@
     <div class="box-infor">
         @foreach($activities as $act)
         <div class="column">
-            <img src='{{ asset("source/$act->image") }}' alt="Not Found" style="width:100%">
+            <img class="act-img" src='{{ asset("source/$act->image") }}' alt="Not Found">
         </div>
         @endforeach
     </div>

@@ -23,7 +23,7 @@
                 <div class="alert alert-danger">
                     <ul class="error-message">
                         <a id="close-error"><i class="fa fa-times-circle"></i></a>
-                        <li>Đăng nhập thất bại</li>
+                        <li>{{ Session::get( 'thongbao' ) }}</li>
                     </ul>
                     @endif
                     <div class="login-container">
