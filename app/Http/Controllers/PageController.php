@@ -48,9 +48,10 @@ class PageController extends Controller
     {
         $slide = Slide::all();
         $new_product = DB::table('products')->where('status', 1)->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
-        ->join('sellers', 'sellers.id', '=', 'products.center_id')->limit(3)->get();
+        ->join('sellers', 'sellers.id', '=', 'products.center_id')->limit(2)->get();
         $sp_theoloai = Product::where('cate_id', $type)->paginate(8);
-        return view('page.product', compact('slide', 'sp_theoloai','new_product'));
+        $cate =DB::table('categories')->paginate(6);
+        return view('page.product', compact('slide', 'sp_theoloai','new_product','cate'));
     }
 
     public function getProductByCenterName($center_id){
@@ -59,7 +60,10 @@ class PageController extends Controller
         ->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
         ->join('sellers', 'sellers.id', '=', 'products.center_id')
         ->paginate(8);
-        return view('page.productByCenter', compact('slide', 'prodByCenter'));
+        $new_product = DB::table('products')->where('status', 1)->select('products.id','prod_name','url_img','price_out','promotion_price','status','sellers.center_name')
+        ->join('sellers', 'sellers.id', '=', 'products.center_id')->limit(2)->get();
+        $cate =DB::table('categories')->paginate(6);
+        return view('page.productByCenter', compact('slide', 'prodByCenter','new_product','cate'));
     }
 
     public function getIntroPage()

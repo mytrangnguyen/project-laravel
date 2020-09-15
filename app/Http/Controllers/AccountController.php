@@ -138,7 +138,7 @@ class AccountController extends Controller
         );
 
         $remember = $request->has('remember') ? true : false;
-        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password, 'status'=>1], $remember)) {
             $user = Auth::getLastAttempted();
             if ($user->status == 1) {
                 return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
@@ -164,7 +164,7 @@ class AccountController extends Controller
     {
         $user = Auth::user();
         // session()->flush();
-        return view('page.profile', compact('user', 'history', 'length'));
+        return view('page.profile', compact('user'));
     }
 
     public function getOrdersHistory()

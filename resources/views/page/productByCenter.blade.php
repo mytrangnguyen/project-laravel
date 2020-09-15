@@ -7,85 +7,42 @@
                 SẢN PHẨM
             </h3>
             <ul class="list-category">
-                <li>Áo quần</li>
-                <li>Mũ</li>
-                <li>Khăn</li>
-                <li>Móc khóa</li>
-                <li>Gấu bông</li>
-                <li>Hoa</li>
+            @foreach($cate as $loai)
+                            <li class="list-cate"><a href="{{route('sanpham',$loai->cate_id)}}">{{$loai->cate_name}}</a></li>
+                            @endforeach
+            
             </ul>
         </div>
         <div class="product-list-content">
             <h3 class="title-category">
                 SẢN PHẨM HOT NHẤT
             </h3>
+            @foreach($new_product as $new)
             <div class="group-product">
                 <div class="item-product">
                     <div class="image-product">
-
-                        <img src="{{ asset('source/image/item2.jpg') }}" alt="">
+                    <a href="{{Route('chitiet',$new->id)}}">
+                                    <img src='{{ asset("source/image/$new->url_img") }}' alt="">
+                                </a>
                     </div>
                     <div class="description-product">
                         <div class="text-description">
                             <div class="title-product">
-                                <h3>Trung tâm KT</h3>
+                                <h3>{{$new->center_name}}</h3>
                             </div>
                             <div class="name-product">
-                                <p>Giỏ hoa</p>
+                                <p>{{$new->prod_name}}</p>
                             </div>
                             <div class="price-product">
                                 <span class="price">
-                                    57,00₫/giỏ
+                                {{$new->price_out}} đ
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="group-product">
-                <div class="item-product">
-                    <div class="image-product">
-                        <img src="{{ asset('source/image/item4.jpg') }}" alt="">
-                    </div>
-                    <div class="description-product">
-                        <div class="text-description">
-                            <div class="title-product">
-                                <h3>Trung tâm KT</h3>
-                            </div>
-                            <div class="name-product">
-                                <p>Giỏ hoa</p>
-                            </div>
-                            <div class="price-product">
-                                <span class="price">
-                                    57,00₫/giỏ
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="group-product">
-                <div class="item-product">
-                    <div class="image-product">
-                        <img src="{{ asset('source/image/item3.jpg') }}" alt="">
-                    </div>
-                    <div class="description-product">
-                        <div class="text-description">
-                            <div class="title-product">
-                                <h3>Trung tâm KT</h3>
-                            </div>
-                            <div class="name-product">
-                                <p>Giỏ hoa</p>
-                            </div>
-                            <div class="price-product">
-                                <span class="price">
-                                    57,00₫/giỏ
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="right-content col-9">

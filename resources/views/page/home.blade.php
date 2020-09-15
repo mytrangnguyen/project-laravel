@@ -39,7 +39,7 @@
                     <div class="box-content">
                         <div class="item-product">
                             <div class="product-session">
-                                <div class="">
+                                <div class="item-image">
                                     <a href="{{Route('chitiet',$new->id)}}"><img src="source/image/{{$new->url_img}}"
                                             alt="" class="pr-image"></a>
                                 </div>

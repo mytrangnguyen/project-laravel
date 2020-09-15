@@ -99,13 +99,17 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="cart-total text-center">
-                            <label>Tổng tiền</label> <span class="price ng-binding">{{number_format(Session('cart')->totalPrice)}}
-                                đồng</span>
-                        </div>
-                        <div class="cart-link">
-                            <a name="checkout" class=" btn-back" href="{{Route('dathang')}}">Thanh toán <i class="fa fa-angle-right"></i>
-                            </a>
+                        <div class="total-checkout">
+                            <div class="cart-total text-center">
+                                
+                                <label>Tổng tiền</label> <span class="price ng-binding">{{number_format(Session('cart')->totalPrice)}}
+                                    đồng</span>
+                                </div>
+                        
+                            <div class="cart-link">
+                                <a name="checkout" class=" btn-back" href="{{Route('dathang')}}">Thanh toán <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
