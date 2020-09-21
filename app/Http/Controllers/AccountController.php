@@ -138,11 +138,12 @@ class AccountController extends Controller
         );
 
         $remember = $request->has('remember') ? true : false;
-        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password, 'status'=>1], $remember)) {
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
             $user = Auth::getLastAttempted();
             if ($user->status == 1) {
                 return redirect()->intended('/')->with('alert', 'Đăng nhập thành công');
             } else {
+                Auth::logout();
                 return redirect()->back()->with('thongbao', "Đăng nhập thất bại, tài khoản đã không còn hoạt động nữa");
             }
         } else {

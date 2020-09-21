@@ -465,7 +465,7 @@ Route::group(['prefix' => 'sellerAdmin/'], function () {
 		'uses' 	=> 'sellerAdminController@showAdminPage'
     ]);
     Route::get('postLogout', [
-        'as' => 'postLogout',
+        'as' => 'postLogoutSeller',
         'uses' => 'sellerAdminController@postLogoutAdmin',
     ]);
 

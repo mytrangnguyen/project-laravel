@@ -16,6 +16,7 @@ class Contact extends Migration
         Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('phone');
             $table->string('email');
             $table->string('content');
             $table->timestamps();

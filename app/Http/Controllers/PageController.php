@@ -83,11 +83,13 @@ class PageController extends Controller
             $req,
             [
                 'name' => 'required',
+                'phone' => 'required',
                 'email' => 'required|email',
                 'content' => 'required'
             ],
             [
                 'name.required' => "Họ và têbn là trường bắt buộc, vui lòng không bỏ trống",
+                'phone.required' => "Số điện thoại là trường bắt buộ, vui lòng không bỏ trống",
                 'email.required' => "Vui lòng nhập email",
                 'email.email' => "Vui lòng nhập đúng định dạng email",
                 'content.required' => "Nội dung là trường bắt buộc, vui lòng không bỏ trống",
@@ -95,6 +97,7 @@ class PageController extends Controller
         );
         $contact = new Contact();
         $contact->name = $req->name;
+        $contact->phone = $req->phone;
         $contact->email = $req->email;
         $contact->content = $req->content;
         $contact->save();

@@ -24,7 +24,7 @@
                     <tr>
                         <td> {!! $value["id"] !!} </td>
                         <td>
-                            <img src="{{ asset('/source/image/'.$value->img_url)}}" width="100px"
+                        <img src="{{ asset('/source/image/'.$value->img_url)}}" width="100px"
                                 alt="{{$value->img_url}}">
 
                         </td>

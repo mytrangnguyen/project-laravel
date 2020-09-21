@@ -17,6 +17,9 @@
     <label for="fname">Họ và tên</label>
     <input type="text" class="input-infor" id="fname" name="name" placeholder="Nhập họ và tên của bạn">
 
+    <label for="fname">Số điện thoại</label>
+    <input type="text" class="input-infor" id="fname" name="phone" placeholder="Nhập họ và tên của bạn">
+
     <label for="lname">Email</label>
     <input type="text" class="input-infor" id="lname" name="email" placeholder="Nhập email của bạn">
 
