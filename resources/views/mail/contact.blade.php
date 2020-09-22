@@ -3,7 +3,7 @@
     <div id="wrapper" style="background-color:#f0f0f0">
         <h2>Bạn đã có một email mới từ {{$contact->name}} </h2>
         <label>Email người gửi</label>
-        <p>Email người gửi: {{$contact->email}}</p>
+        <p>{{$contact->email}}</p>
         <label>Nội dung</label>
         <p>{{$contact->content}}</p>
     </div>

@@ -66,10 +66,10 @@ class LoginAdminController extends Controller
         //kiểm tra trường remember có được chọn hay không
 
         if (Auth::guard('admin')->attempt($arr)) {
-
             // dd('đăng nhập thành công');
             return redirect()->route('admin.showAdminPage')->with('alert', 'Đăng nhập thành công');
         } else {
+            dd($arr);
 
             // dd('tài khoản và mật khẩu chưa chính xác');
             return redirect()->back()->with('thongbao', "Đăng nhập thất bại");
