@@ -1,12 +1,12 @@
 @extends('sellerAdmin.master')
 @section('content')
 
-<a class="add-button btn-add btn btn-success" href="{!! url('sellerAdmin/category/add') !!}">Add <i
+<a class="add-button btn-add btn btn-success" href="{!! url('sellerAdmin/category/add') !!}">Thêm mới <i
         class="menu-icon fa fa-plus"></i></a>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-success">Categories Data</h6>
+        <h6 class="m-0 font-weight-bold text-success">Danh mục sản phẩm</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -14,8 +14,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Action</th>
+                        <th>Tên</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
 

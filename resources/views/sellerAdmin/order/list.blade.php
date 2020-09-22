@@ -3,7 +3,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-success">Order Data</h6>
+        <h6 class="m-0 font-weight-bold text-success">Danh sách đặt hàng</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">

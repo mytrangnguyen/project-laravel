@@ -223,7 +223,7 @@ class PageController extends Controller
             'alert-type' => 'success'
         );
         Alert::success('Thành công', 'Bạn đã đặt hàng thành công, vui lòng kiểm tra email về thông tin đơn hàng');
-        return redirect()->back();
+        return view('page.home');
         } catch (Exception $e) {
             DB::rollback();
         }

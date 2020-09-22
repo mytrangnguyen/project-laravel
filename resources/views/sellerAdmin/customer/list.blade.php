@@ -6,7 +6,7 @@
     <i class="menu-icon fa fa-plus"></i></button> -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-success">Customer Data</h6>
+        <h6 class="m-0 font-weight-bold text-success">Danh sách khách hàng</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -14,12 +14,12 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Gender</th>
+                        <th>Tên</th>
+                        <th>Giới tính</th>
                         <th>Email</th>
-                        <th>Address</th>
-                        <th>Note</th>
-                        <th>Phone</th>
+                        <th>Địa chỉ</th>
+                        <th>Ghi chú</th>
+                        <th>Số điện thoại</th>
                         <!-- <th>Action</th> -->
                     </tr>
                 </thead>

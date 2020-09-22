@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">CATEGORY</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Danh mục sản phẩm</h1>
                     </div>
                     <form class="user" action="{{URL::action('sellerCategoryController@postAddCategory')}}"
                         method="post" role="form" enctype="multipart/form-data">
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">ADD</button>
+                            <button type="submit" class="btn btn-success">Thêm danh mục</button>
                         </div>
                     </form>
                 </div>

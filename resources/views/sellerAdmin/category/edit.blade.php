@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">EDIT CATEGORY</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Sửa danh mục</h1>
                     </div>
                     <form class="user"
                         action="{{URL::action('sellerCategoryController@postEditCategory',$cate->cate_id)}}"
@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">EDIT</button>
+                            <button type="submit" class="btn btn-success">Sửa</button>
                         </div>
                     </form>
                 </div>

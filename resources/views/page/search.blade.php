@@ -68,7 +68,6 @@
     <!-- button view more -->
     <div class="btn-view-more">
         <div class="view-more">
-            <span class="view-more-title">Xem tất cả sản phẩm</span>
         </div>
     </div>
 

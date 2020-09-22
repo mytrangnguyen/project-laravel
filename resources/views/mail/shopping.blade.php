@@ -156,9 +156,7 @@
 
                                 <tr>
                                     <td colspan="2" align="center" valign="top" style="padding-top:20px;padding-bottom:20px;border-bottom:1px solid #ebebeb">
-                                        <a href="#" style="border:0px" target="_blank">
-                                            <img src="https://i.imgur.com/f92hL68.jpg" height="29" width="191" alt="Chi tiết đơn hàng" style="border:0px">
-                                        </a>
+                                        
                                     </td>
                                 </tr>
                             </tbody>

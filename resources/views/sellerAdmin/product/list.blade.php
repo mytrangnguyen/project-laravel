@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-success">Product Data</h6>
+        <h6 class="m-0 font-weight-bold text-success">Danh sách sản phẩm</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -14,15 +14,15 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Unit Price</th>
-                        <th>Promotion Price</th>
-                        <th>Quantity</th>
-                        <th>Image</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Tên</th>
+                        <th>Danh mục</th>
+                        <th>Mô tả</th>
+                        <th>Giá bán</th>
+                        <th>Giá khuyến mãi</th>
+                        <th>Số lượng</th>
+                        <th>Hình ảnh</th>
+                        <th>Tình trạng</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
 

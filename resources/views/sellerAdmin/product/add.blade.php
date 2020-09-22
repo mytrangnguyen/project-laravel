@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">ADD PRODUCT</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Thêm sản phẩm mới</h1>
                     </div>
                     <form class="user" action="{{URL::action('sellerProductController@postAddProduct')}}" method="post"
                         role="form" enctype="multipart/form-data">
@@ -24,16 +24,16 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="txtname" placeholder="Product Name">
+                                <input type="text" class="form-control" name="txtname" placeholder="Tên sản phẩm">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="number" class="form-control" name="txtunit_price" placeholder="Unit Price">
+                                <input type="number" class="form-control" name="txtunit_price" placeholder="Giá bán">
                             </div>
                             <div class="col-sm-6">
                                 <input type="number" class="form-control" name="txtpromotion_price"
-                                    placeholder="Promotion Price">
+                                    placeholder="Giá khuyến mãi">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -41,13 +41,13 @@
                                 <input type="file" name="txtimage">
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" class="form-control" name="txtquantity" placeholder="Quantity">
+                                <input type="number" class="form-control" name="txtquantity" placeholder="Số lượng">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" name="txtdescription" placeholder="Description"
+                                    <textarea class="form-control" name="txtdescription" placeholder="Mô tả"
                                         rows="3"></textarea>
                                 </div>
                             </div>
@@ -61,12 +61,12 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <label for=""> Start date: </label>
+                                <label for=""> Ngày bắt đầu KM </label>
                                 <input type="date" class="form-control" name="txtstart_date"
                                     value="<?php echo date("Y-m-d"); ?>">
                             </div>
                             <div class="col-sm-6">
-                                <label for=""> End date: </label>
+                                <label for=""> Ngày kết thúc khuyến mãi </label>
                                 <input type="date" class="form-control" name="txtend_date"
                                     value="<?php echo date("Y-m-d"); ?>">
                             </div>
@@ -74,7 +74,7 @@
 
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">ADD</button>
+                            <button type="submit" class="btn btn-success">Thêm</button>
                         </div>
                     </form>
                 </div>

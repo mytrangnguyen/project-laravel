@@ -12,7 +12,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="{!! url('sellerAdmin/home') !!}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Trang chủ</span></a>
     </li>
 
     <!-- Divider -->
@@ -22,31 +22,31 @@
     <li class="nav-item">
         <a class="nav-link" href="{!! url('sellerAdmin/category/list') !!}">
             <i class="fas fa-list"></i>
-            <span>CATEGORIES</span></a>
+            <span>Danh mục sản phẩm</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('sellerAdmin/comment/list') !!}">
             <i class="far fa-comments"></i>
-            <span>COMMENTS</span></a>
+            <span>Bình luận</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('sellerAdmin/customer/list') !!}">
             <i class="fas fa-user-check"></i>
-            <span>CUSTOMERS</span></a>
+            <span>Khánh hàng</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('sellerAdmin/order/list') !!}">
             <i class="fas fa-file-invoice"></i>
-            <span>ORDERS</span></a>
+            <span>Đơn hàng</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{!! url('sellerAdmin/product/list') !!}">
             <i class="fab fa-product-hunt"></i>
-            <span>PRODUCTS</span></a>
+            <span>Sản phẩm</span></a>
     </li>
 
     <!-- Divider -->

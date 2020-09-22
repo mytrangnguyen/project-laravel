@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="small text-gray-500">December 12, 2019</div>
+                        <div class="small text-gray-500">25/9/2020</div>
                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                     </div>
                 </a>
@@ -114,13 +114,13 @@
                 </a>
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
+                    Hoạt động
                 </a>
                 <div class="dropdown-divider"></div>
 
                 <a class="dropdown-item" href="{{route ('postLogoutSeller')}}">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
+                    Đăng xuất
                 </a>
 
             </div>

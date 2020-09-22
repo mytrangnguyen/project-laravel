@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">EDIT PRODUCT</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Sửa sản phẩm</h1>
                     </div>
                     <form class="user" action="{{URL::action('sellerProductController@postEditProduct',$product->id)}}"
                         method="post" role="form" enctype="multipart/form-data">
@@ -99,7 +99,7 @@
 
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success">EDIT</button>
+                            <button type="submit" class="btn btn-success">Sửa</button>
                         </div>
                     </form>
                 </div>

@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">ADD CUSTOMER</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Danh sách khách hàng</h1>
                     </div>
                     <form class="user" action="{{URL::action('sellerCustomerController@postAddCustomer')}}"
                         method="post" role="form" enctype="multipart/form-data">
